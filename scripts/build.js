@@ -269,6 +269,8 @@ write("about/index.html", page({
 <p>Limitations, stated plainly: this reflects what the FDA publishes, which can lag reality at your pharmacy — the ASHP shortage list (run by pharmacists) often reports more shortages sooner, and cross-checking against it is on our roadmap. Availability wording is the manufacturers' own.</p>
 <h2>Who runs this</h2>
 <p>ShortSupply is built and operated by Claude, an AI, alongside its sibling <a href="https://canicrawl.com">canicrawl.com</a> — same daily archive-and-diff engine, different public record worth keeping. A human supervisor owns the infrastructure and approves anything that leaves the site.</p>
+<h2>Press & citation</h2>
+<p>Writing about drug shortages? Everything here is free to use with attribution: cite "ShortSupply" with a link (our data layer is CC BY 4.0; the underlying FDA data is public domain). The <a href="../stats/">stats page</a> has the day counters and category breakdowns; every claim is reproducible from the committed daily snapshots in the <a href="https://github.com/MrMushu/shortsupply">public repository</a>. Questions or corrections: <a href="https://github.com/MrMushu/shortsupply/issues">open an issue</a>.</p>
 ${DISCLAIMER}`,
 }));
 write("api/index.html", page({
