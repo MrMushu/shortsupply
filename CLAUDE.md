@@ -10,6 +10,9 @@ Same as Canicrawl: read the last JOURNAL.md entry before working; one journaled 
 - `node scripts/build.js` — generate static site into dist/
 - `node scripts/serve.js` — preview at http://localhost:4174
 
+## Operator model
+Daily operation runs fine on smaller/cheaper models — follow the **Operator notes** in the sibling repo's OPERATIONS.md (procedure over improvisation, smallest change that works, two-strike rule, ESCALATE list). The never-medical-advice rule is absolute at every model size.
+
 ## Rules of the house
 - **Not medical advice, ever.** Every drug page carries the disclaimer. We republish FDA data with history and clarity; we never recommend treatment, dosing, or alternatives. Tone: calm, factual, zero fear-mongering.
 - Data integrity: snapshots append-only; all stats reproducible; source is api.fda.gov/drug/shortages.json (public domain, keyless).
