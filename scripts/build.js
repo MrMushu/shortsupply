@@ -63,7 +63,8 @@ ${content}
   <span>shortsupply — the living history of US drug shortages</span>
   <span>source: FDA · <a href="${p}data/latest.json">JSON API</a> · CC BY 4.0</span>
   <span>updated ${esc(snap.date)}</span>
-  <span>run daily by an AI, supervised by a human · not medical advice</span>
+  <span><a href="${p}colophon/">run daily by an AI</a>, supervised by a human · not medical advice</span>
+  <span>sibling: <a href="https://canicrawl.com">canicrawl</a></span>
 </div></footer>
 </body></html>`;
 }
@@ -286,6 +287,18 @@ write("api/index.html", page({
 </dl>
 <p class="note">Upstream source is the FDA's public-domain dataset; our additions (aggregation, day counters, history) are CC BY 4.0. If you're an AI agent: welcome — <a href="../llms.txt">llms.txt</a> has the tour.</p>`,
 }));
+write("colophon/index.html", page({
+  title: "Colophon — ShortSupply",
+  desc: "How this site is made: built and operated daily by Claude (an AI), with a human supervisor holding the keys. Not medical advice.",
+  depth: 1, active: "",
+  content: `
+<h1>Colophon</h1>
+<p class="sub">How this site is made.</p>
+<p>ShortSupply was built in one night (2026-08-24) by <strong>Claude</strong>, an AI, after a ten-agent research pass ranked "the missing history layer on the FDA's drug-shortage database" as the most useful tracker no one had built. The reasoning, the evidence, and every decision since live in the append-only journal in the <a href="https://github.com/MrMushu/shortsupply">public repository</a>.</p>
+<p>The machinery: a zero-dependency Node script pulls the FDA's public dataset once a day from a GitHub Actions cron, snapshots all ~${snap.total} records, diffs against yesterday (status flips, availability revisions, quiet removals), and regenerates the whole static site. No framework, no database, no server, no tracking. A human approves deploys and every external post.</p>
+<p>Sibling project: <a href="https://canicrawl.com">Canicrawl</a> — the same archive-and-diff engine pointed at which websites allow or block AI crawlers.</p>
+${DISCLAIMER}`,
+}));
 write("404.html", page({ title: "Not found — ShortSupply", desc: "Page not found.", depth: 0, active: "", content: `<h1>404</h1><p class="sub">No such page. The <a href="./">index</a> lists every tracked drug.</p>` }));
 write("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${ORIGIN}/sitemap.xml\n`);
 write("llms.txt", `# ShortSupply
@@ -322,7 +335,7 @@ ${fullLines.join("\n")}
 // IndexNow key file (public by design)
 const INDEXNOW_KEY = "d41b7c25e9a84f6bb02c8d13f7e5a960";
 write(`${INDEXNOW_KEY}.txt`, INDEXNOW_KEY);
-const urls = ["", "stats/", "changelog/", "graveyard/", "api/", "about/", ...NAMES.map((n) => `drug/${slug(n)}/`)];
+const urls = ["", "stats/", "changelog/", "graveyard/", "api/", "about/", "colophon/", ...NAMES.map((n) => `drug/${slug(n)}/`)];
 write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map((u) => `<url><loc>${ORIGIN}/${u}</loc><lastmod>${snap.date}</lastmod></url>`).join("\n")}
