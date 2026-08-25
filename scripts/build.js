@@ -36,7 +36,7 @@ const longest = [...inShortage].filter((n) => meta[n].dayN !== null).sort((a, b)
 const statusLabel = { "in-shortage": "in shortage", discontinuing: "being discontinued", resolved: "resolved" };
 
 const DISCLAIMER = `<div class="disclaimer"><strong>Not medical advice.</strong> ShortSupply republishes the FDA's drug-shortage data with history added. Talk to your pharmacist or prescriber about your situation — never change medication based on this site.</div>`;
-const nav = [["", "Drugs"], ["stats/", "Stats"], ["changelog/", "Changelog"], ["api/", "API"], ["about/", "About"]];
+const nav = [["", "Drugs"], ["stats/", "Stats"], ["changelog/", "Changelog"], ["graveyard/", "Graveyard"], ["api/", "API"], ["about/", "About"]];
 function page({ title, desc, depth, active, content, extraHead = "" }) {
   const p = "../".repeat(depth);
   return `<!doctype html>
@@ -211,6 +211,7 @@ function entryText(e) {
     case "new": return `${e.drug} appeared on the FDA shortage list (${statusLabel[e.to] ?? e.to})`;
     case "status": return `${e.drug}: ${statusLabel[e.from] ?? e.from} → ${statusLabel[e.to] ?? e.to}`;
     case "removed": return `${e.drug} was removed from the FDA list (was ${statusLabel[e.from] ?? e.from})`;
+    case "availability": return `${e.drug}: availability wording revised for ${e.count} presentation(s)`;
     default: return `${e.drug ?? ""} ${e.kind}`;
   }
 }
@@ -236,6 +237,22 @@ write("changelog/rss.xml", `<?xml version="1.0" encoding="UTF-8"?>
 ${entriesDesc.slice(0, 50).map((e) => `<item><title>${esc(entryText(e))}</title><link>${ORIGIN}/${e.drug ? `drug/${slug(e.drug)}/` : "stats/"}</link><guid isPermaLink="false">${esc(`${e.date}|${e.drug ?? "index"}|${e.kind}|${e.to ?? ""}`)}</guid><pubDate>${new Date(e.date + "T07:00:00Z").toUTCString()}</pubDate></item>`).join("\n")}
 </channel></rss>
 `);
+
+// ---------- graveyard (drugs quietly removed from the FDA list) ----------
+const removedEntries = changelog.entries.filter((e) => e.kind === "removed");
+write("graveyard/index.html", page({
+  title: "The graveyard — drugs removed from the FDA shortage list — ShortSupply",
+  desc: "Drugs that quietly disappeared from the FDA's shortage database. The FDA doesn't announce removals; our daily archive catches them.",
+  depth: 1, active: "Graveyard",
+  content: `
+<h1>The graveyard</h1>
+<p class="sub">When a drug leaves the FDA's shortage list, it simply vanishes — no announcement, no record. Our daily diff catches every departure and keeps it here, with the last status we saw. Departures accumulate as daily snapshots diverge.</p>
+${removedEntries.length
+    ? `<div class="tablewrap"><table><thead><tr><th>Drug</th><th>Removed on</th><th>Last seen status</th></tr></thead><tbody>${[...removedEntries].reverse().map((e) => `<tr><td class="drug">${esc(e.drug)}</td><td class="nowrap">${esc(e.date)}</td><td><span class="chip ${e.from}">${statusLabel[e.from] ?? esc(e.from)}</span></td></tr>`).join("")}</tbody></table></div>`
+    : `<p class="note">No removals observed yet — tracking began ${esc(snap.date)}. The first quiet disappearance will appear here the day it happens.</p>`}
+<p class="note">Full last-known records for departed drugs remain in the committed daily snapshots in the <a href="https://github.com/MrMushu/shortsupply/tree/main/data/snapshots" rel="nofollow">public repository</a>.</p>
+${DISCLAIMER}`,
+}));
 
 // ---------- about, api, misc ----------
 write("about/index.html", page({
@@ -303,7 +320,7 @@ ${fullLines.join("\n")}
 // IndexNow key file (public by design)
 const INDEXNOW_KEY = "d41b7c25e9a84f6bb02c8d13f7e5a960";
 write(`${INDEXNOW_KEY}.txt`, INDEXNOW_KEY);
-const urls = ["", "stats/", "changelog/", "api/", "about/", ...NAMES.map((n) => `drug/${slug(n)}/`)];
+const urls = ["", "stats/", "changelog/", "graveyard/", "api/", "about/", ...NAMES.map((n) => `drug/${slug(n)}/`)];
 write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map((u) => `<url><loc>${ORIGIN}/${u}</loc><lastmod>${snap.date}</lastmod></url>`).join("\n")}

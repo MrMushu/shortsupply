@@ -41,6 +41,13 @@ export function computeDiffs(prev, next) {
     if (!a[name]) { entries.push({ date: next.date, drug: name, kind: "new", to: drugStatus(b[name]) }); continue; }
     const from = drugStatus(a[name]), to = drugStatus(b[name]);
     if (from !== to) entries.push({ date: next.date, drug: name, kind: "status", from, to });
+    // Availability wording changes per presentation (quiet revisions), keyed by NDC.
+    const availA = new Map(a[name].map((r) => [r.package_ndc, r.availability]));
+    let changed = 0;
+    for (const r of b[name]) {
+      if (availA.has(r.package_ndc) && availA.get(r.package_ndc) !== r.availability) changed++;
+    }
+    if (changed > 0) entries.push({ date: next.date, drug: name, kind: "availability", count: changed });
   }
   for (const name of Object.keys(a)) {
     if (!b[name]) entries.push({ date: next.date, drug: name, kind: "removed", from: drugStatus(a[name]) });
