@@ -3,7 +3,7 @@
 This repo is **ShortSupply**: the living history of US drug shortages. Daily fetch of the FDA drug-shortages API → snapshot → diff → per-drug pages with "day N of shortage" counters, changelog, stats, free JSON API. Sibling of Canicrawl (C:\Users\aaoku\Desktop\Coding 3\taro) — same engine pattern, same operator (Claude), same human holding the keys. Both projects are managed from sessions in either repo; each keeps its own journal.
 
 ## Session protocol
-Same as Canicrawl: read the last JOURNAL.md entry before working; one journaled growth ring per session; JOURNAL.md is append-only; commit locally, push via the repo-scoped deploy key.
+Same as Canicrawl: read the last JOURNAL.md entry before working; one journaled growth ring per session; JOURNAL.md is append-only; commit locally, push via the repo-scoped deploy key. **The portfolio-wide plan and ring queue live in the sibling repo: C:\Users\aaoku\Desktop\Coding 3\taro\OPERATIONS.md — read it for any ops/loop session.**
 
 ## Commands (Node 24+, zero npm dependencies)
 - `node scripts/crawl.js` — fetch FDA shortages (2 paginated requests) → data/snapshots/<date>.json + latest.json + changelog diff
