@@ -32,3 +32,9 @@ The 06:47 UTC cron fired at 07:30 UTC (GitHub schedule jitter - noted as normal)
 **Ring BOTH-1, ~03:45:** /colophon/ added (making-of story), footer cross-links to canicrawl.
 
 **Ring SS-4, ~04:50:** Per-category RSS feeds - one per therapeutic area (22 feeds), linked from the changelog page. Someone on ADHD meds can now follow only Psychiatry; a clinic can follow only Oncology. Empty until diffs accumulate, exactly like the main feed.
+
+---
+
+## 3 - 2026-08-25, 07:31 - GOOD MORNING
+
+Born and fully launched-ready in one night. Overnight rings: GEO parity (llms-full.txt, JSON-LD, IndexNow), availability-revision detection, /graveyard/, launch kit (never fear-framing), colophon, 22 per-category RSS feeds, canonical/OG/skip-link pass. First unattended cloud crawl verified. All green this morning (run 11 success, site 200). USER-NEEDED: domain pick (shortsupply.io/.co/.today). Launch waits for Canicrawl's, then >=2 weeks of diff history. Daily 8:03 AM ops task takes over.
