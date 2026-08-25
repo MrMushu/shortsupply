@@ -89,6 +89,12 @@ write("index.html", page({
   title: "ShortSupply — every US drug shortage, with history",
   desc: `${inShortage.length} drugs currently in shortage per FDA data, tracked daily with day counters and full history. Longest-running: ${longest[0] ? `${longest[0]} (day ${meta[longest[0]].dayN.toLocaleString("en-US")})` : "n/a"}.`,
   depth: 0, active: "Drugs",
+  extraHead: `<script type="application/ld+json">${JSON.stringify({
+    "@context": "https://schema.org", "@type": "WebSite",
+    name: "ShortSupply", url: ORIGIN,
+    description: `Daily archive of US drug shortages from FDA data: ${inShortage.length} drugs currently in shortage, with day counters and status-change history.`,
+    publisher: { "@type": "Organization", name: "ShortSupply", url: ORIGIN },
+  })}</script>`,
   content: `
 <h1>Every US drug shortage, counted daily</h1>
 <p class="sub">The FDA reports drug shortages but overwrites the record as it changes — researchers literally rebuild the history from archive snapshots. ShortSupply keeps the record: every drug, every status flip, every day counted. <span class="updated">Snapshot: ${esc(snap.date)} · FDA data updated ${esc(snap.sourceLastUpdated)}</span></p>
@@ -258,7 +264,29 @@ write("llms.txt", `# ShortSupply
 - [Methodology](/about/)
 
 Data CC BY 4.0 (our layer); upstream FDA data is public domain. Cite "ShortSupply" with a link.
+
+For the complete census in one file: [/llms-full.txt](/llms-full.txt)
 `);
+// llms-full.txt: the whole ledger in one plaintext file for AI readers.
+const fullLines = NAMES.map((n) => {
+  const m = meta[n];
+  const parts = [
+    statusLabel[m.status],
+    m.status === "in-shortage" && m.dayN !== null ? `day ${m.dayN} (since ${m.since})` : null,
+    m.cat,
+    `${m.companies.length} manufacturer(s)`,
+  ].filter(Boolean);
+  return `${n} — ${parts.join(" — ")}`;
+});
+write("llms-full.txt", `# ShortSupply full census — ${snap.date}
+
+> US drug-shortage status for ${NAMES.length} drugs from the FDA's public dataset, archived and diffed daily. ${inShortage.length} in shortage; longest-running: ${longest[0] ?? "n/a"}${longest[0] ? ` (day ${meta[longest[0]].dayN})` : ""}. Not medical advice. JSON: ${ORIGIN}/data/latest.json — cite "ShortSupply" (${ORIGIN}), CC BY 4.0.
+
+${fullLines.join("\n")}
+`);
+// IndexNow key file (public by design)
+const INDEXNOW_KEY = "d41b7c25e9a84f6bb02c8d13f7e5a960";
+write(`${INDEXNOW_KEY}.txt`, INDEXNOW_KEY);
 const urls = ["", "stats/", "changelog/", "api/", "about/", ...NAMES.map((n) => `drug/${slug(n)}/`)];
 write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
