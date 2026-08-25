@@ -226,18 +226,29 @@ write("changelog/index.html", page({
   extraHead: `<link rel="alternate" type="application/rss+xml" title="ShortSupply changes" href="rss.xml">`,
   content: `
 <h1>Changelog</h1>
-<p class="sub">Every shortage begun, resolved, or quietly removed — detected by daily snapshot diffs. Subscribe via <a href="rss.xml">RSS</a>.</p>
+<p class="sub">Every shortage begun, resolved, or quietly removed — detected by daily snapshot diffs. Subscribe via <a href="rss.xml">RSS</a>, or follow just one therapeutic area:</p>
+<p class="cat">${CATS.map((c) => `<a href="rss-${c.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "")}.xml">${esc(c)}</a>`).join(" · ")}</p>
 ${[...byDate.entries()].map(([d, list]) => `<h2>${esc(d)}</h2><ul>${list.map((e) => `<li>${e.drug ? `<a href="../drug/${slug(e.drug)}/">` : ""}${esc(entryText(e))}${e.drug ? "</a>" : ""}</li>`).join("")}</ul>`).join("\n")}
 ${DISCLAIMER}`,
 }));
-write("changelog/rss.xml", `<?xml version="1.0" encoding="UTF-8"?>
+function rssDoc(title, desc, items) {
+  return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"><channel>
-<title>ShortSupply — US drug shortage changes</title>
+<title>${esc(title)}</title>
 <link>${ORIGIN}/changelog/</link>
-<description>Daily-detected changes in the FDA drug-shortage list.</description>
-${entriesDesc.slice(0, 50).map((e) => `<item><title>${esc(entryText(e))}</title><link>${ORIGIN}/${e.drug ? `drug/${slug(e.drug)}/` : "stats/"}</link><guid isPermaLink="false">${esc(`${e.date}|${e.drug ?? "index"}|${e.kind}|${e.to ?? ""}`)}</guid><pubDate>${new Date(e.date + "T07:00:00Z").toUTCString()}</pubDate></item>`).join("\n")}
+<description>${esc(desc)}</description>
+${items.map((e) => `<item><title>${esc(entryText(e))}</title><link>${ORIGIN}/${e.drug ? `drug/${slug(e.drug)}/` : "stats/"}</link><guid isPermaLink="false">${esc(`${e.date}|${e.drug ?? "index"}|${e.kind}|${e.to ?? ""}`)}</guid><pubDate>${new Date(e.date + "T07:00:00Z").toUTCString()}</pubDate></item>`).join("\n")}
 </channel></rss>
-`);
+`;
+}
+write("changelog/rss.xml", rssDoc("ShortSupply — US drug shortage changes", "Daily-detected changes in the FDA drug-shortage list.", entriesDesc.slice(0, 50)));
+// Per-category feeds: subscribe to only the therapeutic area you care about.
+const catSlug = (c) => c.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+for (const c of CATS) {
+  const catDrugs = new Set(NAMES.filter((n) => meta[n].cat === c));
+  const items = entriesDesc.filter((e) => e.drug && catDrugs.has(e.drug)).slice(0, 50);
+  write(`changelog/rss-${catSlug(c)}.xml`, rssDoc(`ShortSupply — ${c} shortage changes`, `Daily-detected drug-shortage changes in the ${c} category.`, items));
+}
 
 // ---------- graveyard (drugs quietly removed from the FDA list) ----------
 const removedEntries = changelog.entries.filter((e) => e.kind === "removed");
