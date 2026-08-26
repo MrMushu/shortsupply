@@ -1,0 +1,118 @@
+{
+ "entries": [
+  {
+   "date": "2026-08-26",
+   "drug": "Dexmedetomidine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-08-26",
+   "drug": "Quinapril Hydrochloride Tablet",
+   "kind": "availability",
+   "count": 4
+  },
+  {
+   "date": "2026-08-26",
+   "drug": "Lidocaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-08-26",
+   "drug": "Carboplatin Injection",
+   "kind": "availability",
+   "count": 4
+  },
+  {
+   "date": "2026-08-26",
+   "drug": "Atropine Sulfate Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-08-26",
+   "drug": "Clindamycin Phosphate Injection",
+   "kind": "availability",
+   "count": 6
+  },
+  {
+   "date": "2026-08-26",
+   "drug": "Ketorolac Tromethamine Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-08-26",
+   "drug": "Sodium Bicarbonate Injection",
+   "kind": "availability",
+   "count": 4
+  },
+  {
+   "date": "2026-08-26",
+   "drug": "Dextrose Monohydrate 50% Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-08-26",
+   "drug": "Methylprednisolone Acetate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-08-26",
+   "drug": "Bupivacaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 5
+  },
+  {
+   "date": "2026-08-26",
+   "drug": "Furosemide Injection",
+   "kind": "availability",
+   "count": 3
+  },
+  {
+   "date": "2026-08-26",
+   "drug": "Desmopressin Acetate Spray",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-08-26",
+   "drug": "Dobutamine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-08-26",
+   "drug": "Liraglutide Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-08-26",
+   "drug": "Dopamine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-08-26",
+   "drug": "Disopyramide Phosphate Capsule, Extended Release",
+   "kind": "new",
+   "to": "discontinuing"
+  },
+  {
+   "date": "2026-08-26",
+   "drug": "Rifampin Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-08-26",
+   "drug": "Hydrocortisone Sodium Succinate Injection",
+   "kind": "removed",
+   "from": "resolved"
+  }
+ ]
+}
