@@ -113,6 +113,168 @@
    "drug": "Hydrocortisone Sodium Succinate Injection",
    "kind": "removed",
    "from": "resolved"
+  },
+  {
+   "date": "2026-08-27",
+   "drug": "Furosemide Injection",
+   "kind": "availability",
+   "count": 4
+  },
+  {
+   "date": "2026-08-27",
+   "drug": "Epinephrine Bitartrate, Lidocaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 5
+  },
+  {
+   "date": "2026-08-27",
+   "drug": "Heparin Sodium Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-08-27",
+   "drug": "Bupivacaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 5
+  },
+  {
+   "date": "2026-08-27",
+   "drug": "Morphine Sulfate Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-08-27",
+   "drug": "Midazolam Hydrochloride Injection",
+   "kind": "availability",
+   "count": 6
+  },
+  {
+   "date": "2026-08-27",
+   "drug": "Dopamine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-08-27",
+   "drug": "Atropine Sulfate Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-08-27",
+   "drug": "Rocuronium Bromide Injection",
+   "kind": "availability",
+   "count": 3
+  },
+  {
+   "date": "2026-08-27",
+   "drug": "Lidocaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 8
+  },
+  {
+   "date": "2026-08-27",
+   "drug": "Lisdexamfetamine Dimesylate Capsule",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-08-27",
+   "drug": "Quinapril Hydrochloride Tablet",
+   "kind": "availability",
+   "count": 4
+  },
+  {
+   "date": "2026-08-27",
+   "drug": "Ketorolac Tromethamine Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-08-27",
+   "drug": "Clindamycin Phosphate Injection",
+   "kind": "availability",
+   "count": 6
+  },
+  {
+   "date": "2026-08-27",
+   "drug": "Sodium Bicarbonate Injection",
+   "kind": "availability",
+   "count": 4
+  },
+  {
+   "date": "2026-08-27",
+   "drug": "Dexmedetomidine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-08-27",
+   "drug": "Mesalamine Capsule, Extended Release",
+   "kind": "new",
+   "to": "discontinuing"
+  },
+  {
+   "date": "2026-08-27",
+   "drug": "Bupivacaine Hydrochloride, Epinephrine Bitartrate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-08-27",
+   "drug": "Meperidine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-08-27",
+   "drug": "Carboplatin Injection",
+   "kind": "availability",
+   "count": 8
+  },
+  {
+   "date": "2026-08-27",
+   "drug": "Dextrose Monohydrate 5% Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-08-27",
+   "drug": "Hydromorphone Hydrochloride Injection",
+   "kind": "availability",
+   "count": 4
+  },
+  {
+   "date": "2026-08-27",
+   "drug": "Dextrose Monohydrate 50% Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-08-27",
+   "drug": "Dobutamine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-08-27",
+   "drug": "Lorazepam Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-08-27",
+   "drug": "Liraglutide Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-08-27",
+   "drug": "Rifampin Injection",
+   "kind": "availability",
+   "count": 2
   }
  ]
 }
