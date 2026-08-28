@@ -275,6 +275,122 @@
    "drug": "Rifampin Injection",
    "kind": "availability",
    "count": 2
+  },
+  {
+   "date": "2026-08-28",
+   "drug": "Clindamycin Phosphate Injection",
+   "kind": "availability",
+   "count": 6
+  },
+  {
+   "date": "2026-08-28",
+   "drug": "Rifampin Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-08-28",
+   "drug": "Lidocaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-08-28",
+   "drug": "Quinapril Hydrochloride Tablet",
+   "kind": "availability",
+   "count": 4
+  },
+  {
+   "date": "2026-08-28",
+   "drug": "Ketorolac Tromethamine Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-08-28",
+   "drug": "Atropine Sulfate Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-08-28",
+   "drug": "Dopamine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-08-28",
+   "drug": "Furosemide Injection",
+   "kind": "availability",
+   "count": 3
+  },
+  {
+   "date": "2026-08-28",
+   "drug": "Bupivacaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 5
+  },
+  {
+   "date": "2026-08-28",
+   "drug": "Carboplatin Injection",
+   "kind": "availability",
+   "count": 4
+  },
+  {
+   "date": "2026-08-28",
+   "drug": "Dexmedetomidine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-08-28",
+   "drug": "Sodium Bicarbonate Injection",
+   "kind": "availability",
+   "count": 4
+  },
+  {
+   "date": "2026-08-28",
+   "drug": "Liraglutide Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-08-28",
+   "drug": "Dextrose Monohydrate 50% Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-08-28",
+   "drug": "Albuterol Sulfate Solution",
+   "kind": "status",
+   "from": "in-shortage",
+   "to": "resolved"
+  },
+  {
+   "date": "2026-08-28",
+   "drug": "Albuterol Sulfate Solution",
+   "kind": "availability",
+   "count": 3
+  },
+  {
+   "date": "2026-08-28",
+   "drug": "Peginterferon alfa-2a Injection",
+   "kind": "status",
+   "from": "in-shortage",
+   "to": "resolved"
+  },
+  {
+   "date": "2026-08-28",
+   "drug": "Peginterferon alfa-2a Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-08-28",
+   "drug": "Pentostatin Injection",
+   "kind": "new",
+   "to": "in-shortage"
   }
  ]
 }
