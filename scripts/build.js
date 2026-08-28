@@ -66,6 +66,7 @@ ${content}
   <span><a href="${p}colophon/">run daily by an AI</a>, supervised by a human · not medical advice</span>
   <span>sibling: <a href="https://canicrawl.com">canicrawl</a></span>
 </div></footer>
+<script src="${p}app.js"></script>
 </body></html>`;
 }
 function write(rel, html) {
@@ -97,6 +98,7 @@ for (const a of ["style.css", "app.js", "favicon.svg"]) fs.copyFileSync(path.joi
 const rows = NAMES.map((n) => {
   const m = meta[n];
   return `<tr data-drug="${esc(n.toLowerCase())}" data-cat="${esc(m.cat)}" data-status="${m.status}">
+<td><button class="watch" aria-label="Watch ${esc(n)} (saved in your browser)">☆</button></td>
 <td class="drug"><a href="drug/${slug(n)}/">${esc(n)}</a></td><td class="cat">${esc(m.cat)}</td>
 <td class="nowrap"><span class="chip ${m.status}">${statusLabel[m.status]}</span></td>
 <td class="nowrap">${m.since ? esc(m.since) : "—"}</td>
@@ -125,13 +127,13 @@ write("index.html", page({
   <input type="search" id="q" placeholder="Search drugs…" aria-label="Search drugs">
   <select id="cat" aria-label="Filter by category"><option value="">All categories</option>${CATS.map((c) => `<option>${esc(c)}</option>`).join("")}</select>
   <label class="toggle"><input type="checkbox" id="onlyshortage"> only current shortages</label>
+  <label class="toggle"><input type="checkbox" id="onlywatched"> only watched ★</label>
   <span class="count" id="rowcount"></span>
 </div>
 <div class="tablewrap"><table>
-<thead><tr><th>Drug</th><th>Category</th><th>Status</th><th>In shortage since</th><th>Day count</th></tr></thead>
+<thead><tr><th aria-label="watch"></th><th>Drug</th><th>Category</th><th>Status</th><th>In shortage since</th><th>Day count</th></tr></thead>
 <tbody>${rows}</tbody></table></div>
-${DISCLAIMER}
-<script src="app.js"></script>`,
+${DISCLAIMER}`,
 }));
 
 // ---------- per-drug pages + JSON ----------
@@ -150,7 +152,7 @@ for (const n of NAMES) {
     depth: 2, active: "Drugs",
     content: `
 <a class="crumb" href="../../">← all drugs</a>
-<h1>${esc(n)}</h1>
+<h1>${esc(n)}<button class="watch watch-hero" data-d="${esc(n.toLowerCase())}" aria-label="Watch ${esc(n)}" title="Watch this drug (saved in your browser)">☆</button></h1>
 <p class="sub"><span class="chip ${m.status}">${statusLabel[m.status]}</span> · ${esc(m.cat)} <span class="updated">· Snapshot: ${esc(snap.date)}</span></p>
 ${m.status === "in-shortage" && m.dayN !== null ? `<div class="daycount">Day ${m.dayN.toLocaleString("en-US")}</div><p class="cat">of this shortage, counting from the FDA's first posting on ${esc(m.since)}</p>` : ""}
 <dl class="kv">

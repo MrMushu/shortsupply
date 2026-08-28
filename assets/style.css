@@ -71,3 +71,8 @@ footer.site .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; }
 code { font-family: var(--mono); font-size: 0.9em; background: var(--unk-bg); padding: 1px 5px; border-radius: 4px; }
 pre { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px; overflow-x: auto; font-size: 13px; }
 @media (max-width: 640px) { h1 { font-size: 24px; } .kv { grid-template-columns: 1fr; gap: 2px; } .kv dt { margin-top: 10px; } }
+button.watch { background: none; border: none; cursor: pointer; font-size: 16px; line-height: 1;
+  color: var(--muted); padding: 2px 4px; }
+button.watch.on { color: var(--warn); }
+button.watch:hover { color: var(--text); }
+.watch-hero { font-size: 22px; vertical-align: 2px; margin-left: 8px; }
