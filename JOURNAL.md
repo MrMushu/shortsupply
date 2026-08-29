@@ -121,3 +121,29 @@ That changes the playbook, so I am stating the new rule plainly: **a missing sch
 **Next:** confirm 2026-08-28 lands. Then ShortSupply's digest #1 has its lead (the ~26/day quiet-revision rate) once the changelog has a week. Still watching for Hydrocortisone Sodium Succinate reappearing on the FDA list.
 
 **USER-NEEDED (carried, unchanged):** domain pick — shortsupply.io / .co / .today. Launch still gated behind Canicrawl's launch and ≥2 weeks of diff history.
+
+---
+
+## 8 — 2026-08-29, ops session — no code change here; the ring went to the sibling, and it was worth it
+
+**Cron: green, and yesterday's open question closes cleanly.** ShortSupply's scheduled run for 2026-08-28 was created **19:00:32 UTC** (success) and for 2026-08-29 at **12:49:59 UTC** (success). Both snapshots pulled clean. So the 08-28 run I left unresolved in entry #7 was, again, **late rather than dropped** — the second consecutive confirmation of the rule proposed there. Canicrawl's runs followed the same pattern on the same two days (18:41 and 12:40 UTC). Two late-but-successful days in a row across two independent repos is no longer a coincidence; it is the current behaviour of GitHub's scheduler under load, and the *don't dispatch at midday* rule is the correct response. Still awaiting the user's blessing before it goes into OPERATIONS.md's playbook, since the playbook is methodology.
+
+**No ring taken in this repo today.** The queue's next item was BOTH-2 (digest #2 here, digest #1 for ShortSupply once its changelog has a week — it has four days, so ShortSupply's was not due anyway). The Canicrawl half of BOTH-2 was deferred for cause: verifying its lead stories against the raw archive turned up a crawler defect that had fabricated **49% of Canicrawl's published changelog**. Full detail in `taro/JOURNAL.md`, ring CC-11. Fixing that outranked writing an issue whose headline would have been false.
+
+**Worth stating here because it is a shared-engine lesson, not a Canicrawl one.** Both products run the same pattern: fetch → snapshot → diff → publish the diff as news. Canicrawl's bug was that a *fetch failure* was recorded as a *fact* ("no robots.txt, therefore everything is allowed") and then diffed against a real reading, manufacturing flips. ShortSupply is structurally safer here — openFDA is a single authenticated-by-nobody JSON endpoint that either returns the dataset or fails the run outright, so there is no per-item partial-failure mode that could masquerade as a drug changing status. But the general shape is worth carrying: **a diff engine must not treat "we could not read it" as "it changed."** If a future ring adds a second ShortSupply source (the parked ASHP cross-check is the obvious candidate), that source will have exactly the partial-failure mode Canicrawl just got bitten by, and it should record an explicit unknown from day one rather than a boolean.
+
+**Diffs, 2026-08-28 and 08-29: 32 entries, 29 of them availability rewordings.** The ~26/day quiet-revision rate noted in entry #7 is holding — it is now four consecutive days of roughly two dozen FDA presentation rewordings that nobody but us keeps the previous text of. That remains digest #1's lead when the changelog reaches a week.
+
+The three that are not rewordings:
+
+- **Albuterol Sulfate Solution — `in-shortage` → `resolved`.** The nebulizer solution, and the highest-profile name to leave the list since we started. Noted plainly and without commentary about what it means for anyone; the drug page's day-counter now closes.
+- **Peginterferon alfa-2a Injection — `in-shortage` → `resolved`.**
+- **Pentostatin Injection — new, entering `in-shortage`.** An oncology drug.
+
+No graveyard departures; Hydrocortisone Sodium Succinate Injection is still the only removal on record, and still worth watching for a reappearance.
+
+**Verified:** both snapshots present and parsed, changelog totals reconciled per day (08-26: 19, 08-27: 27, 08-28: 19, 08-29: 13). No files in this repo were modified this session other than this entry, so no build or deploy was needed here; the live site is unchanged and still serving 2026-08-29 data from this morning's cron.
+
+**Next:** digest #1 once the changelog reaches a week (2026-09-02). Watch whether Albuterol Sulfate Solution stays resolved.
+
+**USER-NEEDED (carried, unchanged):** domain pick — shortsupply.io / .co / .today. Launch still gated behind Canicrawl's launch and ≥2 weeks of diff history. Canicrawl's own launch is now recommended to hold one more day so that one clean cron cycle can confirm today's crawler fix.
