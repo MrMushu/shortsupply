@@ -165,3 +165,23 @@ No graveyard departures; Hydrocortisone Sodium Succinate Injection is still the 
 **Next:** digest #1 on 2026-09-02, with its lead recomputed rather than inherited. Still watching whether Albuterol Sulfate Solution stays resolved, and whether Hydrocortisone Sodium Succinate reappears on the FDA list.
 
 **USER-NEEDED (carried, unchanged):** domain pick — shortsupply.io / .co / .today. Launch still gated behind Canicrawl's launch and ≥2 weeks of diff history. Canicrawl's own launch hold has now expired on its stated terms: the clean cron cycle it was waiting for confirmed yesterday's crawler fix, so that approval is live and sitting with the user.
+
+---
+
+## 10 — 2026-08-31, ops session — third straight 13, and the sibling found a bug worth borrowing
+
+**Cron: green.** ShortSupply's scheduled run for 2026-08-31 was created **14:25:42 UTC** (success); Canicrawl's at 13:49:26 UTC. Against nominal 06:47/06:17 that is ~7.5 hours late on both — the **fourth consecutive** late-not-dropped day and the widest gap recorded. The 08-31 snapshot pulled clean and parsed.
+
+**Diffs, 2026-08-31: 13 entries, all 13 availability rewordings**, touching **35 individual presentations**. Clindamycin Phosphate Injection accounts for 6 on its own; Bupivacaine Hydrochloride Injection 5; Quinapril Hydrochloride Tablet, Carboplatin Injection and Sodium Bicarbonate Injection 4 each. No status flips, no new shortages entering, no resolutions, no graveyard departures — Hydrocortisone Sodium Succinate Injection remains the only removal on record.
+
+**The rate has settled, and that is now a three-day fact rather than a one-day wobble.** The series reads **19 / 27 / 19 / 13 / 13 / 13** (08-26 → 08-31). Three consecutive days at exactly 13 confirms entry #9's call that "~26/day" is stale. Digest #1 on 09-02 should lead with a figure recomputed from the full changelog — the defensible statement today is *the FDA reworded availability text for 35 presentations across 13 drugs on a single ordinary Monday, and kept no record of the previous wording*. The count is the weak part of the claim; the fact that nobody else retains the prior text is the strong part, and it does not move with the rate.
+
+**No code change in this repo today.** The session's ring went to the sibling (Canicrawl CC-13, detailed in `taro/JOURNAL.md`), where a silent changelog turned out to be hiding two defects: an llms.txt diff gated on the wrong file's readability, and an anti-bot block page archived and published as a genuine llms.txt.
+
+**A lesson this repo should borrow before digest #1.** Canicrawl published a "welcome mat" flip whose evidence was literally a page saying `action=deny`. The general failure is *recording a boolean without checking what the evidence says*. ShortSupply's analogue is the availability-text diff: we compare wording, but we do not currently assert that the new text is FDA-shaped rather than an error page or a truncated response. openFDA is a stable JSON API and no such corruption has appeared in six days of snapshots — so this is a note for whoever writes digest #1, not an incident: **before a rate figure is published, spot-check that a sample of the diffed text is real availability wording.** Worth a small ring afterwards; not written today, because today's ring belonged to the sibling and the queue is the single source of work.
+
+**Verified:** 08-31 snapshot pulled and parsed; changelog reconciles per day (08-26: 19, 08-27: 27, 08-28: 19, 08-29: 13, 08-30: 13, 08-31: 13 — total 104); today's 13 confirmed availability-type only, so the absence of status-flip news is a real absence and not a parse failure; the 35-presentation total was summed from the entry counts rather than estimated. No build or deploy needed — this entry is the only file changed in this repo today, and the live site is serving this morning's cron data.
+
+**Next:** digest #1 on 2026-09-02, lead recomputed rather than inherited, with the evidence spot-check above done first. Still watching whether Albuterol Sulfate Solution stays resolved and whether Hydrocortisone Sodium Succinate reappears.
+
+**USER-NEEDED (carried, unchanged):** domain pick — shortsupply.io / .co / .today. Launch still gated behind Canicrawl's launch and ≥2 weeks of diff history. Canicrawl's launch approval remains live and sitting with the user. Separately, the cron-lateness playbook amendment (now four-for-four across both repos, and drifting to ~7.5h late) still needs the user's blessing, since playbook changes count as methodology.
