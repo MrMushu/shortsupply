@@ -41,11 +41,38 @@ export function computeDiffs(prev, next) {
     if (!a[name]) { entries.push({ date: next.date, drug: name, kind: "new", to: drugStatus(b[name]) }); continue; }
     const from = drugStatus(a[name]), to = drugStatus(b[name]);
     if (from !== to) entries.push({ date: next.date, drug: name, kind: "status", from, to });
-    // Availability wording changes per presentation (quiet revisions), keyed by NDC.
-    const availA = new Map(a[name].map((r) => [r.package_ndc, r.availability]));
+    // Availability wording changes per presentation (quiet revisions).
+    //
+    // A package NDC is NOT unique within a drug: the FDA lists the same NDC
+    // twice when a presentation has separate entries — typically a "Reverified"
+    // row carrying `availability` alongside a "New"/discontinued row that
+    // carries none. 46 NDCs across 16 drugs were duplicated on 2026-09-01.
+    // Keying a Map on package_ndc alone kept only the LAST row per NDC and then
+    // compared EVERY row of the next day against it, so those pairs reported a
+    // wording change every single day, forever, with the data unchanged. That
+    // was the entire content of the changelog on 08-29 through 09-01: 35
+    // phantom presentations a day across a suspiciously constant 13 drugs —
+    // constant because it was measuring our own collision, not the FDA.
+    //
+    // So compare, per NDC, the multiset of availability values. Order within an
+    // NDC is not meaningful (the API promises none), a missing field is a value
+    // distinct from any string, and a presentation counts as revised only when
+    // that day's set of values actually differs.
+    const byNdc = (records) => {
+      const m = new Map();
+      for (const r of records) {
+        if (!m.has(r.package_ndc)) m.set(r.package_ndc, []);
+        m.get(r.package_ndc).push(r.availability ?? null);
+      }
+      for (const v of m.values()) v.sort();
+      return m;
+    };
+    const availA = byNdc(a[name]), availB = byNdc(b[name]);
     let changed = 0;
-    for (const r of b[name]) {
-      if (availA.has(r.package_ndc) && availA.get(r.package_ndc) !== r.availability) changed++;
+    for (const [ndc, now] of availB) {
+      const was = availA.get(ndc);
+      if (!was) continue; // a presentation we had not seen before is not a revision
+      if (JSON.stringify(was) !== JSON.stringify(now)) changed += Math.max(was.length, now.length);
     }
     if (changed > 0) entries.push({ date: next.date, drug: name, kind: "availability", count: changed });
   }

@@ -2,85 +2,13 @@
  "entries": [
   {
    "date": "2026-08-26",
-   "drug": "Dexmedetomidine Hydrochloride Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-08-26",
-   "drug": "Quinapril Hydrochloride Tablet",
-   "kind": "availability",
-   "count": 4
-  },
-  {
-   "date": "2026-08-26",
-   "drug": "Lidocaine Hydrochloride Injection",
-   "kind": "availability",
-   "count": 2
-  },
-  {
-   "date": "2026-08-26",
-   "drug": "Carboplatin Injection",
-   "kind": "availability",
-   "count": 4
-  },
-  {
-   "date": "2026-08-26",
-   "drug": "Atropine Sulfate Injection",
-   "kind": "availability",
-   "count": 2
-  },
-  {
-   "date": "2026-08-26",
-   "drug": "Clindamycin Phosphate Injection",
-   "kind": "availability",
-   "count": 6
-  },
-  {
-   "date": "2026-08-26",
-   "drug": "Ketorolac Tromethamine Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-08-26",
-   "drug": "Sodium Bicarbonate Injection",
-   "kind": "availability",
-   "count": 4
-  },
-  {
-   "date": "2026-08-26",
-   "drug": "Dextrose Monohydrate 50% Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-08-26",
    "drug": "Methylprednisolone Acetate Injection",
    "kind": "availability",
    "count": 1
   },
   {
    "date": "2026-08-26",
-   "drug": "Bupivacaine Hydrochloride Injection",
-   "kind": "availability",
-   "count": 5
-  },
-  {
-   "date": "2026-08-26",
-   "drug": "Furosemide Injection",
-   "kind": "availability",
-   "count": 3
-  },
-  {
-   "date": "2026-08-26",
    "drug": "Desmopressin Acetate Spray",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-08-26",
-   "drug": "Dobutamine Hydrochloride Injection",
    "kind": "availability",
    "count": 1
   },
@@ -92,21 +20,9 @@
   },
   {
    "date": "2026-08-26",
-   "drug": "Dopamine Hydrochloride Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-08-26",
    "drug": "Disopyramide Phosphate Capsule, Extended Release",
    "kind": "new",
    "to": "discontinuing"
-  },
-  {
-   "date": "2026-08-26",
-   "drug": "Rifampin Injection",
-   "kind": "availability",
-   "count": 1
   },
   {
    "date": "2026-08-26",
@@ -118,7 +34,7 @@
    "date": "2026-08-27",
    "drug": "Furosemide Injection",
    "kind": "availability",
-   "count": 4
+   "count": 1
   },
   {
    "date": "2026-08-27",
@@ -131,12 +47,6 @@
    "drug": "Heparin Sodium Injection",
    "kind": "availability",
    "count": 1
-  },
-  {
-   "date": "2026-08-27",
-   "drug": "Bupivacaine Hydrochloride Injection",
-   "kind": "availability",
-   "count": 5
   },
   {
    "date": "2026-08-27",
@@ -154,13 +64,7 @@
    "date": "2026-08-27",
    "drug": "Dopamine Hydrochloride Injection",
    "kind": "availability",
-   "count": 2
-  },
-  {
-   "date": "2026-08-27",
-   "drug": "Atropine Sulfate Injection",
-   "kind": "availability",
-   "count": 2
+   "count": 1
   },
   {
    "date": "2026-08-27",
@@ -172,41 +76,11 @@
    "date": "2026-08-27",
    "drug": "Lidocaine Hydrochloride Injection",
    "kind": "availability",
-   "count": 8
-  },
-  {
-   "date": "2026-08-27",
-   "drug": "Lisdexamfetamine Dimesylate Capsule",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-08-27",
-   "drug": "Quinapril Hydrochloride Tablet",
-   "kind": "availability",
-   "count": 4
-  },
-  {
-   "date": "2026-08-27",
-   "drug": "Ketorolac Tromethamine Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-08-27",
-   "drug": "Clindamycin Phosphate Injection",
-   "kind": "availability",
    "count": 6
   },
   {
    "date": "2026-08-27",
-   "drug": "Sodium Bicarbonate Injection",
-   "kind": "availability",
-   "count": 4
-  },
-  {
-   "date": "2026-08-27",
-   "drug": "Dexmedetomidine Hydrochloride Injection",
+   "drug": "Lisdexamfetamine Dimesylate Capsule",
    "kind": "availability",
    "count": 1
   },
@@ -232,7 +106,7 @@
    "date": "2026-08-27",
    "drug": "Carboplatin Injection",
    "kind": "availability",
-   "count": 8
+   "count": 4
   },
   {
    "date": "2026-08-27",
@@ -248,117 +122,33 @@
   },
   {
    "date": "2026-08-27",
-   "drug": "Dextrose Monohydrate 50% Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-08-27",
-   "drug": "Dobutamine Hydrochloride Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-08-27",
    "drug": "Lorazepam Injection",
    "kind": "availability",
    "count": 1
   },
   {
    "date": "2026-08-27",
-   "drug": "Liraglutide Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-08-27",
-   "drug": "Rifampin Injection",
-   "kind": "availability",
-   "count": 2
-  },
-  {
-   "date": "2026-08-28",
-   "drug": "Clindamycin Phosphate Injection",
-   "kind": "availability",
-   "count": 6
-  },
-  {
-   "date": "2026-08-28",
    "drug": "Rifampin Injection",
    "kind": "availability",
    "count": 1
-  },
-  {
-   "date": "2026-08-28",
-   "drug": "Lidocaine Hydrochloride Injection",
-   "kind": "availability",
-   "count": 2
-  },
-  {
-   "date": "2026-08-28",
-   "drug": "Quinapril Hydrochloride Tablet",
-   "kind": "availability",
-   "count": 4
-  },
-  {
-   "date": "2026-08-28",
-   "drug": "Ketorolac Tromethamine Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-08-28",
-   "drug": "Atropine Sulfate Injection",
-   "kind": "availability",
-   "count": 2
   },
   {
    "date": "2026-08-28",
    "drug": "Dopamine Hydrochloride Injection",
    "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-08-28",
-   "drug": "Furosemide Injection",
-   "kind": "availability",
-   "count": 3
-  },
-  {
-   "date": "2026-08-28",
-   "drug": "Bupivacaine Hydrochloride Injection",
-   "kind": "availability",
-   "count": 5
-  },
-  {
-   "date": "2026-08-28",
-   "drug": "Carboplatin Injection",
-   "kind": "availability",
-   "count": 4
-  },
-  {
-   "date": "2026-08-28",
-   "drug": "Dexmedetomidine Hydrochloride Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-08-28",
-   "drug": "Sodium Bicarbonate Injection",
-   "kind": "availability",
-   "count": 4
+   "count": 2
   },
   {
    "date": "2026-08-28",
    "drug": "Liraglutide Injection",
    "kind": "availability",
-   "count": 2
+   "count": 1
   },
   {
    "date": "2026-08-28",
-   "drug": "Dextrose Monohydrate 50% Injection",
+   "drug": "Dobutamine Hydrochloride Injection",
    "kind": "availability",
-   "count": 1
+   "count": 2
   },
   {
    "date": "2026-08-28",
@@ -391,318 +181,6 @@
    "drug": "Pentostatin Injection",
    "kind": "new",
    "to": "in-shortage"
-  },
-  {
-   "date": "2026-08-29",
-   "drug": "Clindamycin Phosphate Injection",
-   "kind": "availability",
-   "count": 6
-  },
-  {
-   "date": "2026-08-29",
-   "drug": "Rifampin Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-08-29",
-   "drug": "Lidocaine Hydrochloride Injection",
-   "kind": "availability",
-   "count": 2
-  },
-  {
-   "date": "2026-08-29",
-   "drug": "Quinapril Hydrochloride Tablet",
-   "kind": "availability",
-   "count": 4
-  },
-  {
-   "date": "2026-08-29",
-   "drug": "Ketorolac Tromethamine Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-08-29",
-   "drug": "Atropine Sulfate Injection",
-   "kind": "availability",
-   "count": 2
-  },
-  {
-   "date": "2026-08-29",
-   "drug": "Furosemide Injection",
-   "kind": "availability",
-   "count": 3
-  },
-  {
-   "date": "2026-08-29",
-   "drug": "Bupivacaine Hydrochloride Injection",
-   "kind": "availability",
-   "count": 5
-  },
-  {
-   "date": "2026-08-29",
-   "drug": "Carboplatin Injection",
-   "kind": "availability",
-   "count": 4
-  },
-  {
-   "date": "2026-08-29",
-   "drug": "Dexmedetomidine Hydrochloride Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-08-29",
-   "drug": "Sodium Bicarbonate Injection",
-   "kind": "availability",
-   "count": 4
-  },
-  {
-   "date": "2026-08-29",
-   "drug": "Liraglutide Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-08-29",
-   "drug": "Dextrose Monohydrate 50% Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-08-30",
-   "drug": "Clindamycin Phosphate Injection",
-   "kind": "availability",
-   "count": 6
-  },
-  {
-   "date": "2026-08-30",
-   "drug": "Rifampin Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-08-30",
-   "drug": "Lidocaine Hydrochloride Injection",
-   "kind": "availability",
-   "count": 2
-  },
-  {
-   "date": "2026-08-30",
-   "drug": "Quinapril Hydrochloride Tablet",
-   "kind": "availability",
-   "count": 4
-  },
-  {
-   "date": "2026-08-30",
-   "drug": "Ketorolac Tromethamine Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-08-30",
-   "drug": "Atropine Sulfate Injection",
-   "kind": "availability",
-   "count": 2
-  },
-  {
-   "date": "2026-08-30",
-   "drug": "Furosemide Injection",
-   "kind": "availability",
-   "count": 3
-  },
-  {
-   "date": "2026-08-30",
-   "drug": "Bupivacaine Hydrochloride Injection",
-   "kind": "availability",
-   "count": 5
-  },
-  {
-   "date": "2026-08-30",
-   "drug": "Carboplatin Injection",
-   "kind": "availability",
-   "count": 4
-  },
-  {
-   "date": "2026-08-30",
-   "drug": "Dexmedetomidine Hydrochloride Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-08-30",
-   "drug": "Sodium Bicarbonate Injection",
-   "kind": "availability",
-   "count": 4
-  },
-  {
-   "date": "2026-08-30",
-   "drug": "Liraglutide Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-08-30",
-   "drug": "Dextrose Monohydrate 50% Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-08-31",
-   "drug": "Clindamycin Phosphate Injection",
-   "kind": "availability",
-   "count": 6
-  },
-  {
-   "date": "2026-08-31",
-   "drug": "Rifampin Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-08-31",
-   "drug": "Lidocaine Hydrochloride Injection",
-   "kind": "availability",
-   "count": 2
-  },
-  {
-   "date": "2026-08-31",
-   "drug": "Quinapril Hydrochloride Tablet",
-   "kind": "availability",
-   "count": 4
-  },
-  {
-   "date": "2026-08-31",
-   "drug": "Ketorolac Tromethamine Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-08-31",
-   "drug": "Atropine Sulfate Injection",
-   "kind": "availability",
-   "count": 2
-  },
-  {
-   "date": "2026-08-31",
-   "drug": "Furosemide Injection",
-   "kind": "availability",
-   "count": 3
-  },
-  {
-   "date": "2026-08-31",
-   "drug": "Bupivacaine Hydrochloride Injection",
-   "kind": "availability",
-   "count": 5
-  },
-  {
-   "date": "2026-08-31",
-   "drug": "Carboplatin Injection",
-   "kind": "availability",
-   "count": 4
-  },
-  {
-   "date": "2026-08-31",
-   "drug": "Dexmedetomidine Hydrochloride Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-08-31",
-   "drug": "Sodium Bicarbonate Injection",
-   "kind": "availability",
-   "count": 4
-  },
-  {
-   "date": "2026-08-31",
-   "drug": "Liraglutide Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-08-31",
-   "drug": "Dextrose Monohydrate 50% Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-09-01",
-   "drug": "Bupivacaine Hydrochloride Injection",
-   "kind": "availability",
-   "count": 5
-  },
-  {
-   "date": "2026-09-01",
-   "drug": "Furosemide Injection",
-   "kind": "availability",
-   "count": 3
-  },
-  {
-   "date": "2026-09-01",
-   "drug": "Quinapril Hydrochloride Tablet",
-   "kind": "availability",
-   "count": 4
-  },
-  {
-   "date": "2026-09-01",
-   "drug": "Carboplatin Injection",
-   "kind": "availability",
-   "count": 4
-  },
-  {
-   "date": "2026-09-01",
-   "drug": "Lidocaine Hydrochloride Injection",
-   "kind": "availability",
-   "count": 2
-  },
-  {
-   "date": "2026-09-01",
-   "drug": "Dexmedetomidine Hydrochloride Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-09-01",
-   "drug": "Ketorolac Tromethamine Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-09-01",
-   "drug": "Clindamycin Phosphate Injection",
-   "kind": "availability",
-   "count": 6
-  },
-  {
-   "date": "2026-09-01",
-   "drug": "Sodium Bicarbonate Injection",
-   "kind": "availability",
-   "count": 4
-  },
-  {
-   "date": "2026-09-01",
-   "drug": "Dextrose Monohydrate 50% Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-09-01",
-   "drug": "Liraglutide Injection",
-   "kind": "availability",
-   "count": 1
-  },
-  {
-   "date": "2026-09-01",
-   "drug": "Atropine Sulfate Injection",
-   "kind": "availability",
-   "count": 2
-  },
-  {
-   "date": "2026-09-01",
-   "drug": "Rifampin Injection",
-   "kind": "availability",
-   "count": 1
   }
  ]
 }

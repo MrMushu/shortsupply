@@ -185,3 +185,42 @@ No graveyard departures; Hydrocortisone Sodium Succinate Injection is still the 
 **Next:** digest #1 on 2026-09-02, lead recomputed rather than inherited, with the evidence spot-check above done first. Still watching whether Albuterol Sulfate Solution stays resolved and whether Hydrocortisone Sodium Succinate reappears.
 
 **USER-NEEDED (carried, unchanged):** domain pick — shortsupply.io / .co / .today. Launch still gated behind Canicrawl's launch and ≥2 weeks of diff history. Canicrawl's launch approval remains live and sitting with the user. Separately, the cron-lateness playbook amendment (now four-for-four across both repos, and drifting to ~7.5h late) still needs the user's blessing, since playbook changes count as methodology.
+
+---
+
+## 11 — 2026-09-01, ops session — the daily wording revisions were us, not the FDA
+
+**USER-NEEDED (one new, two carried):**
+- **New — this product's headline claim just got materially weaker, and digest #1 is due tomorrow.** ~80% of the changelog was an artifact of our own diff (detail below). It is fixed and the published data is corrected, but the story ShortSupply was going to launch on — *"the FDA quietly reworks availability text every single day and keeps no record"* — is not supported at the volume we believed. It is still true, at roughly a fifth of the rate, and concentrated in the first three days of the archive. **Digest #1 (due 2026-09-02) should be written with the user present, or reviewed before it publishes.** Do not let a scheduled session ship it on the old framing.
+- **Carried — domain pick:** shortsupply.io / .co / .today.
+- **Carried — launch sequencing** (behind Canicrawl, ≥2 weeks of diffs) and the cron-lateness playbook amendment, now five-for-five across both repos.
+
+**Cron: green.** ShortSupply's scheduled run for 2026-09-01 was created **12:02:06 UTC** (success); Canicrawl's **11:39:08 UTC** (success). Against nominal 06:47/06:17 that is ~5.3h and ~5.4h late — fifth consecutive late-not-dropped day, and less late than yesterday's ~7.5h, so the drift is noisy rather than steadily worsening. The 09-01 snapshot pulled clean and parsed.
+
+### Entry #10 asked for an evidence spot-check before digest #1. It found the bug.
+
+Yesterday's entry borrowed a lesson from the sibling — *recording a boolean without checking what the evidence says* — and set one concrete task: **before publishing a rate figure, spot-check that a sample of the diffed text is real availability wording.** I did that first thing, on Bupivacaine and Furosemide, and the sampled "revisions" were not wording changes at all. They were a field appearing and disappearing. Chasing that to the records showed the two days are **byte-identical** for the NDCs involved.
+
+**The defect.** A package NDC is *not* unique within a drug. The FDA lists the same NDC twice when a presentation has two entries — typically a `Reverified` row carrying `availability` next to a `New`/discontinued row that carries none. On the 09-01 snapshot, **46 NDCs across 16 drugs** are duplicated this way. `computeDiffs` built `new Map(a[name].map(r => [r.package_ndc, r.availability]))`, which silently keeps only the **last** row per NDC, and then compared **every** row of the next day against that one value. So each duplicated NDC reported a wording change every day, permanently, with the underlying data frozen.
+
+**That is what the "settled rate" was.** Entries #9 and #10 read three, then four consecutive days at exactly 13 drugs / 35 presentations as the revision rate finding its level. It was constant because it was measuring our own collision. Recomputed against the append-only snapshots with the keying fixed, the daily availability-revision counts are:
+
+| date | published | actual |
+|---|---|---|
+| 08-26 | 40 | 4 |
+| 08-27 | 76 | 39 |
+| 08-28 | 42 | 10 |
+| 08-29 | 35 | **0** |
+| 08-30 | 35 | **0** |
+| 08-31 | 35 | **0** |
+| 09-01 | 35 | **0** |
+
+Four consecutive days of "quiet revisions" were entirely phantom. The real archive is three days of genuine revisions and then four days of a genuinely quiet FDA.
+
+**Ring SS-6 — availability diffs keyed on evidence, not on a colliding key.** `computeDiffs` now compares, per NDC, the sorted **multiset** of availability values: order within an NDC is not promised by the API, a missing field is a value distinct from any string, and a presentation counts as revised only when that NDC's set of values actually differs. Added `scripts/rebuild-changelog.js`, ported from the sibling repo, so a corrected diff rule can regenerate the derived changelog from untouched snapshots — the same escape hatch taro needed for CC-11 and CC-13, and the reason snapshots never have to be edited. Zero dependencies, no methodology change, one API pass per day untouched.
+
+**Verified, not assumed.** Rebuild dry-run: **117 → 30 entries**, 95 dropped, 8 gained. The 8 gains are the mirror image of the defect — genuine revisions the collision was *masking*, because keeping only the last row per NDC hid a change on the first (Lidocaine 6 on 08-27, Carboplatin 4, Dopamine, Furosemide, Rifampin, Liraglutide, Dobutamine). Regression check on the entries that matter most: **all 6 non-availability entries are preserved byte-identical and none are invented** — Albuterol Sulfate Solution and Peginterferon alfa-2a resolving on 08-28, Pentostatin and the two discontinuing drugs entering, and Hydrocortisone Sodium Succinate's removal, which is still the only graveyard departure on record. Only `availability` entries moved: 111 → 24. Built **247 pages (239 drugs, 70 in shortage)**; served `dist/` and got HTTP **200** on `/`, `/changelog/` and `/changelog/rss-cardiovascular.xml`; the changelog page now shows **0** mentions of Clindamycin Phosphate Injection (the largest phantom, 6 a day) and **0** entries dated 2026-09-01, while Albuterol's real resolution still renders. The medical-advice disclaimer is present on the drug pages checked. `data/latest.json` is a snapshot and was not touched.
+
+**What survives, and it is the part that was always load-bearing.** The rate was never the strong half of the claim — entry #10 said so before knowing this: *"the count is the weak part of the claim; the fact that nobody else retains the prior text is the strong part, and it does not move with the rate."* That holds. On 2026-08-27 the FDA reworded availability text for **39 presentations** and published no record of the previous wording; we have it. The honest framing for digest #1 is an archive that catches revision bursts against a quiet baseline, not a daily drumbeat — and it should say plainly that we corrected our own count, because that is the same standard we hold the FDA to.
+
+**Next:** digest #1 on 09-02 with the lead rewritten from the corrected data, user in the loop. Watch whether 09-02 is a fifth genuinely quiet day or the burst pattern returns — with the differ fixed, a real revision will now actually show. Still watching Albuterol Sulfate Solution's resolution and any Hydrocortisone Sodium Succinate reappearance.
