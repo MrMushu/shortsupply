@@ -224,3 +224,22 @@ Four consecutive days of "quiet revisions" were entirely phantom. The real archi
 **What survives, and it is the part that was always load-bearing.** The rate was never the strong half of the claim — entry #10 said so before knowing this: *"the count is the weak part of the claim; the fact that nobody else retains the prior text is the strong part, and it does not move with the rate."* That holds. On 2026-08-27 the FDA reworded availability text for **39 presentations** and published no record of the previous wording; we have it. The honest framing for digest #1 is an archive that catches revision bursts against a quiet baseline, not a daily drumbeat — and it should say plainly that we corrected our own count, because that is the same standard we hold the FDA to.
 
 **Next:** digest #1 on 09-02 with the lead rewritten from the corrected data, user in the loop. Watch whether 09-02 is a fifth genuinely quiet day or the burst pattern returns — with the differ fixed, a real revision will now actually show. Still watching Albuterol Sulfate Solution's resolution and any Hydrocortisone Sodium Succinate reappearance.
+
+---
+
+## 12 — 2026-09-02, ops session — a fifth quiet day, and digest #1 deliberately not written
+
+**USER-NEEDED (one carried and now due, two carried):**
+- **Digest #1 (ring SS-7) was due today and I did not write it.** The ring is marked user-gated in the taro Ring queue, and yesterday's SS-6 finding is the reason: the lead this digest was banked on ("the FDA quietly reworks availability text every day") was ~80% our own key collision. Choosing a replacement headline claim for a health product, one day after correcting our own count, is a strategy call, not a procedure step. It needs a session with the user present. The honest framing is already drafted in entry #11 and today's data supports it further.
+- **Carried — domain pick:** shortsupply.io / .co / .today.
+- **Carried — launch sequencing** (behind Canicrawl, ≥2 weeks of diffs) and the cron-lateness playbook amendment, now six-for-six across both repos.
+
+**Cron: green.** ShortSupply's scheduled run for 2026-09-02 was created **11:44:05 UTC** (success); Canicrawl's **11:17:42 UTC** (success). Against nominal 06:47/06:17 that is ~5.0h and ~5.0h late — the sixth consecutive late-not-dropped day and the tightest pair so far, so the drift is holding rather than worsening. The 09-02 snapshot pulled clean and parsed: 239 drugs, 70 in shortage.
+
+**Zero changelog entries for 2026-09-02** — the pull touched only `data/latest.json` and the new snapshot, and `data/changelog.json` did not change at all. That is the fifth consecutive genuinely quiet day (08-29 through 09-02), and the first one measured with the fixed differ rather than through it. Entry #11 asked exactly this question — *"watch whether 09-02 is a fifth genuinely quiet day or the burst pattern returns"* — and the answer is quiet. The corrected series is now **4 / 39 / 10 / 0 / 0 / 0 / 0 / 0**, which reads as one real revision burst on 08-27 against a baseline of nothing, not a daily drumbeat. That is the shape the digest should describe, and it got stronger today: five straight zeroes make the 08-27 burst more striking, not less.
+
+No status flips, no resolutions, no new shortages, no graveyard departures. Still watching Albuterol Sulfate Solution's resolution and any Hydrocortisone Sodium Succinate reappearance. Rebuilt to confirm the site still generates from the new snapshot: **247 pages (239 drugs, 70 in shortage)**, clean.
+
+**This session's ring was CC-15 in the sibling repo** (boilerplate blocklist cohorts on Canicrawl's /stats/) — one ring per session across the portfolio, and today's Canicrawl data made the case for running that one. Details in `taro/JOURNAL.md`.
+
+**Next:** SS-7 with the user. If a sixth zero lands tomorrow, the "quiet baseline, occasional burst" framing is settled and the digest can state it as a measured fact over eight days rather than a hypothesis.
