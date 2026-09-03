@@ -181,6 +181,108 @@
    "drug": "Pentostatin Injection",
    "kind": "new",
    "to": "in-shortage"
+  },
+  {
+   "date": "2026-09-03",
+   "drug": "Metoprolol Succinate Tablet, Extended Release",
+   "kind": "new",
+   "to": "discontinuing"
+  },
+  {
+   "date": "2026-09-03",
+   "drug": "Fentanyl Citrate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-03",
+   "drug": "Methylphenidate Hydrochloride Tablet, Extended Release",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-03",
+   "drug": "Amphetamine Aspartate Monohydrate, Amphetamine Sulfate, Dextroamphetamine Saccharate, Dextroamphetamine Sulfate Tablet",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-09-03",
+   "drug": "Ifosfamide Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-03",
+   "drug": "Glycerol Phenylbutyrate Oral Liquid",
+   "kind": "new",
+   "to": "discontinuing"
+  },
+  {
+   "date": "2026-09-03",
+   "drug": "Rocuronium Bromide Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-09-03",
+   "drug": "Midazolam Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-03",
+   "drug": "Hydromorphone Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-03",
+   "drug": "Methotrexate Sodium Injection",
+   "kind": "availability",
+   "count": 5
+  },
+  {
+   "date": "2026-09-03",
+   "drug": "Triamcinolone Hexacetonide Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-03",
+   "drug": "Potassium Chloride, Sodium Chloride, Calcium Chloride, and Magnesium Chloride Injection, Solution",
+   "kind": "new",
+   "to": "discontinuing"
+  },
+  {
+   "date": "2026-09-03",
+   "drug": "Palovarotene Capsule",
+   "kind": "new",
+   "to": "discontinuing"
+  },
+  {
+   "date": "2026-09-03",
+   "drug": "Insulin Lispro Protamine and Insulin Lispro Injection",
+   "kind": "new",
+   "to": "discontinuing"
+  },
+  {
+   "date": "2026-09-03",
+   "drug": "Insulin Glargine-aglr Injection",
+   "kind": "new",
+   "to": "discontinuing"
+  },
+  {
+   "date": "2026-09-03",
+   "drug": "Medroxyprogesterone Acetate Tablet",
+   "kind": "new",
+   "to": "discontinuing"
+  },
+  {
+   "date": "2026-09-03",
+   "drug": "Methotrexate Injection",
+   "kind": "removed",
+   "from": "discontinuing"
   }
  ]
 }
