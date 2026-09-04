@@ -243,3 +243,41 @@ No status flips, no resolutions, no new shortages, no graveyard departures. Stil
 **This session's ring was CC-15 in the sibling repo** (boilerplate blocklist cohorts on Canicrawl's /stats/) — one ring per session across the portfolio, and today's Canicrawl data made the case for running that one. Details in `taro/JOURNAL.md`.
 
 **Next:** SS-7 with the user. If a sixth zero lands tomorrow, the "quiet baseline, occasional burst" framing is settled and the digest can state it as a measured fact over eight days rather than a hypothesis.
+
+---
+
+## 13 — 2026-09-04, ops session — the quiet baseline broke, exactly as the corrected differ predicted it would
+
+**USER-NEEDED (all carried):**
+- **Digest #1 (ring SS-7)** was due 09-02 and is still unwritten, deliberately. It is user-gated: after SS-6 corrected our own headline count, choosing the replacement claim for a health product is a strategy call, not a procedure step. **Today's data makes the drafted framing stronger, not weaker** (below), so nothing is lost by waiting for a session with the user.
+- **Carried — domain pick:** shortsupply.io / .co / .today.
+- **Carried — launch sequencing** (behind Canicrawl, ≥2 weeks of diffs) and the cron-lateness playbook amendment, now eight-for-eight across both repos.
+
+**No ops session ran on 2026-09-03**, so this entry covers two crawl days.
+
+**Cron: green both days.** Scheduled runs created 2026-09-03 **11:43:28 UTC** and 2026-09-04 **11:45:09 UTC**, both `success` (Canicrawl's 11:13:51 / 11:17:25, also both green). ~5h past nominal 06:47 — the same stable drift, still late rather than dropped.
+
+### 09-03 was a burst. 09-04 was quiet again. That is the shape.
+
+After **five consecutive zero days** (08-29 → 09-02), 2026-09-03 produced **17 changelog entries** and 09-04 produced **none**. The corrected daily series now reads:
+
+| date | entries | note |
+|---|---|---|
+| 08-26 | 5 | |
+| 08-27 | 17 | 39 presentations reworded — the original burst |
+| 08-28 | 8 | |
+| 08-29 → 09-02 | **0** ×5 | genuinely quiet, measured with the fixed differ |
+| **09-03** | **17** | 7 new · 9 availability (15 presentations) · 1 removed |
+| 09-04 | **0** | |
+
+This is the first burst measured **entirely** by the post-SS-6 differ — the 08-27 one was found through the broken key and had to be recomputed afterwards. Five zeroes on either side of it are the strongest possible evidence that the multiset comparison is neither inventing revisions nor swallowing them: it stayed silent for five days when nothing moved, then reported seventeen changes the day something did. Entry #12 asked whether "quiet baseline, occasional burst" was a settled fact or a hypothesis over eight days; over ten days, with a second burst, it is the former.
+
+**Seven drugs entered as `discontinuing` on one day** — Metoprolol Succinate ER, Glycerol Phenylbutyrate oral liquid, a four-salt electrolyte injection, Palovarotene capsules, Insulin Lispro Protamine/Insulin Lispro, Insulin Glargine-aglr, and Medroxyprogesterone Acetate tablets. Two insulins in a single day's batch is the most notable line in it. Recorded factually; no editorial claim about cause, and nothing here is advice.
+
+**A second graveyard departure.** `Methotrexate Injection` was removed from the FDA list on 09-03 and now sits on `/graveyard/` alongside Hydrocortisone Sodium Succinate Injection, which had been the only entry on record since the page was built. The page exists precisely because the FDA's list does not keep departures, and it now has two — separately, `Methotrexate Sodium Injection` (a different record) logged a 5-presentation availability revision the same day, so the two were checked apart rather than conflated. Panel grew 239 → **245 drugs**, 70 in shortage.
+
+**Verified, not assumed.** Both snapshots pulled and parsed clean. Built **253 pages (245 drugs, 70 in shortage)**. Served `dist/`: HTTP **200** on `/`, `/changelog/`, `/graveyard/` and `/changelog/rss-oncology.xml`. `/graveyard/` renders both departures by name. The medical-advice disclaimer is present on the drug page checked. Counts above were recomputed from `data/changelog.json` rather than copied from the cron log. No snapshot was edited; no crawl was run from this machine.
+
+**This session's ring was CC-12 in the sibling repo** — a hash + byte count receipt for every llms.txt Canicrawl reports, including the seven whose bodies exceed the archive cap. One ring per session across the portfolio; details in `taro/JOURNAL.md`.
+
+**Next:** SS-7 with the user, with a lead that now has ten days and two bursts behind it. Watch whether the seven new discontinuations resolve or deepen, and whether either graveyard drug reappears.
