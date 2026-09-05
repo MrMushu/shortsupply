@@ -283,6 +283,54 @@
    "drug": "Methotrexate Injection",
    "kind": "removed",
    "from": "discontinuing"
+  },
+  {
+   "date": "2026-09-05",
+   "drug": "Ropivacaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-05",
+   "drug": "Lidocaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 5
+  },
+  {
+   "date": "2026-09-05",
+   "drug": "Amphetamine Aspartate Monohydrate, Amphetamine Sulfate, Dextroamphetamine Saccharate, Dextroamphetamine Sulfate Tablet",
+   "kind": "availability",
+   "count": 4
+  },
+  {
+   "date": "2026-09-05",
+   "drug": "Fentanyl Citrate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-05",
+   "drug": "Morphine Sulfate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-05",
+   "drug": "Carboplatin Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-09-05",
+   "drug": "Methotrexate Sodium Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-05",
+   "drug": "Azelastine Hydrochloride; Fluticasone Propionate Nasal Spray",
+   "kind": "removed",
+   "from": "discontinuing"
   }
  ]
 }
