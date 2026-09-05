@@ -281,3 +281,35 @@ This is the first burst measured **entirely** by the post-SS-6 differ — the 08
 **This session's ring was CC-12 in the sibling repo** — a hash + byte count receipt for every llms.txt Canicrawl reports, including the seven whose bodies exceed the archive cap. One ring per session across the portfolio; details in `taro/JOURNAL.md`.
 
 **Next:** SS-7 with the user, with a lead that now has ten days and two bursts behind it. Watch whether the seven new discontinuations resolve or deepen, and whether either graveyard drug reappears.
+
+---
+
+## 14 — 2026-09-05, ops session — a third departure, and seven revisions in one day
+
+**USER-NEEDED (all carried):**
+- **Digest #1 (ring SS-7)** was due 09-02 and is still unwritten, deliberately — it is user-gated because choosing the replacement headline claim for a health product after SS-6 corrected our own count is a strategy call, not a procedure step. Today's data extends the drafted framing rather than changing it.
+- **Carried — domain pick:** shortsupply.io / .co / .today.
+- **Carried — launch sequencing** (behind Canicrawl, ≥2 weeks of diffs) and the cron-lateness playbook amendment, now nine-for-nine across both repos.
+
+**Cron: green.** Scheduled run created 2026-09-05 **10:55:28 UTC**, `success` (Canicrawl's 10:34:42, also green). ~4h08m past nominal 06:47 — still late rather than dropped, and about 40 minutes *less* late than yesterday, so the drift is not compounding.
+
+### 8 entries — the burst/quiet pattern holds a third time
+
+| date | entries | note |
+|---|---|---|
+| 08-27 | 17 | 39 presentations reworded |
+| 08-28 | 8 | |
+| 08-29 → 09-02 | **0** ×5 | measured with the corrected differ |
+| 09-03 | 17 | 7 new · 9 availability · 1 removed |
+| 09-04 | **0** | |
+| **09-05** | **8** | 7 availability (15 presentations) · 1 removed |
+
+Seven drugs logged availability revisions: Ropivacaine HCl Injection (1 presentation), Lidocaine HCl Injection (5), the four-salt amphetamine tablet (4), Fentanyl Citrate Injection (1), Morphine Sulfate Injection (1), Carboplatin Injection (2) and Methotrexate Sodium Injection (1). Recorded factually — the FDA overwrites this wording in place, and the prior text exists nowhere else once it changes, which remains the whole reason this archive exists. No claim about cause; nothing here is advice.
+
+**A third graveyard departure.** `Azelastine Hydrochloride; Fluticasone Propionate Nasal Spray` was removed from the FDA list on 09-05 while listed as *discontinuing*, and now sits on `/graveyard/` alongside Methotrexate Injection (09-03) and Hydrocortisone Sodium Succinate Injection. The page had one entry for its first ten days and now has three in three days. Panel 245 → **244 drugs**, 70 in shortage — unchanged in shortage count.
+
+**Verified, not assumed.** Snapshot pulled and parsed clean. Built **252 pages (244 drugs, 70 in shortage)**. Served `dist/`: HTTP **200** on `/`, `/changelog/`, `/graveyard/`, `/changelog/rss-cardiovascular.xml` and a drug page. `/graveyard/` renders **all three** departures by name, checked individually rather than by count. The not-medical-advice disclaimer is present on the drug page checked. Entry counts were recomputed from `data/changelog.json`, not copied from the cron log. No snapshot was edited; no crawl was run from this machine.
+
+**This session's ring was CC-17 in the sibling repo** — Canicrawl was rendering "no llms.txt" for sites whose probe had simply been refused, including one whose 64KB llms.txt is archived in its own repository. One ring per session across the portfolio; details in `taro/JOURNAL.md`.
+
+**Next:** SS-7 with the user; the lead now has twelve days, two bursts and three graveyard entries behind it. Watch whether the 09-03 cohort of seven discontinuations resolves or deepens, and whether the graveyard's new arrivals reappear on the FDA list.
