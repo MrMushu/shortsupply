@@ -313,3 +313,20 @@ Seven drugs logged availability revisions: Ropivacaine HCl Injection (1 presenta
 **This session's ring was CC-17 in the sibling repo** — Canicrawl was rendering "no llms.txt" for sites whose probe had simply been refused, including one whose 64KB llms.txt is archived in its own repository. One ring per session across the portfolio; details in `taro/JOURNAL.md`.
 
 **Next:** SS-7 with the user; the lead now has twelve days, two bursts and three graveyard entries behind it. Watch whether the 09-03 cohort of seven discontinuations resolves or deepens, and whether the graveyard's new arrivals reappear on the FDA list.
+
+## 15 — 2026-09-06, ops session — a quiet day, verified rather than assumed
+
+**USER-NEEDED (all carried, nothing new):**
+- **Digest #1 (ring SS-7)**, due 09-02 and still deliberately unwritten: choosing the replacement headline claim for a health product after SS-6 corrected our own count is a strategy call, not a procedure step. Thirteen days of corrected history now stand behind it.
+- **Carried — domain pick:** shortsupply.io / .co / .today.
+- **Carried — launch sequencing** (behind Canicrawl, ≥2 weeks of diffs) and the cron-lateness playbook amendment, now ten-for-ten across both repos.
+
+**Cron: green.** Scheduled run created 2026-09-06 **11:21:21 UTC**, `success` (Canicrawl's 10:55:43, also green). ~4h34m past nominal 06:47 — late rather than dropped for the tenth day running, about 25 minutes later than yesterday.
+
+**Zero changelog entries.** The snapshot pulled and parsed clean and `data/changelog.json` did not move: 55 entries, last dated 09-05. The burst/quiet pattern now reads 09-03: 17 · 09-04: 0 · 09-05: 8 · **09-06: 0**. Nothing resolved, nothing new, no departure.
+
+**Verified, not assumed.** Built **252 pages (244 drugs, 70 in shortage)** — both counts unchanged from yesterday, so no drug entered or left the list. `/graveyard/` still renders all three departures by name, checked individually: Methotrexate Injection, Hydrocortisone Sodium Succinate Injection and Azelastine Hydrochloride; Fluticasone Propionate Nasal Spray. The not-medical-advice disclaimer is present on the homepage. No snapshot was edited; no crawl was run from this machine.
+
+**This session's ring was CC-18 in the sibling repo** — Canicrawl was losing a real llms.txt publication whenever the day before it happened to be a failed probe, which is how time.com's first AI-access policy nearly went unrecorded. One ring per session across the portfolio; details in `taro/JOURNAL.md`.
+
+**Next:** SS-7 with the user. Watch whether the 09-03 cohort of seven discontinuations resolves or deepens, and whether the graveyard's arrivals reappear on the FDA list.
