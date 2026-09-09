@@ -331,6 +331,18 @@
    "drug": "Azelastine Hydrochloride; Fluticasone Propionate Nasal Spray",
    "kind": "removed",
    "from": "discontinuing"
+  },
+  {
+   "date": "2026-09-09",
+   "drug": "Sumatriptan Nasal Spray",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-09-09",
+   "drug": "Vecuronium Bromide Injection",
+   "kind": "removed",
+   "from": "discontinuing"
   }
  ]
 }
