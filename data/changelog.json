@@ -343,6 +343,72 @@
    "drug": "Vecuronium Bromide Injection",
    "kind": "removed",
    "from": "discontinuing"
+  },
+  {
+   "date": "2026-09-10",
+   "drug": "Sterile Water Irrigant",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-10",
+   "drug": "Lisdexamfetamine Dimesylate Capsule",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-09-10",
+   "drug": "Atropine Sulfate Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-09-10",
+   "drug": "Promethazine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 4
+  },
+  {
+   "date": "2026-09-10",
+   "drug": "Quinapril Hydrochloride Tablet",
+   "kind": "availability",
+   "count": 8
+  },
+  {
+   "date": "2026-09-10",
+   "drug": "Midazolam Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-10",
+   "drug": "Clindamycin Phosphate Injection",
+   "kind": "availability",
+   "count": 9
+  },
+  {
+   "date": "2026-09-10",
+   "drug": "Dextrose Monohydrate 10% Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-10",
+   "drug": "Rifampin Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-10",
+   "drug": "Ifosfamide Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-09-10",
+   "drug": "Imipenem Anhydrous, Cilastatin, and Relebactam Anhydrous Injection",
+   "kind": "new",
+   "to": "discontinuing"
   }
  ]
 }
