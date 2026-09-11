@@ -389,3 +389,25 @@ This is exactly the case `/graveyard/` exists for. A drug that stops being liste
 **This session's ring was CC-21 in the sibling repo** — `/compare/` on Canicrawl, two sites side by side as a shareable URL. Ring queue refilled with **SS-8**: each drug page lists its own changelog history (status changes, revision counts, graveyard departure), the product's version of the per-entity timeline — calm, factual, disclaimer untouched. Details in `taro/JOURNAL.md` and `taro/OPERATIONS.md`.
 
 **Next:** SS-8 once Canicrawl's CC-22 is done. Watch whether the Imipenem/Relebactam notice gains an availability line, and whether Sumatriptan and Vecuronium stay gone.
+
+## 2026-09-11 — a quiet day: one revision, one discontinuation notice
+
+**USER-NEEDED (standing, unchanged):** SS-7 (digest #1) still needs you.
+
+**Cron:** green, and late for the fifth day running. The scheduled run was created **11:49 UTC** against a 06:47 cron, and the sibling's was 11:20 against 06:17. It committed `data/snapshots/2026-09-11.json`. Upstream scheduling, not ours.
+
+**Changes.** `data/changelog.json` **68 → 70**:
+- Sodium Bicarbonate Injection revised the availability wording on **2** presentations.
+- One new listing, **Dextrose Monohydrate, Sodium Chloride, Sodium Lactate, Calcium Chloride, Magnesium Chloride Solution**, from Fresenius Medical Care North America, posted 09/10/2026 as *To Be Discontinued*.
+
+Like yesterday's Imipenem/Relebactam arrival, this is a discontinuation notice rather than a shortage: the in-shortage count holds at **70**. The daily run now reads 09-09: 2 · 09-10: 11 · **09-11: 2**, which is the quiet baseline after a burst that SS-7's lead describes. The FDA's `sourceLastUpdated` advanced 09-10 → 09-11 in step with the data today.
+
+**Verified.**
+- Snapshot records **1,619 → 1,614**.
+- Local build of **252 pages (244 drugs, 70 in shortage)**.
+- The new drug page exists and carries "Not medical advice."
+- I did not change any code in this repo. No snapshot was edited, and no crawl was run from this machine.
+
+**This session's ring was CC-22 in the sibling repo.** Canicrawl site pages now list their own changelog history under the true date tracking began. SS-8 is the same shape for drug pages and is next. Details are in `taro/JOURNAL.md`.
+
+**Next:** SS-8. Watch whether Sumatriptan and Vecuronium stay off the list, and whether the two discontinuation notices gain availability lines.
