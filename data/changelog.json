@@ -409,6 +409,18 @@
    "drug": "Imipenem Anhydrous, Cilastatin, and Relebactam Anhydrous Injection",
    "kind": "new",
    "to": "discontinuing"
+  },
+  {
+   "date": "2026-09-11",
+   "drug": "Sodium Bicarbonate Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-09-11",
+   "drug": "Dextrose Monohydrate, Sodium Chloride, Sodium Lactate, Calcium Chloride, Magnesium Chloride Solution",
+   "kind": "new",
+   "to": "discontinuing"
   }
  ]
 }
