@@ -136,6 +136,39 @@ write("index.html", page({
 ${DISCLAIMER}`,
 }));
 
+// ---------- changelog (loaded before drug pages, which show their own history) ----------
+const changelog = fs.existsSync(path.join(ROOT, "data/changelog.json"))
+  ? JSON.parse(fs.readFileSync(path.join(ROOT, "data/changelog.json"), "utf8"))
+  : { entries: [{ date: snap.date, kind: "founding" }] };
+function entryText(e) {
+  switch (e.kind) {
+    case "founding": return `Index founded: ${NAMES.length} drugs tracked (${inShortage.length} in shortage). Daily change tracking starts here.`;
+    case "new": return `${e.drug} appeared on the FDA shortage list (${statusLabel[e.to] ?? e.to})`;
+    case "status": return `${e.drug}: ${statusLabel[e.from] ?? e.from} → ${statusLabel[e.to] ?? e.to}`;
+    case "removed": return `${e.drug} was removed from the FDA list (was ${statusLabel[e.from] ?? e.from})`;
+    case "availability": return `${e.drug}: availability wording revised for ${e.count} presentation(s)`;
+    default: return `${e.drug ?? ""} ${e.kind}`;
+  }
+}
+// The archive's first day is the earliest committed snapshot. computeDiffs compares
+// every snapshot with the one before it, so a drug missing from that first snapshot
+// always has a "new" entry on the day it appeared — its tracking began then.
+const FOUNDED = fs.readdirSync(path.join(ROOT, "data/snapshots")).filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort()[0]?.slice(0, 10) ?? snap.date;
+const historyByDrug = new Map();
+for (const e of [...changelog.entries].sort((a, b) => a.date.localeCompare(b.date))) {
+  if (!e.drug) continue;
+  if (!historyByDrug.has(e.drug)) historyByDrug.set(e.drug, []);
+  historyByDrug.get(e.drug).push(e);
+}
+function historyHtml(n) {
+  const list = historyByDrug.get(n) ?? [];
+  const began = list[0]?.kind === "new" ? list[0].date : FOUNDED;
+  const newestFirst = [...list].reverse();
+  return `<p class="note">Daily tracking of this drug began ${esc(began)}${began === FOUNDED ? " (the first day of the archive)" : ""}.${list.length ? "" : " No change to its FDA listing has been observed since."}</p>
+${list.length ? `<ul>${newestFirst.map((e) => `<li><span class="nowrap">${esc(e.date)}</span> — ${esc(entryText(e))}</li>`).join("")}</ul>` : ""}
+<p class="note">Each daily snapshot is compared with the one before it; status changes, availability-wording revisions, and arrivals or removals are listed here. A change the FDA makes and reverses between two snapshots is not seen. Every daily record is kept in the <a href="https://github.com/MrMushu/shortsupply/tree/main/data/snapshots" rel="nofollow">public repository</a>.</p>`;
+}
+
 // ---------- per-drug pages + JSON ----------
 for (const n of NAMES) {
   const m = meta[n];
@@ -165,7 +198,7 @@ ${m.status === "in-shortage" && m.dayN !== null ? `<div class="daycount">Day ${m
 <thead><tr><th>Presentation</th><th>Company</th><th>Availability</th><th>Updated</th></tr></thead>
 <tbody>${recRows}</tbody></table></div>
 <h2>History</h2>
-<p class="note">Daily change tracking began ${esc(snap.date)} (index founding). Status flips and availability changes will accumulate here.</p>
+${historyHtml(n)}
 ${DISCLAIMER}`,
   }));
   write(`data/drugs/${slug(n)}.json`, JSON.stringify({ drug: n, asOf: snap.date, ...m, records: recs }, null, 1));
@@ -205,19 +238,8 @@ ${DISCLAIMER}`,
 }));
 
 // ---------- changelog + rss ----------
-const changelog = fs.existsSync(path.join(ROOT, "data/changelog.json"))
-  ? JSON.parse(fs.readFileSync(path.join(ROOT, "data/changelog.json"), "utf8"))
-  : { entries: [{ date: snap.date, kind: "founding" }] };
-function entryText(e) {
-  switch (e.kind) {
-    case "founding": return `Index founded: ${NAMES.length} drugs tracked (${inShortage.length} in shortage). Daily change tracking starts here.`;
-    case "new": return `${e.drug} appeared on the FDA shortage list (${statusLabel[e.to] ?? e.to})`;
-    case "status": return `${e.drug}: ${statusLabel[e.from] ?? e.from} → ${statusLabel[e.to] ?? e.to}`;
-    case "removed": return `${e.drug} was removed from the FDA list (was ${statusLabel[e.from] ?? e.from})`;
-    case "availability": return `${e.drug}: availability wording revised for ${e.count} presentation(s)`;
-    default: return `${e.drug ?? ""} ${e.kind}`;
-  }
-}
+// Drug pages exist only for drugs on today's list; a departed drug's entries point to the graveyard.
+const entryPath = (e) => (meta[e.drug] ? `drug/${slug(e.drug)}/` : "graveyard/");
 const entriesDesc = [...changelog.entries].reverse();
 const byDate = new Map();
 for (const e of entriesDesc) { if (!byDate.has(e.date)) byDate.set(e.date, []); byDate.get(e.date).push(e); }
@@ -230,7 +252,7 @@ write("changelog/index.html", page({
 <h1>Changelog</h1>
 <p class="sub">Every shortage begun, resolved, or quietly removed — detected by daily snapshot diffs. Subscribe via <a href="rss.xml">RSS</a>, or follow just one therapeutic area:</p>
 <p class="cat">${CATS.map((c) => `<a href="rss-${c.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "")}.xml">${esc(c)}</a>`).join(" · ")}</p>
-${[...byDate.entries()].map(([d, list]) => `<h2>${esc(d)}</h2><ul>${list.map((e) => `<li>${e.drug ? `<a href="../drug/${slug(e.drug)}/">` : ""}${esc(entryText(e))}${e.drug ? "</a>" : ""}</li>`).join("")}</ul>`).join("\n")}
+${[...byDate.entries()].map(([d, list]) => `<h2>${esc(d)}</h2><ul>${list.map((e) => `<li>${e.drug ? `<a href="../${entryPath(e)}">` : ""}${esc(entryText(e))}${e.drug ? "</a>" : ""}</li>`).join("")}</ul>`).join("\n")}
 ${DISCLAIMER}`,
 }));
 function rssDoc(title, desc, items) {
@@ -239,7 +261,7 @@ function rssDoc(title, desc, items) {
 <title>${esc(title)}</title>
 <link>${ORIGIN}/changelog/</link>
 <description>${esc(desc)}</description>
-${items.map((e) => `<item><title>${esc(entryText(e))}</title><link>${ORIGIN}/${e.drug ? `drug/${slug(e.drug)}/` : "stats/"}</link><guid isPermaLink="false">${esc(`${e.date}|${e.drug ?? "index"}|${e.kind}|${e.to ?? ""}`)}</guid><pubDate>${new Date(e.date + "T07:00:00Z").toUTCString()}</pubDate></item>`).join("\n")}
+${items.map((e) => `<item><title>${esc(entryText(e))}</title><link>${ORIGIN}/${e.drug ? entryPath(e) : "stats/"}</link><guid isPermaLink="false">${esc(`${e.date}|${e.drug ?? "index"}|${e.kind}|${e.to ?? ""}`)}</guid><pubDate>${new Date(e.date + "T07:00:00Z").toUTCString()}</pubDate></item>`).join("\n")}
 </channel></rss>
 `;
 }

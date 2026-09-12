@@ -411,3 +411,37 @@ Like yesterday's Imipenem/Relebactam arrival, this is a discontinuation notice r
 **This session's ring was CC-22 in the sibling repo.** Canicrawl site pages now list their own changelog history under the true date tracking began. SS-8 is the same shape for drug pages and is next. Details are in `taro/JOURNAL.md`.
 
 **Next:** SS-8. Watch whether Sumatriptan and Vecuronium stay off the list, and whether the two discontinuation notices gain availability lines.
+
+## 2026-09-12 — SS-8: every drug page now carries its own history
+
+**USER-NEEDED (standing, unchanged):** SS-7 (digest #1) still needs you. Nothing new escalated.
+
+**Cron:** green. The scheduled run was created **11:15 UTC** against the 06:47 cron (the sibling's was 10:45 against 06:17), the sixth day running of about four and a half hours of upstream queueing. It committed `data/snapshots/2026-09-12.json`.
+
+**Changes.** `data/changelog.json` **70 → 77**:
+- **Three discontinuation notices left the list:** Gemcitabine Hydrochloride Injection, Oxycodone Hydrochloride Oral Solution, and Homatropine Methylbromide and Hydrocodone Bitartrate Syrup. All three were listed as *being discontinued*, not in shortage, so the in-shortage count holds at **70**. All three render by name on `/graveyard/`.
+- **Availability wording was revised** on Sodium Bicarbonate Injection (6 presentations, its second day running), Lidocaine Hydrochloride Injection (4), Atropine Sulfate Injection (2) and Dextrose Monohydrate 50% Injection (2).
+- Totals: **244 drugs / 1,614 records → 241 / 1,602**, and no arrivals. The FDA's `sourceLastUpdated` stayed at **09-11** while the records changed, another day where the field lags the data (SS-7 note).
+
+**Ring executed: SS-8, drug-page change history.** Every drug page used to end with "Daily change tracking began <today's snapshot date> (index founding)". That has been false since day 2 on every page. It now shows:
+- **The true start date.** This is the archive's first day (2026-08-25) for drugs present then. For drugs that arrived later, it is the date of their `new` entry. `computeDiffs` compares every snapshot with the one before it, so a drug missing from the first snapshot always gets a `new` entry on the day it appeared. The build can therefore read this from the changelog instead of parsing ~50MB of snapshots, and it stays at ~0.5s.
+- **The drug's own changelog entries, newest first,** rendered with the changelog page's own `entryText()`.
+- **An empty state** for drugs with no entries: "No change to its FDA listing has been observed since."
+- **A plain statement of the blind spot:** a change the FDA makes and reverses between two snapshots is not seen, and the snapshots in the public repository are the complete record.
+- The wording is calm and factual, and the disclaimer is untouched.
+
+**Fixed along the way (pre-existing):** `/changelog/` linked **8 departed drugs** to drug pages that do not exist, so every removal entry was a 404 on the live site. That covered today's three plus Sumatriptan Nasal Spray, Vecuronium Bromide Injection, Methotrexate Injection, Azelastine/Fluticasone Nasal Spray and Hydrocortisone Sodium Succinate Injection. The RSS feeds had the same problem. Entries for a drug with no page now link to `/graveyard/`, which lists every departed drug by name.
+
+**Verified, not assumed.**
+- Build: **249 pages** (241 drugs, 70 in shortage).
+- An independent checker parsed all **19** snapshots to compute each drug's earliest appearance and compared it with every one of the **241** drug pages:
+  - the tracking-began date equals the snapshot-derived date on every page (12 late arrivals, the rest 08-25);
+  - **69/69** changelog entries for current drugs render on the right page, newest first, with the right date and kind;
+  - all **192** no-history pages carry the empty-state sentence;
+  - **241/241** carry "Not medical advice.", 0 leaked `${`, and **0 failures**.
+- `/changelog/` still has 77/77 entries, and **0** of its drug links are broken (it had 8 before the fix).
+- **144/144** RSS item links across all feeds resolve to a real file.
+- HTTP **200** on `/`, `/changelog/`, `/graveyard/`, `/stats/`, `/drug/sodium-bicarbonate-injection/`, `/drug/lidocaine-hydrochloride-injection/`, the Imipenem/Relebactam page (reads "began 2026-09-10") and two RSS feeds, via an in-process server. Every HTML page checked carries the disclaimer.
+- The differ and `crawl.js` are untouched, no snapshot was edited, and no crawl was run from this machine.
+
+**Next:** SS-9 (the per-drug JSON carries the same `firstSeen` + `history`). Watch whether Sodium Bicarbonate's revisions continue, and whether the departed discontinuation notices stay gone.
