@@ -421,6 +421,48 @@
    "drug": "Dextrose Monohydrate, Sodium Chloride, Sodium Lactate, Calcium Chloride, Magnesium Chloride Solution",
    "kind": "new",
    "to": "discontinuing"
+  },
+  {
+   "date": "2026-09-12",
+   "drug": "Lidocaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 4
+  },
+  {
+   "date": "2026-09-12",
+   "drug": "Atropine Sulfate Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-09-12",
+   "drug": "Sodium Bicarbonate Injection",
+   "kind": "availability",
+   "count": 6
+  },
+  {
+   "date": "2026-09-12",
+   "drug": "Dextrose Monohydrate 50% Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-09-12",
+   "drug": "Gemcitabine Hydrochloride Injection",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-09-12",
+   "drug": "Oxycodone Hydrochloride Oral Solution",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-09-12",
+   "drug": "Homatropine Methylbromide and Hydrocodone Bitartrate Syrup",
+   "kind": "removed",
+   "from": "discontinuing"
   }
  ]
 }
