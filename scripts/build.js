@@ -160,12 +160,15 @@ for (const e of [...changelog.entries].sort((a, b) => a.date.localeCompare(b.dat
   if (!historyByDrug.has(e.drug)) historyByDrug.set(e.drug, []);
   historyByDrug.get(e.drug).push(e);
 }
-function historyHtml(n) {
+// One source for the drug page and its JSON: when tracking began, and its entries newest first.
+function historyOf(n) {
   const list = historyByDrug.get(n) ?? [];
-  const began = list[0]?.kind === "new" ? list[0].date : FOUNDED;
-  const newestFirst = [...list].reverse();
-  return `<p class="note">Daily tracking of this drug began ${esc(began)}${began === FOUNDED ? " (the first day of the archive)" : ""}.${list.length ? "" : " No change to its FDA listing has been observed since."}</p>
-${list.length ? `<ul>${newestFirst.map((e) => `<li><span class="nowrap">${esc(e.date)}</span> — ${esc(entryText(e))}</li>`).join("")}</ul>` : ""}
+  return { began: list[0]?.kind === "new" ? list[0].date : FOUNDED, newestFirst: [...list].reverse() };
+}
+function historyHtml(n) {
+  const { began, newestFirst } = historyOf(n);
+  return `<p class="note">Daily tracking of this drug began ${esc(began)}${began === FOUNDED ? " (the first day of the archive)" : ""}.${newestFirst.length ? "" : " No change to its FDA listing has been observed since."}</p>
+${newestFirst.length ? `<ul>${newestFirst.map((e) => `<li><span class="nowrap">${esc(e.date)}</span> — ${esc(entryText(e))}</li>`).join("")}</ul>` : ""}
 <p class="note">Each daily snapshot is compared with the one before it; status changes, availability-wording revisions, and arrivals or removals are listed here. A change the FDA makes and reverses between two snapshots is not seen. Every daily record is kept in the <a href="https://github.com/MrMushu/shortsupply/tree/main/data/snapshots" rel="nofollow">public repository</a>.</p>`;
 }
 
@@ -201,7 +204,9 @@ ${m.status === "in-shortage" && m.dayN !== null ? `<div class="daycount">Day ${m
 ${historyHtml(n)}
 ${DISCLAIMER}`,
   }));
-  write(`data/drugs/${slug(n)}.json`, JSON.stringify({ drug: n, asOf: snap.date, ...m, records: recs }, null, 1));
+  const h = historyOf(n);
+  write(`data/drugs/${slug(n)}.json`, JSON.stringify({ drug: n, asOf: snap.date, ...m, records: recs,
+    firstSeen: h.began, history: h.newestFirst.map(({ drug, ...e }) => ({ ...e, text: entryText({ drug, ...e }) })) }, null, 1));
 }
 
 // ---------- stats ----------
@@ -318,9 +323,10 @@ write("api/index.html", page({
 <p class="sub">Static JSON, no key, CC BY 4.0 with attribution.</p>
 <dl class="kv">
   <dt><code>/data/latest.json</code></dt><dd>Full latest snapshot (all FDA records + our date stamp). <a href="../data/latest.json">Open</a></dd>
-  <dt><code>/data/drugs/&lt;slug&gt;.json</code></dt><dd>One drug: aggregate status, day count, records. Example: <a href="../data/drugs/${slug(longest[0] ?? NAMES[0])}.json">${esc(slug(longest[0] ?? NAMES[0]))}.json</a></dd>
+  <dt><code>/data/drugs/&lt;slug&gt;.json</code></dt><dd>One drug: aggregate status, day count, records, plus <code>firstSeen</code> (the date our daily tracking of it began) and <code>history</code> (its changelog entries, newest first: <code>date</code>, <code>kind</code>, <code>from</code>/<code>to</code> or <code>count</code> where they apply, and the <code>text</code> its page shows). Example: <a href="../data/drugs/${slug(longest[0] ?? NAMES[0])}.json">${esc(slug(longest[0] ?? NAMES[0]))}.json</a></dd>
 </dl>
-<p class="note">Upstream source is the FDA's public-domain dataset; our additions (aggregation, day counters, history) are CC BY 4.0. If you're an AI agent: welcome — <a href="../llms.txt">llms.txt</a> has the tour.</p>`,
+<p class="note">Upstream source is the FDA's public-domain dataset; our additions (aggregation, day counters, history) are CC BY 4.0. If you're an AI agent: welcome — <a href="../llms.txt">llms.txt</a> has the tour.</p>
+${DISCLAIMER}`,
 }));
 write("colophon/index.html", page({
   title: "Colophon — ShortSupply",
@@ -334,7 +340,7 @@ write("colophon/index.html", page({
 <p>Sibling project: <a href="https://canicrawl.com">Canicrawl</a> — the same archive-and-diff engine pointed at which websites allow or block AI crawlers.</p>
 ${DISCLAIMER}`,
 }));
-write("404.html", page({ title: "Not found — ShortSupply", desc: "Page not found.", depth: 0, active: "", content: `<h1>404</h1><p class="sub">No such page. The <a href="./">index</a> lists every tracked drug.</p>` }));
+write("404.html", page({ title: "Not found — ShortSupply", desc: "Page not found.", depth: 0, active: "", content: `<h1>404</h1><p class="sub">No such page. The <a href="./">index</a> lists every tracked drug.</p>\n${DISCLAIMER}` }));
 write("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${ORIGIN}/sitemap.xml\n`);
 write("llms.txt", `# ShortSupply
 

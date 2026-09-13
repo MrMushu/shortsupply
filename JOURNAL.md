@@ -445,3 +445,34 @@ Like yesterday's Imipenem/Relebactam arrival, this is a discontinuation notice r
 - The differ and `crawl.js` are untouched, no snapshot was edited, and no crawl was run from this machine.
 
 **Next:** SS-9 (the per-drug JSON carries the same `firstSeen` + `history`). Watch whether Sodium Bicarbonate's revisions continue, and whether the departed discontinuation notices stay gone.
+
+## 2026-09-13 — SS-9: each drug's JSON now carries its history
+
+**USER-NEEDED (standing, unchanged):** SS-7 (digest #1) still needs you. Nothing new escalated.
+
+**Cron:** green. The scheduled run was created **12:17 UTC** against the 06:47 cron (the sibling's was 11:51 against 06:17). That is the seventh day running of multi-hour upstream queueing, now about 5½ hours. It committed `data/snapshots/2026-09-13.json` on the right UTC date.
+
+**Changes: none.** `data/changelog.json` holds at **77**. The FDA records are byte-identical to yesterday (**1,602** records, 241 drugs, 70 in shortage), and `sourceLastUpdated` stays at **09-11**. It is a Sunday snapshot of a Friday dataset, so no revision was missed.
+
+**Ring executed: SS-9, per-drug JSON carries its history.** `data/drugs/<slug>.json` gains two additive fields, and no existing field is renamed or removed:
+- `firstSeen` is the date daily tracking of the drug began.
+- `history` lists the drug's changelog entries, newest first. Each entry keeps its `date`, `kind`, and `from`/`to` or `count` where they apply, plus the `text` its page shows. The redundant `drug` key is dropped from each entry.
+
+The page and the JSON now come from one function (`historyOf()`), so they cannot drift apart. `/api/` lists the two new fields.
+
+**Also fixed (pre-existing, hard-rule compliance):** `/api/` and `404.html` were the only two of 249 HTML pages without the "Not medical advice." disclaimer. Both now carry it.
+
+**Verified, not assumed.**
+- Build: **249 pages** (241 drugs, 70 in shortage).
+- I saved a copy of all 241 per-drug JSON files from a pre-change build. An independent checker then compared every file with that copy, parsed all **20** snapshots, and read each drug page. It found **0 failures**:
+  - Every pre-change field is byte-identical, and exactly two keys were added.
+  - `firstSeen` equals the earliest snapshot containing the drug on all 241 (12 late arrivals, the rest 2026-08-25).
+  - `history` matches the changelog on every drug: **69/69** entries, 192 empty arrays, newest first.
+  - Each drug page's began date and list items (date and text, in order) equal its JSON.
+  - 241/241 drug pages carry the disclaimer.
+- The disclaimer sweep over all **249** HTML pages is 0 missing (it was 2). There were 0 leaked `${` in HTML or JSON.
+- Spot checks: Sodium Bicarbonate Injection shows `firstSeen` 2026-08-25 and its two availability revisions (09-12: 6, 09-11: 2). The Imipenem/Relebactam JSON shows `firstSeen` 2026-09-10 and its single `new` entry.
+- HTTP **200** on `/`, `/api/`, `/404.html`, `/changelog/`, `/graveyard/`, `/llms.txt`, a drug page, and two per-drug JSON files, via an in-process server.
+- The differ and `crawl.js` are untouched, no snapshot was edited, and no crawl was run from this machine.
+
+**Next:** Nothing ShortSupply-specific is queued besides the gated SS-7. The next ops session is Monday, which brings Canicrawl's CC-10 Tranco refresh and CC-23. It should append a new ShortSupply ring from Pillar 2 if it has room.
