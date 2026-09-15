@@ -463,6 +463,54 @@
    "drug": "Homatropine Methylbromide and Hydrocodone Bitartrate Syrup",
    "kind": "removed",
    "from": "discontinuing"
+  },
+  {
+   "date": "2026-09-15",
+   "drug": "Heparin Sodium Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-09-15",
+   "drug": "Sterile Water Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-15",
+   "drug": "Hydromorphone Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-15",
+   "drug": "Midazolam Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-15",
+   "drug": "Dopamine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-15",
+   "drug": "Meperidine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-15",
+   "drug": "Micafungin Sodium Injection",
+   "kind": "new",
+   "to": "discontinuing"
+  },
+  {
+   "date": "2026-09-15",
+   "drug": "Sufentanil Citrate Injection",
+   "kind": "availability",
+   "count": 1
   }
  ]
 }
