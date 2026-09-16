@@ -511,6 +511,12 @@
    "drug": "Sufentanil Citrate Injection",
    "kind": "availability",
    "count": 1
+  },
+  {
+   "date": "2026-09-16",
+   "drug": "Carboplatin Injection",
+   "kind": "availability",
+   "count": 1
   }
  ]
 }
