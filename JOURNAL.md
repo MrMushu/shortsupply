@@ -476,3 +476,32 @@ The page and the JSON now come from one function (`historyOf()`), so they cannot
 - The differ and `crawl.js` are untouched, no snapshot was edited, and no crawl was run from this machine.
 
 **Next:** Nothing ShortSupply-specific is queued besides the gated SS-7. The next ops session is Monday, which brings Canicrawl's CC-10 Tranco refresh and CC-23. It should append a new ShortSupply ring from Pillar 2 if it has room.
+
+## 2026-09-16 — SS-10: /about/ explains how history is recorded
+
+**USER-NEEDED (standing, unchanged):** SS-7 (digest #1) still needs you. Nothing new escalated.
+
+**Cron:** green. The 09-15 and 09-16 scheduled runs were created at **12:08** and **12:04 UTC** (cron 06:47), so upstream queueing is still about 5¼ hours. Both committed their snapshot on the right UTC date. No ops session ran on 09-15.
+
+**Changes.** The changelog went from 77 → **86**.
+- **09-15:** Micafungin Sodium Injection arrived as `new` → *discontinuing*. There were availability revisions on seven drugs: Heparin Sodium Injection (2), plus Sterile Water, Hydromorphone, Midazolam, Dopamine, Meperidine and Sufentanil injections (1 each). `sourceLastUpdated` → 09-15. That is the first dataset revision since 09-11.
+- **09-16:** one availability revision (Carboplatin Injection).
+- The snapshot now has 1,607 records and 242 drugs, with 70 in shortage.
+
+**Ring executed: SS-10.** `/about/` gains a "How history is recorded" section, placed between Methodology and Who runs this. It covers:
+- the daily snapshot-vs-previous-day diff and its four entry kinds (new, status, availability, removed), which I checked against `crawl.js`
+- that a change made and reverted within one day leaves no trace
+- that the FDA's "last updated" can lag the records, so changes are dated by the first snapshot showing them
+- that tracking began on `${FOUNDED}` (renders 2026-08-25), with later arrivals tracked from first appearance
+- a link to `/api/` for `firstSeen`/`history`
+
+The wording is calm and factual, and the disclaimer is untouched.
+
+**Verified.**
+- Build: **250 pages** (242 drugs).
+- `dist/about/index.html` contains the heading (1), "Tracking began on 2026-08-25", the `../api/` link, and the disclaimer, with 0 leaked `${`.
+- A disclaimer sweep over all 250 HTML pages found 0 missing.
+- HTTP 200 on `/`, `/about/`, `/api/`, `/changelog/` via an in-process server over `dist/`.
+- No crawl was run and no snapshot was touched.
+
+**Next:** SS-11 (queued today). ShortSupply's `llms.txt` doesn't yet mention `firstSeen`/`history`, so it gets one additive line.
