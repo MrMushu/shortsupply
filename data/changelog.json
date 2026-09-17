@@ -517,6 +517,78 @@
    "drug": "Carboplatin Injection",
    "kind": "availability",
    "count": 1
+  },
+  {
+   "date": "2026-09-17",
+   "drug": "Dextrose Monohydrate 5% Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-17",
+   "drug": "Midazolam Hydrochloride Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-09-17",
+   "drug": "Amphetamine Aspartate Monohydrate, Amphetamine Sulfate, Dextroamphetamine Saccharate, Dextroamphetamine Sulfate Tablet",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-17",
+   "drug": "Hydromorphone Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-17",
+   "drug": "Lidocaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-17",
+   "drug": "Desmopressin Acetate Spray",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-17",
+   "drug": "Methylphenidate Hydrochloride Tablet, Extended Release",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-09-17",
+   "drug": "Epinephrine Bitartrate, Lidocaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-17",
+   "drug": "Fentanyl Citrate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-17",
+   "drug": "Methotrexate Sodium Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-17",
+   "drug": "Morphine Sulfate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-17",
+   "drug": "Melphalan Hydrochloride Injection",
+   "kind": "new",
+   "to": "discontinuing"
   }
  ]
 }
