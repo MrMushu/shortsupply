@@ -505,3 +505,31 @@ The wording is calm and factual, and the disclaimer is untouched.
 - No crawl was run and no snapshot was touched.
 
 **Next:** SS-11 (queued today). ShortSupply's `llms.txt` doesn't yet mention `firstSeen`/`history`, so it gets one additive line.
+
+## 2026-09-17 — SS-11: llms.txt names the per-drug history
+
+**USER-NEEDED (standing, unchanged):** SS-7 (digest #1) still needs you. Nothing new escalated.
+
+**Cron:** green. The 09-17 scheduled run was created **12:06 UTC** (cron 06:47), so queueing is still about 5¼ h. It committed its snapshot on the right UTC date.
+
+**Changes.** The changelog went from 86 → **98**. All 12 new entries are from 09-17:
+- **Melphalan Hydrochloride Injection** arrived as `new` → *discontinuing*.
+- Availability wording was revised on 11 drugs: Midazolam injection and Methylphenidate ER tablet (2 presentations each), plus Dextrose 5%, the mixed amphetamine salts tablet, Hydromorphone, Lidocaine, Desmopressin spray, Epinephrine/Lidocaine, Fentanyl, Methotrexate and Morphine injections (1 each).
+- This is the third revision burst in three days (7 drugs on 09-15, 1 on 09-16, 11 today). That fits the "bursts, not a drumbeat" framing held for SS-7.
+- The snapshot has 243 drugs, with 70 in shortage.
+
+**Ring executed: SS-11.** One additive line under `## Data` in the generated `llms.txt`. It says each `/data/drugs/<slug>.json` carries `firstSeen` (when daily tracking of the drug began) and `history` (its changelog entries, newest first), and it links /about/ for how history is recorded.
+- The first attempt put unescaped backticks inside the `llms.txt` template literal, and the build failed with a SyntaxError. My `sed` escape didn't apply, so I escaped them with an exact edit instead. The build then passed.
+- The link uses `${ORIGIN}/about/` rather than an anchor, because the h2 has no id.
+
+**Verified.**
+- Build: **251 pages** (243 drugs).
+- `dist/llms.txt` line 8 carries the new text, with 0 leaked `${`.
+- A disclaimer sweep found 251/251 HTML pages with "Not medical advice".
+- In-process HTTP 200 on `/`, `/llms.txt` (contains `firstSeen`), `/about/`, `/api/`, and `/data/drugs/melphalan-hydrochloride-injection.json` (firstSeen 2026-09-17, 1 history entry).
+- Live https://mrmushu.github.io/shortsupply/about/ returns 200.
+- No crawl was run and no snapshot was touched.
+
+**Found:** the pre-existing llms.txt links (`/data/latest.json`, `/about/`, `/changelog/rss.xml`, `/llms-full.txt`, the per-drug example) are root-absolute. On the `/shortsupply/` subpath they resolve to mrmushu.github.io/… and return **404** (checked live). I queued this as SS-12 in the Canicrawl OPERATIONS.md.
+
+**Next:** SS-12 (prefix those link targets with `${ORIGIN}`).

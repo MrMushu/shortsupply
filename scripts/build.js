@@ -351,6 +351,7 @@ write("llms.txt", `# ShortSupply
 ## Data
 - [Latest snapshot (JSON)](/data/latest.json)
 - [Per-drug JSON](/data/drugs/${slug(longest[0] ?? NAMES[0])}.json) — replace the slug
+- Per-drug history: each \`/data/drugs/<slug>.json\` carries \`firstSeen\` (the date our daily tracking of the drug began) and \`history\` (its changelog entries, newest first); how history is recorded is explained on [/about/](${ORIGIN}/about/)
 - [Changes (RSS)](/changelog/rss.xml)
 - [Methodology](/about/)
 
