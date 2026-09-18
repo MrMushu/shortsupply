@@ -589,6 +589,12 @@
    "drug": "Melphalan Hydrochloride Injection",
    "kind": "new",
    "to": "discontinuing"
+  },
+  {
+   "date": "2026-09-18",
+   "drug": "Rocuronium Bromide Injection",
+   "kind": "availability",
+   "count": 1
   }
  ]
 }
