@@ -595,6 +595,24 @@
    "drug": "Rocuronium Bromide Injection",
    "kind": "availability",
    "count": 1
+  },
+  {
+   "date": "2026-09-19",
+   "drug": "Rivastigmine Film, Extended Release",
+   "kind": "new",
+   "to": "discontinuing"
+  },
+  {
+   "date": "2026-09-19",
+   "drug": "Fluphenazine Hydrochloride Tablet",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-09-19",
+   "drug": "Desonide Lotion",
+   "kind": "removed",
+   "from": "discontinuing"
   }
  ]
 }
