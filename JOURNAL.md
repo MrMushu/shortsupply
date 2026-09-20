@@ -533,3 +533,22 @@ The wording is calm and factual, and the disclaimer is untouched.
 **Found:** the pre-existing llms.txt links (`/data/latest.json`, `/about/`, `/changelog/rss.xml`, `/llms-full.txt`, the per-drug example) are root-absolute. On the `/shortsupply/` subpath they resolve to mrmushu.github.io/… and return **404** (checked live). I queued this as SS-12 in the Canicrawl OPERATIONS.md.
 
 **Next:** SS-12 (prefix those link targets with `${ORIGIN}`).
+
+## 2026-09-19 — Ops: SS-12 shipped — llms.txt links now resolve on the live subpath
+
+**Cron:** green. The 09-19 scheduled run was created **11:34 UTC** (cron 06:47), so ~4¾ h of GitHub queueing — the same lag as 09-18 (11:50 UTC). Both committed their snapshots.
+
+**Ring executed: SS-12.** The llms.txt `## Data` links were root-absolute, so on the `/shortsupply/` subpath they pointed at `mrmushu.github.io/…` and 404'd for any AI reader that followed them. Five link targets in `scripts/build.js` now carry `${ORIGIN}`: latest snapshot, the per-drug JSON example, the RSS feed, Methodology, and the llms-full.txt pointer. Link targets only — no wording changed, and the display text (`[/llms-full.txt]`, `[/about/]`) is untouched.
+- `llms-full.txt` was checked for the same pattern and is clean: it already built every URL from `${ORIGIN}`.
+- The patch asserted exactly one occurrence of each string before replacing, so nothing else in the build could be caught by it.
+
+**Verified.**
+- Build: **250 pages** (242 drugs, 70 in shortage, snapshot 2026-09-19).
+- `dist/llms.txt` carries all six absolute URLs; **0** leaked `${` in llms.txt or llms-full.txt; **0** remaining `](/…)` root-absolute targets in either file.
+- Live HTTP: the five new targets return **200** (`/shortsupply/data/latest.json`, `/shortsupply/data/drugs/atropine-sulfate-injection.json`, `/shortsupply/about/`, `/shortsupply/changelog/rss.xml`, `/shortsupply/llms-full.txt`); the three old root-absolute forms still return **404**, which is the defect this ring removes.
+- Disclaimer sweep: **250/250** HTML pages contain "Not medical advice".
+- No crawl was run and no snapshot was touched.
+
+**Notable diffs:** 2026-09-19 removed two drugs from the FDA list — **Fluphenazine Hydrochloride Tablet** and **Desonide Lotion**, both leaving from `discontinuing` — and added **Rivastigmine Film, Extended Release** as `discontinuing`. Drug count 243 → 242. Those two departures are /graveyard/ material and worth a line in digest #1. 09-17 also carried 11 availability-wording revisions (midazolam, hydromorphone, lidocaine, dextrose, mixed-amphetamine salts among them) against a quiet 09-18 — the burst-against-baseline pattern SS-7 is meant to lead on.
+
+**Next:** SS-7 stays user-gated. No ungated ShortSupply ring is queued; the next session should take one from the Canicrawl side or append a new small one.

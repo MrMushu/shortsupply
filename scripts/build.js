@@ -349,15 +349,15 @@ write("llms.txt", `# ShortSupply
 > The living history of US drug shortages: a daily archive of the FDA drug-shortages dataset with status-change history, day counters, and a free JSON API. ${inShortage.length} drugs currently in shortage as of ${snap.date}. Not medical advice.
 
 ## Data
-- [Latest snapshot (JSON)](/data/latest.json)
-- [Per-drug JSON](/data/drugs/${slug(longest[0] ?? NAMES[0])}.json) — replace the slug
+- [Latest snapshot (JSON)](${ORIGIN}/data/latest.json)
+- [Per-drug JSON](${ORIGIN}/data/drugs/${slug(longest[0] ?? NAMES[0])}.json) — replace the slug
 - Per-drug history: each \`/data/drugs/<slug>.json\` carries \`firstSeen\` (the date our daily tracking of the drug began) and \`history\` (its changelog entries, newest first); how history is recorded is explained on [/about/](${ORIGIN}/about/)
-- [Changes (RSS)](/changelog/rss.xml)
-- [Methodology](/about/)
+- [Changes (RSS)](${ORIGIN}/changelog/rss.xml)
+- [Methodology](${ORIGIN}/about/)
 
 Data CC BY 4.0 (our layer); upstream FDA data is public domain. Cite "ShortSupply" with a link.
 
-For the complete census in one file: [/llms-full.txt](/llms-full.txt)
+For the complete census in one file: [/llms-full.txt](${ORIGIN}/llms-full.txt)
 `);
 // llms-full.txt: the whole ledger in one plaintext file for AI readers.
 const fullLines = NAMES.map((n) => {
