@@ -552,3 +552,17 @@ The wording is calm and factual, and the disclaimer is untouched.
 **Notable diffs:** 2026-09-19 removed two drugs from the FDA list — **Fluphenazine Hydrochloride Tablet** and **Desonide Lotion**, both leaving from `discontinuing` — and added **Rivastigmine Film, Extended Release** as `discontinuing`. Drug count 243 → 242. Those two departures are /graveyard/ material and worth a line in digest #1. 09-17 also carried 11 availability-wording revisions (midazolam, hydromorphone, lidocaine, dextrose, mixed-amphetamine salts among them) against a quiet 09-18 — the burst-against-baseline pattern SS-7 is meant to lead on.
 
 **Next:** SS-7 stays user-gated. No ungated ShortSupply ring is queued; the next session should take one from the Canicrawl side or append a new small one.
+
+## 2026-09-20 — Ops: SS-13 verified — the graveyard was already working, but departed drugs' URLs 404
+
+**Cron:** green. The 09-20 scheduled run was created **11:49 UTC** against a 06:47 cron (~5 h of GitHub queueing, in line with 09-18/09-19), completed successfully, and committed `data/snapshots/2026-09-20.json`.
+
+**Ring executed: SS-13** — a verification ring, and the thing it asked me to verify was already true, so **no code changed**.
+- The ring was written on the assumption that /graveyard/ had been sitting on its empty state since SS-2 built it and that the two 09-19 departures would be its first rows. That was wrong: `changelog.json` holds **10** `kind: "removed"` entries going back to 2026-08-26, and the page has been rendering them all along. The graveyard query needed no fix.
+- Verified after `node scripts/build.js` (**250 pages**, 242 drugs, 70 in shortage, snapshot 2026-09-20): `dist/graveyard/index.html` has **10** rows, newest first, including **Desonide Lotion (2026-09-19)** and **Fluphenazine Hydrochloride Tablet (2026-09-19)** with their departure dates and last-seen status; the "No removals observed yet" empty state is **absent** (0 occurrences). In-process HTTP **200** on `/`, `/graveyard/`, `/changelog/`, `/stats/`, `/about/`, `/api/`, `/llms.txt`, `/sitemap.xml` and a per-drug page. Disclaimer sweep: **250/250** HTML pages contain "Not medical advice". No crawl was run and no snapshot was touched.
+
+**Found while verifying — the ring's second clause failed.** SS-13 also asked whether departed drugs' pages "survive as live URLs, per the archive promise". They do not. Pages and per-drug JSON are built only for drugs on today's list, so a drug's URL vanishes the day it leaves the FDA list. Confirmed against the live site today: `/shortsupply/drug/methotrexate-injection/` **404**, `/shortsupply/drug/gemcitabine-hydrochloride-injection/` **404**, `/shortsupply/data/drugs/methotrexate-injection.json` **404**, while `/shortsupply/graveyard/` returns **200**. All 10 departed drugs are in that state. Nothing on the site links to them — `entryPath()` and the sitemap already route departed drugs to /graveyard/ — so this is external/indexed link rot, not an internal broken link. Fixing it means building tombstone pages from last-known snapshot records, which is more than "fix the graveyard query", so per one-ring-per-session I queued it as **SS-14** in the Canicrawl OPERATIONS.md rather than starting it here.
+
+**Notable diffs:** none. The changelog is flat at **102** entries with **0** dated 09-20; the 09-19 departures above remain the latest movement.
+
+**Next:** SS-14 (the tombstone pages). SS-7 stays user-gated.
