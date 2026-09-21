@@ -160,6 +160,19 @@ for (const e of [...changelog.entries].sort((a, b) => a.date.localeCompare(b.dat
   if (!historyByDrug.has(e.drug)) historyByDrug.set(e.drug, []);
   historyByDrug.get(e.drug).push(e);
 }
+// Departed drugs (removed and not back on today's list) keep their URL as a last-known archive page,
+// built from the last snapshot that still listed them. They stay out of every count and stat.
+const SNAP_DATES = fs.readdirSync(path.join(ROOT, "data/snapshots")).filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).map((f) => f.slice(0, 10)).sort();
+const departed = new Map(); // name -> { removedOn, lastSeen, recs }
+const snapCache = new Map();
+for (const e of changelog.entries) {
+  if (e.kind !== "removed" || meta[e.drug]) continue;
+  const lastSeen = SNAP_DATES.filter((d) => d < e.date).pop();
+  if (!lastSeen) continue;
+  if (!snapCache.has(lastSeen)) snapCache.set(lastSeen, groupByDrug(JSON.parse(fs.readFileSync(path.join(ROOT, `data/snapshots/${lastSeen}.json`), "utf8")).records));
+  const recs = snapCache.get(lastSeen)[e.drug];
+  if (recs) departed.set(e.drug, { removedOn: e.date, lastSeen, recs });
+}
 // One source for the drug page and its JSON: when tracking began, and its entries newest first.
 function historyOf(n) {
   const list = historyByDrug.get(n) ?? [];
@@ -173,12 +186,13 @@ ${newestFirst.length ? `<ul>${newestFirst.map((e) => `<li><span class="nowrap">$
 }
 
 // ---------- per-drug pages + JSON ----------
+const recRowsHtml = (recs) => recs.map((r) => `<tr><td>${esc(r.presentation ?? "—")}</td><td>${esc(r.company_name ?? "—")}</td>
+<td><span class="chip ${/available/i.test(r.availability ?? "") && !/not|un/i.test(r.availability ?? "") ? "available" : /unavailable|not/i.test(r.availability ?? "") ? "unavailable" : "other"}">${esc(r.availability ?? "unknown")}</span></td>
+<td class="nowrap cat">${esc(r.update_date ?? "—")}</td></tr>`).join("\n");
 for (const n of NAMES) {
   const m = meta[n];
   const recs = drugs[n];
-  const recRows = recs.map((r) => `<tr><td>${esc(r.presentation ?? "—")}</td><td>${esc(r.company_name ?? "—")}</td>
-<td><span class="chip ${/available/i.test(r.availability ?? "") && !/not|un/i.test(r.availability ?? "") ? "available" : /unavailable|not/i.test(r.availability ?? "") ? "unavailable" : "other"}">${esc(r.availability ?? "unknown")}</span></td>
-<td class="nowrap cat">${esc(r.update_date ?? "—")}</td></tr>`).join("\n");
+  const recRows = recRowsHtml(recs);
   const title = m.status === "in-shortage"
     ? `${n} shortage: day ${m.dayN?.toLocaleString("en-US") ?? "?"} — ShortSupply`
     : `${n} — ${statusLabel[m.status]} — ShortSupply`;
@@ -243,8 +257,8 @@ ${DISCLAIMER}`,
 }));
 
 // ---------- changelog + rss ----------
-// Drug pages exist only for drugs on today's list; a departed drug's entries point to the graveyard.
-const entryPath = (e) => (meta[e.drug] ? `drug/${slug(e.drug)}/` : "graveyard/");
+// Drugs on today's list and departed drugs with a last-known archive page link to their page; anything else to the graveyard.
+const entryPath = (e) => (meta[e.drug] || departed.has(e.drug) ? `drug/${slug(e.drug)}/` : "graveyard/");
 const entriesDesc = [...changelog.entries].reverse();
 const byDate = new Map();
 for (const e of entriesDesc) { if (!byDate.has(e.date)) byDate.set(e.date, []); byDate.get(e.date).push(e); }
@@ -289,11 +303,43 @@ write("graveyard/index.html", page({
 <h1>The graveyard</h1>
 <p class="sub">When a drug leaves the FDA's shortage list, it simply vanishes — no announcement, no record. Our daily diff catches every departure and keeps it here, with the last status we saw. Departures accumulate as daily snapshots diverge.</p>
 ${removedEntries.length
-    ? `<div class="tablewrap"><table><thead><tr><th>Drug</th><th>Removed on</th><th>Last seen status</th></tr></thead><tbody>${[...removedEntries].reverse().map((e) => `<tr><td class="drug">${esc(e.drug)}</td><td class="nowrap">${esc(e.date)}</td><td><span class="chip ${e.from}">${statusLabel[e.from] ?? esc(e.from)}</span></td></tr>`).join("")}</tbody></table></div>`
+    ? `<div class="tablewrap"><table><thead><tr><th>Drug</th><th>Removed on</th><th>Last seen status</th></tr></thead><tbody>${[...removedEntries].reverse().map((e) => `<tr><td class="drug">${departed.has(e.drug) ? `<a href="../drug/${slug(e.drug)}/">${esc(e.drug)}</a>` : esc(e.drug)}</td><td class="nowrap">${esc(e.date)}</td><td><span class="chip ${e.from}">${statusLabel[e.from] ?? esc(e.from)}</span></td></tr>`).join("")}</tbody></table></div>`
     : `<p class="note">No removals observed yet — tracking began ${esc(snap.date)}. The first quiet disappearance will appear here the day it happens.</p>`}
 <p class="note">Full last-known records for departed drugs remain in the committed daily snapshots in the <a href="https://github.com/MrMushu/shortsupply/tree/main/data/snapshots" rel="nofollow">public repository</a>.</p>
 ${DISCLAIMER}`,
 }));
+
+// ---------- departed drugs: last-known archive pages (kept out of counts, stats and the sitemap) ----------
+for (const [n, d] of departed) {
+  const status = drugStatus(d.recs);
+  const companies = [...new Set(d.recs.map((r) => r.company_name).filter(Boolean))];
+  const cat = d.recs.find((r) => r.therapeutic_category?.length)?.therapeutic_category[0] ?? "Other";
+  write(`drug/${slug(n)}/index.html`, page({
+    title: `${n} — removed from the FDA shortage list ${d.removedOn} (archive) — ShortSupply`,
+    desc: `${n} left the FDA drug-shortage list on ${d.removedOn}; last seen ${statusLabel[status] ?? status} on ${d.lastSeen}. Last-known FDA record, kept as an archive.`,
+    depth: 2, active: "Graveyard",
+    content: `
+<a class="crumb" href="../../graveyard/">← the graveyard</a>
+<h1>${esc(n)}</h1>
+<p class="sub"><span class="chip other">no longer on the FDA list</span> · ${esc(cat)} <span class="updated">· Removed ${esc(d.removedOn)}</span></p>
+<p class="note">This drug was removed from the FDA's shortage list on <strong>${esc(d.removedOn)}</strong>. The FDA does not say why a listing is removed. What follows is the last record we saw, from the ${esc(d.lastSeen)} snapshot, when its status was <span class="chip ${status}">${statusLabel[status] ?? esc(status)}</span>. It is an archive, not current information, and it is not counted in any figure elsewhere on this site.</p>
+<dl class="kv">
+  <dt>Manufacturers listed (last seen)</dt><dd>${companies.map(esc).join(", ") || "—"}</dd>
+  <dt>Machine-readable</dt><dd><a href="../../data/drugs/${slug(n)}.json">JSON for this drug</a></dd>
+</dl>
+<h2>Presentations as last listed (${d.recs.length})</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Presentation</th><th>Company</th><th>Availability</th><th>Updated</th></tr></thead>
+<tbody>${recRowsHtml(d.recs)}</tbody></table></div>
+<h2>History</h2>
+${historyHtml(n)}
+${DISCLAIMER}`,
+  }));
+  const h = historyOf(n);
+  write(`data/drugs/${slug(n)}.json`, JSON.stringify({ drug: n, departed: true, removedOn: d.removedOn, lastSeen: d.lastSeen,
+    lastSeenStatus: status, cat, companies, records: d.recs,
+    firstSeen: h.began, history: h.newestFirst.map(({ drug, ...e }) => ({ ...e, text: entryText({ drug, ...e }) })) }, null, 1));
+}
 
 // ---------- about, api, misc ----------
 write("about/index.html", page({

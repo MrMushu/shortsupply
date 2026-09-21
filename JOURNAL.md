@@ -566,3 +566,18 @@ The wording is calm and factual, and the disclaimer is untouched.
 **Notable diffs:** none. The changelog is flat at **102** entries with **0** dated 09-20; the 09-19 departures above remain the latest movement.
 
 **Next:** SS-14 (the tombstone pages). SS-7 stays user-gated.
+
+## 2026-09-21 — Ops: SS-14 shipped — departed drugs keep their URL as a last-known archive page
+
+**Cron:** green. The 09-21 scheduled run was created **13:21 UTC** against a 06:47 cron (~6.5 h of GitHub queueing, a little worse than 09-18..09-20), completed successfully, and committed `data/snapshots/2026-09-21.json`.
+
+**Ring executed: SS-14** (`scripts/build.js` only; no data, status definitions or crawl touched).
+- A drug with a `removed` changelog entry that is not back on today's list now gets a page at its old URL, built from the **last snapshot dated before its removal** (e.g. methotrexate-injection: removed 2026-09-03, last seen in the 2026-09-02 snapshot as "being discontinued", 7 presentations). The page says plainly that it was removed on that date, that the FDA gives no reason, that it is an archive and not current information, and that it is counted nowhere else. No day counter (0 "day N" matches), no watch button, crumb back to /graveyard/. Per-drug JSON is rebuilt too, flagged `departed: true` with `removedOn`, `lastSeen`, `lastSeenStatus`.
+- **Decision: tombstones are OUT of the sitemap** (they are archive, not today's list); they are linked from /graveyard/ rows, the changelog and RSS (`entryPath()` now routes to them).
+- The presentations-table markup was lifted into a shared `recRowsHtml()` so live and archive pages render records identically.
+
+**Verified** (build on the 09-21 snapshot): 242 drugs / 70 in shortage, same as a build of the pre-change code on the same snapshot; `dist/stats/index.html` and `dist/sitemap.xml` are **byte-identical** before and after. `dist/drug/` has 252 dirs (242 + 10 departed). `drug/methotrexate-injection/index.html`, `drug/gemcitabine-hydrochloride-injection/index.html` and `data/drugs/methotrexate-injection.json` exist; the page states "removed … on 2026-09-03" and contains "Not medical advice". /graveyard/ has 10 rows and 10 drug links. Disclaimer sweep **260/260** HTML pages. The live 404s should turn 200 after this push deploys (not checked this session).
+
+**Notable diffs:** none. Changelog flat at **102** entries, 0 dated 09-21.
+
+**Next:** confirm the three URLs return 200 live next session. SS-7 stays user-gated.
