@@ -581,3 +581,15 @@ The wording is calm and factual, and the disclaimer is untouched.
 **Notable diffs:** none. Changelog flat at **102** entries, 0 dated 09-21.
 
 **Next:** confirm the three URLs return 200 live next session. SS-7 stays user-gated.
+
+## 2026-09-22 — Ops: cron green, SS-14 confirmed live; no ring here (CC-25 ran in the sibling)
+
+**Cron:** green. The 09-22 scheduled run was created **12:03 UTC** against a 06:47 cron (~5.3 h of GitHub queueing, slightly better than 09-21's ~6.5 h). It completed successfully and committed `data/snapshots/2026-09-22.json`; the pull was fast-forward.
+
+**Verified live:** SS-14's departed-drug archive pages deployed. `/shortsupply/drug/methotrexate-injection/`, `/shortsupply/drug/gemcitabine-hydrochloride-injection/` and `/shortsupply/graveyard/` all return **200** (all three were 404 before SS-14).
+
+**Notable diffs:** none. Changelog flat at **102** entries; the last dated entries are 09-19 (Rivastigmine film new → discontinuing; Fluphenazine tablet and Desonide lotion removed).
+
+**Ring:** none in this repo. Today's ring was CC-25 (Canicrawl digest #5). SS-7 (digest #1) stays user-gated.
+
+**Next:** no ungated ShortSupply ring is queued. The next ops session should consider appending one per Pillar 2 (category RSS is the next item on the roadmap) if CC-26 finishes quickly.
