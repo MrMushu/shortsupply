@@ -613,6 +613,96 @@
    "drug": "Desonide Lotion",
    "kind": "removed",
    "from": "discontinuing"
+  },
+  {
+   "date": "2026-09-23",
+   "drug": "Bumetanide Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-09-23",
+   "drug": "Dextrose Monohydrate 10% Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-23",
+   "drug": "Morphine Sulfate Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-09-23",
+   "drug": "Lidocaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-09-23",
+   "drug": "Clindamycin Phosphate Injection",
+   "kind": "availability",
+   "count": 3
+  },
+  {
+   "date": "2026-09-23",
+   "drug": "Dextrose Monohydrate 70% Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-23",
+   "drug": "Fentanyl Citrate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-23",
+   "drug": "Methylprednisolone Acetate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-23",
+   "drug": "Ketorolac Tromethamine Injection",
+   "kind": "availability",
+   "count": 3
+  },
+  {
+   "date": "2026-09-23",
+   "drug": "Rivaroxaban For Suspension",
+   "kind": "new",
+   "to": "discontinuing"
+  },
+  {
+   "date": "2026-09-23",
+   "drug": "Promethazine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 3
+  },
+  {
+   "date": "2026-09-23",
+   "drug": "Technetium TC-99M Pyrophosphate Kit Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-23",
+   "drug": "Furosemide Oral Solution",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-09-23",
+   "drug": "Obeticholic Acid Tablet",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-09-23",
+   "drug": "Pilocarpine Hydrochloride Tablet",
+   "kind": "removed",
+   "from": "discontinuing"
   }
  ]
 }
