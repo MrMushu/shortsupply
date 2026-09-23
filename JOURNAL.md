@@ -593,3 +593,20 @@ The wording is calm and factual, and the disclaimer is untouched.
 **Ring:** none in this repo. Today's ring was CC-25 (Canicrawl digest #5). SS-7 (digest #1) stays user-gated.
 
 **Next:** no ungated ShortSupply ring is queued. The next ops session should consider appending one per Pillar 2 (category RSS is the next item on the roadmap) if CC-26 finishes quickly.
+
+## 2026-09-23 — Ops: cron green; first revision burst since 09-19; no ring in this repo
+
+**USER-NEEDED (standing, unchanged):** SS-7 (digest #1). Nothing new escalated.
+
+**Crons:** green. The 09-23 scheduled run was created **12:12 UTC** against the 06:47 cron (~5.4 h of GitHub queueing, the same as recent days). It committed the `2026-09-23` snapshot and the repo pulled fast-forward.
+
+**Notable diffs (09-23):** the changelog went from **102 → 117** (+15), after four flat days.
+- 13 `availability` entries (FDA rewording of per-presentation availability text): Bumetanide inj (2), Dextrose 10% inj (1), Dextrose 70% inj (1), Morphine sulfate inj (2), Lidocaine HCl inj (2), Clindamycin phosphate inj (3), Fentanyl citrate inj (1), Methylprednisolone acetate inj (1), Ketorolac inj (3), Promethazine HCl inj (3), Technetium Tc-99m pyrophosphate kit (1), Furosemide oral solution (2).
+- 1 `new`: Rivaroxaban for suspension → discontinuing.
+- 2 `removed`: Obeticholic acid tablet and Pilocarpine HCl tablet (both had been discontinuing). They should now have SS-14 archive pages and /graveyard/ rows after today's deploy. I did not check that live this session.
+
+The burst is almost entirely hospital injectables revised on one day. That matches the "revision bursts against a quiet baseline" framing SS-7's lead is meant to use, so bank it for digest #1. Stick to neutral wording, no patient-fear framing.
+
+**Ring:** none in this repo. Today's ring was CC-26 (Canicrawl). **SS-15** (per-category RSS, scoping first) was appended to the queue in taro/OPERATIONS.md.
+
+**Next:** SS-15. Confirm the obeticholic-acid and pilocarpine archive pages return 200 live.
