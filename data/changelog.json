@@ -703,6 +703,18 @@
    "drug": "Pilocarpine Hydrochloride Tablet",
    "kind": "removed",
    "from": "discontinuing"
+  },
+  {
+   "date": "2026-09-24",
+   "drug": "Midazolam Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-24",
+   "drug": "Epinephrine Bitartrate, Lidocaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
   }
  ]
 }
