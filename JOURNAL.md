@@ -610,3 +610,15 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Ring:** none in this repo. Today's ring was CC-26 (Canicrawl). **SS-15** (per-category RSS, scoping first) was appended to the queue in taro/OPERATIONS.md.
 
 **Next:** SS-15. Confirm the obeticholic-acid and pilocarpine archive pages return 200 live.
+
+## 2026-09-24 — Ops: SS-15 closed as already-shipped + disclaimer gap fixed in every RSS feed
+
+**USER-NEEDED:** (1) SS-7 (digest #1), standing. (2) **New, a methodology question from SS-15:** each drug is filed under only the *first* value of FDA's `therapeutic_category` array (`scripts/build.js` line 28). Many records list several categories, e.g. `["Anesthesia","Neurology"]` (27 records) or `["Anesthesia","Pediatric"]` (66 records). So a Neurology or Pediatric feed subscriber misses those drugs, and the stats-page category breakdown counts each drug once. Multi-membership would be more faithful to FDA but would change published category counts. That is your call, not mine, so I have not touched it.
+
+**Cron:** green. The 09-24 scheduled run was created **12:12 UTC** against the 06:47 cron (~5.4 h of queueing, same as all week). It committed the `2026-09-24` snapshot and the repo pulled fast-forward.
+
+**Notable diffs (09-24):** changelog **117 → 119**, both `availability` rewordings: Midazolam HCl injection (1) and Epinephrine bitartrate/lidocaine HCl injection (1). This is a quiet day after 09-23's injectables burst.
+
+**Ring: SS-15 (per-category RSS).** Scoping found that FDA *does* supply a category: every one of the 1,601 records in the 09-24 snapshot has `therapeutic_category`, spelled by FDA. It also found that per-category feeds **already exist**: SS-4 shipped them (commit 36ed7bf), with 24 category feeds plus the main feed, linked from /changelog/. The one gap against SS-15's spec, and against the house rule, was that **no RSS channel description carried the not-medical-advice disclaimer**. I fixed that with a one-constant change in `rssDoc()`, so every feed now carries it. **Verified:** a 249-page build on the 09-24 snapshot. `grep -L "Not medical advice" dist/changelog/rss*.xml` returns nothing across all 25 feeds. `rss-anesthesia.xml` parses as XML (PowerShell `[xml]`) with the disclaimer in `channel.description`. Feed item counts equal the category's changelog entries: Anesthesia **21/21**, Oncology **7/7**, Cardiovascular **11/11**. No crawl was run.
+
+**Next:** SS-16 (link each drug page's category label to its feed), queued in taro/OPERATIONS.md. Confirm the disclaimer is live in /changelog/rss.xml after the push deploys.

@@ -274,12 +274,13 @@ write("changelog/index.html", page({
 ${[...byDate.entries()].map(([d, list]) => `<h2>${esc(d)}</h2><ul>${list.map((e) => `<li>${e.drug ? `<a href="../${entryPath(e)}">` : ""}${esc(entryText(e))}${e.drug ? "</a>" : ""}</li>`).join("")}</ul>`).join("\n")}
 ${DISCLAIMER}`,
 }));
+const RSS_DISCLAIMER = "Not medical advice. ShortSupply republishes the FDA drug-shortage data with history added. Talk to your pharmacist or prescriber about your situation; never change medication based on this feed.";
 function rssDoc(title, desc, items) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"><channel>
 <title>${esc(title)}</title>
 <link>${ORIGIN}/changelog/</link>
-<description>${esc(desc)}</description>
+<description>${esc(desc + " " + RSS_DISCLAIMER)}</description>
 ${items.map((e) => `<item><title>${esc(entryText(e))}</title><link>${ORIGIN}/${e.drug ? entryPath(e) : "stats/"}</link><guid isPermaLink="false">${esc(`${e.date}|${e.drug ?? "index"}|${e.kind}|${e.to ?? ""}`)}</guid><pubDate>${new Date(e.date + "T07:00:00Z").toUTCString()}</pubDate></item>`).join("\n")}
 </channel></rss>
 `;
