@@ -622,3 +622,15 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Ring: SS-15 (per-category RSS).** Scoping found that FDA *does* supply a category: every one of the 1,601 records in the 09-24 snapshot has `therapeutic_category`, spelled by FDA. It also found that per-category feeds **already exist**: SS-4 shipped them (commit 36ed7bf), with 24 category feeds plus the main feed, linked from /changelog/. The one gap against SS-15's spec, and against the house rule, was that **no RSS channel description carried the not-medical-advice disclaimer**. I fixed that with a one-constant change in `rssDoc()`, so every feed now carries it. **Verified:** a 249-page build on the 09-24 snapshot. `grep -L "Not medical advice" dist/changelog/rss*.xml` returns nothing across all 25 feeds. `rss-anesthesia.xml` parses as XML (PowerShell `[xml]`) with the disclaimer in `channel.description`. Feed item counts equal the category's changelog entries: Anesthesia **21/21**, Oncology **7/7**, Cardiovascular **11/11**. No crawl was run.
 
 **Next:** SS-16 (link each drug page's category label to its feed), queued in taro/OPERATIONS.md. Confirm the disclaimer is live in /changelog/rss.xml after the push deploys.
+
+## 2026-09-25 — Ops: SS-16, drug pages link their category RSS feed
+
+**USER-NEEDED (standing):** SS-7 (digest #1), plus the first-category-only filing question from 09-24. Nothing new.
+
+**Cron:** green. The 09-25 scheduled run was created at **12:15 UTC** against the 06:47 cron (queueing about 5.5 h, as all week). It committed the `2026-09-25` snapshot, and the repo pulled fast-forward.
+
+**Notable diffs (09-25):** none. The changelog is flat at **119** entries.
+
+**Ring: SS-16.** In `scripts/build.js`, the category label in each drug page's subtitle now links to `../../changelog/rss-${catSlug(m.cat)}.xml`. The one-line `catSlug` definition moved from just before the per-category feed loop to directly under `CATS`, so the drug-page template can use it without a TDZ error. This is presentation only, with no data or methodology change. **Verified:** `node scripts/build.js` built 249 pages (241 drugs, 70 in shortage, snapshot 2026-09-25). `dist/drug/bupivacaine-hydrochloride-injection/index.html` contains `href="../../changelog/rss-anesthesia.xml"`, and that file exists (7,905 bytes). A loop over every `dist/drug/*/index.html` (253 dirs) found **all 241 live drug pages linking an existing feed**. The remaining 12 are removed-drug archive pages (e.g. methotrexate-injection, obeticholic-acid-tablet) from a separate template, left unlinked for now. The baseline build without the change also produces 253 dirs. The not-medical-advice disclaimer is still on the drug page. No crawl was run.
+
+**Next:** SS-17, which links archive pages to their category feed, but only where that feed is built (it is queued in taro/OPERATIONS.md). Confirm the SS-16 link live on a drug page after deploy.

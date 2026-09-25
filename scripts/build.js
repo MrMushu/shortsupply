@@ -31,6 +31,7 @@ for (const name of NAMES) {
   };
 }
 const CATS = [...new Set(NAMES.map((n) => meta[n].cat))].sort();
+const catSlug = (c) => c.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 const inShortage = NAMES.filter((n) => meta[n].status === "in-shortage");
 const longest = [...inShortage].filter((n) => meta[n].dayN !== null).sort((a, b) => meta[b].dayN - meta[a].dayN);
 const statusLabel = { "in-shortage": "in shortage", discontinuing: "being discontinued", resolved: "resolved" };
@@ -203,7 +204,7 @@ for (const n of NAMES) {
     content: `
 <a class="crumb" href="../../">← all drugs</a>
 <h1>${esc(n)}<button class="watch watch-hero" data-d="${esc(n.toLowerCase())}" aria-label="Watch ${esc(n)}" title="Watch this drug (saved in your browser)">☆</button></h1>
-<p class="sub"><span class="chip ${m.status}">${statusLabel[m.status]}</span> · ${esc(m.cat)} <span class="updated">· Snapshot: ${esc(snap.date)}</span></p>
+<p class="sub"><span class="chip ${m.status}">${statusLabel[m.status]}</span> · <a href="../../changelog/rss-${catSlug(m.cat)}.xml" title="RSS feed of ${esc(m.cat)} shortage changes">${esc(m.cat)}</a> <span class="updated">· Snapshot: ${esc(snap.date)}</span></p>
 ${m.status === "in-shortage" && m.dayN !== null ? `<div class="daycount">Day ${m.dayN.toLocaleString("en-US")}</div><p class="cat">of this shortage, counting from the FDA's first posting on ${esc(m.since)}</p>` : ""}
 <dl class="kv">
   <dt>Manufacturers listed</dt><dd>${m.companies.map(esc).join(", ") || "—"}</dd>
@@ -287,7 +288,6 @@ ${items.map((e) => `<item><title>${esc(entryText(e))}</title><link>${ORIGIN}/${e
 }
 write("changelog/rss.xml", rssDoc("ShortSupply — US drug shortage changes", "Daily-detected changes in the FDA drug-shortage list.", entriesDesc.slice(0, 50)));
 // Per-category feeds: subscribe to only the therapeutic area you care about.
-const catSlug = (c) => c.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 for (const c of CATS) {
   const catDrugs = new Set(NAMES.filter((n) => meta[n].cat === c));
   const items = entriesDesc.filter((e) => e.drug && catDrugs.has(e.drug)).slice(0, 50);
