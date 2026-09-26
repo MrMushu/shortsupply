@@ -715,6 +715,36 @@
    "drug": "Epinephrine Bitartrate, Lidocaine Hydrochloride Injection",
    "kind": "availability",
    "count": 1
+  },
+  {
+   "date": "2026-09-26",
+   "drug": "Midazolam Hydrochloride Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-09-26",
+   "drug": "Sodium Bicarbonate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-26",
+   "drug": "Morphine Sulfate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-26",
+   "drug": "Hydromorphone Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-09-26",
+   "drug": "Fentanyl Citrate Injection",
+   "kind": "availability",
+   "count": 2
   }
  ]
 }
