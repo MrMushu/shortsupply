@@ -322,7 +322,7 @@ for (const [n, d] of departed) {
     content: `
 <a class="crumb" href="../../graveyard/">← the graveyard</a>
 <h1>${esc(n)}</h1>
-<p class="sub"><span class="chip other">no longer on the FDA list</span> · ${esc(cat)} <span class="updated">· Removed ${esc(d.removedOn)}</span></p>
+<p class="sub"><span class="chip other">no longer on the FDA list</span> · ${CATS.includes(cat) ? `<a href="../../changelog/rss-${catSlug(cat)}.xml" title="RSS feed of ${esc(cat)} shortage changes">${esc(cat)}</a>` : esc(cat)} <span class="updated">· Removed ${esc(d.removedOn)}</span></p>
 <p class="note">This drug was removed from the FDA's shortage list on <strong>${esc(d.removedOn)}</strong>. The FDA does not say why a listing is removed. What follows is the last record we saw, from the ${esc(d.lastSeen)} snapshot, when its status was <span class="chip ${status}">${statusLabel[status] ?? esc(status)}</span>. It is an archive, not current information, and it is not counted in any figure elsewhere on this site.</p>
 <dl class="kv">
   <dt>Manufacturers listed (last seen)</dt><dd>${companies.map(esc).join(", ") || "—"}</dd>
