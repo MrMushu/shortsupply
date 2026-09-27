@@ -646,3 +646,15 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Ring: SS-17.** On the departed-drug archive template (`scripts/build.js`), the category label now links to `../../changelog/rss-${catSlug(cat)}.xml`, but **only when `CATS.includes(cat)`**. `CATS` is the exact set the per-category feed loop builds, and any other category keeps a plain label. This is presentation only. **Verified:** `node scripts/build.js` built 249 pages (241 drugs, 70 in shortage, snapshot 2026-09-26). A loop over all 253 `dist/drug/*/index.html` counted 241 live and 12 archive pages. **All 12 archive pages now link a feed**, e.g. methotrexate-injection links rss-rheumatology and vecuronium links rss-anesthesia, and **0 links point at a missing file**. The plain-label fallback is untested on real data today because every departed drug's category is still current. The disclaimer is still present on the archive page. Also confirmed that **SS-16 is live**: the deployed bupivacaine page links rss-anesthesia.xml, which returns HTTP 200. No crawl was run.
 
 **Next:** SS-18 (the inline catSlug duplicate on /changelog/, must produce byte-identical output), then SS-19 (llms.txt names the category feeds). Both are queued in taro/OPERATIONS.md.
+
+## 2026-09-27 — Ops: SS-18, one catSlug on /changelog/
+
+**USER-NEEDED (standing):** SS-7 (digest #1), plus the first-category-only filing question from 09-24. Nothing new.
+
+**Cron:** green. The 09-27 run was created at **12:27 UTC** (queueing about 5.5 h). It committed the `2026-09-27` snapshot, and the repo pulled fast-forward.
+
+**Notable diffs (09-27):** none. The changelog stays at **124**.
+
+**Ring: SS-18.** In `scripts/build.js`, the `/changelog/` category-links line (`CATS.map`) now uses `catSlug(c)` instead of re-implementing the slug inline. This is a pure refactor. **Verified:** I saved `dist/changelog/index.html` from a pre-change build (249 pages, 241 drugs, 70 in shortage, snapshot 2026-09-27). After the edit and a rebuild, `cmp` reports it **byte-identical**. There are still 24 `rss-<category>.xml` files plus `rss.xml`. The disclaimer and page content are unchanged. No crawl was run.
+
+**Next:** SS-19 (llms.txt points agents to the per-category feeds).

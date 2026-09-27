@@ -271,7 +271,7 @@ write("changelog/index.html", page({
   content: `
 <h1>Changelog</h1>
 <p class="sub">Every shortage begun, resolved, or quietly removed — detected by daily snapshot diffs. Subscribe via <a href="rss.xml">RSS</a>, or follow just one therapeutic area:</p>
-<p class="cat">${CATS.map((c) => `<a href="rss-${c.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "")}.xml">${esc(c)}</a>`).join(" · ")}</p>
+<p class="cat">${CATS.map((c) => `<a href="rss-${catSlug(c)}.xml">${esc(c)}</a>`).join(" · ")}</p>
 ${[...byDate.entries()].map(([d, list]) => `<h2>${esc(d)}</h2><ul>${list.map((e) => `<li>${e.drug ? `<a href="../${entryPath(e)}">` : ""}${esc(entryText(e))}${e.drug ? "</a>" : ""}</li>`).join("")}</ul>`).join("\n")}
 ${DISCLAIMER}`,
 }));
