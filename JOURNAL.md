@@ -658,3 +658,15 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Ring: SS-18.** In `scripts/build.js`, the `/changelog/` category-links line (`CATS.map`) now uses `catSlug(c)` instead of re-implementing the slug inline. This is a pure refactor. **Verified:** I saved `dist/changelog/index.html` from a pre-change build (249 pages, 241 drugs, 70 in shortage, snapshot 2026-09-27). After the edit and a rebuild, `cmp` reports it **byte-identical**. There are still 24 `rss-<category>.xml` files plus `rss.xml`. The disclaimer and page content are unchanged. No crawl was run.
 
 **Next:** SS-19 (llms.txt points agents to the per-category feeds).
+
+## 2026-09-28 — Ops: SS-19, llms.txt points agents to the category feeds
+
+**USER-NEEDED (standing):** SS-7 (digest #1), plus the first-category-only filing question from 09-24. Nothing new.
+
+**Cron:** green. The 09-28 run was created at **14:29 UTC** (queueing about 7.5 h, up from about 5.5 h). It committed the `2026-09-28` snapshot, and the repo pulled fast-forward.
+
+**Notable diffs (09-28):** none. The changelog stays at **124**.
+
+**Ring: SS-19.** `scripts/build.js` llms.txt `## Data` gained one line, "Per-category RSS: one feed per FDA therapeutic category, listed on [/changelog/](${ORIGIN}/changelog/)", with the example `rss-oncology.xml`, both in the subpath-safe `${ORIGIN}` form. This is additive text only. **Verified:** `node scripts/build.js` built 249 pages (241 drugs, 70 in shortage, snapshot 2026-09-28). The line is present in dist/llms.txt with 0 leaked `${`, and `dist/changelog/rss-oncology.xml` exists. The disclaimer is on every page (0 misses). Live `/shortsupply/changelog/` and `/shortsupply/changelog/rss-oncology.xml` both return HTTP 200. No crawl was run.
+
+**Next:** SS-20 (one sentence on /about/ naming the category feeds; it is queued in taro/OPERATIONS.md).

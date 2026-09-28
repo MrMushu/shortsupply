@@ -400,6 +400,7 @@ write("llms.txt", `# ShortSupply
 - [Per-drug JSON](${ORIGIN}/data/drugs/${slug(longest[0] ?? NAMES[0])}.json) — replace the slug
 - Per-drug history: each \`/data/drugs/<slug>.json\` carries \`firstSeen\` (the date our daily tracking of the drug began) and \`history\` (its changelog entries, newest first); how history is recorded is explained on [/about/](${ORIGIN}/about/)
 - [Changes (RSS)](${ORIGIN}/changelog/rss.xml)
+- Per-category RSS: one feed per FDA therapeutic category, listed on [/changelog/](${ORIGIN}/changelog/) (e.g. [oncology](${ORIGIN}/changelog/rss-oncology.xml))
 - [Methodology](${ORIGIN}/about/)
 
 Data CC BY 4.0 (our layer); upstream FDA data is public domain. Cite "ShortSupply" with a link.
