@@ -745,6 +745,30 @@
    "drug": "Fentanyl Citrate Injection",
    "kind": "availability",
    "count": 2
+  },
+  {
+   "date": "2026-09-30",
+   "drug": "Ivermectin Tablet",
+   "kind": "new",
+   "to": "discontinuing"
+  },
+  {
+   "date": "2026-09-30",
+   "drug": "Fondaparinux Sodium Injection",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-09-30",
+   "drug": "Triazolam Tablet",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-09-30",
+   "drug": "Tafamidis Meglumine Capsule",
+   "kind": "removed",
+   "from": "discontinuing"
   }
  ]
 }
