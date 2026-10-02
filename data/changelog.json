@@ -769,6 +769,37 @@
    "drug": "Tafamidis Meglumine Capsule",
    "kind": "removed",
    "from": "discontinuing"
+  },
+  {
+   "date": "2026-10-02",
+   "drug": "Dexmedetomidine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-02",
+   "drug": "Bumetanide Injection",
+   "kind": "status",
+   "from": "in-shortage",
+   "to": "resolved"
+  },
+  {
+   "date": "2026-10-02",
+   "drug": "Bumetanide Injection",
+   "kind": "availability",
+   "count": 12
+  },
+  {
+   "date": "2026-10-02",
+   "drug": "Oseltamivir Phosphate Capsule",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-10-02",
+   "drug": "Hydrochlorothiazide; Quinapril Hydrochloride Tablet",
+   "kind": "removed",
+   "from": "discontinuing"
   }
  ]
 }
