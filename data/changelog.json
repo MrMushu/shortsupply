@@ -800,6 +800,24 @@
    "drug": "Hydrochlorothiazide; Quinapril Hydrochloride Tablet",
    "kind": "removed",
    "from": "discontinuing"
+  },
+  {
+   "date": "2026-10-03",
+   "drug": "Methylphenidate Hydrochloride Tablet, Extended Release",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-10-03",
+   "drug": "Amphetamine Aspartate Monohydrate, Amphetamine Sulfate, Dextroamphetamine Saccharate, Dextroamphetamine Sulfate Tablet",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-03",
+   "drug": "Technetium TC-99M Pyrophosphate Kit Injection",
+   "kind": "availability",
+   "count": 1
   }
  ]
 }
