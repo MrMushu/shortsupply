@@ -670,3 +670,19 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Ring: SS-19.** `scripts/build.js` llms.txt `## Data` gained one line, "Per-category RSS: one feed per FDA therapeutic category, listed on [/changelog/](${ORIGIN}/changelog/)", with the example `rss-oncology.xml`, both in the subpath-safe `${ORIGIN}` form. This is additive text only. **Verified:** `node scripts/build.js` built 249 pages (241 drugs, 70 in shortage, snapshot 2026-09-28). The line is present in dist/llms.txt with 0 leaked `${`, and `dist/changelog/rss-oncology.xml` exists. The disclaimer is on every page (0 misses). Live `/shortsupply/changelog/` and `/shortsupply/changelog/rss-oncology.xml` both return HTTP 200. No crawl was run.
 
 **Next:** SS-20 (one sentence on /about/ naming the category feeds; it is queued in taro/OPERATIONS.md).
+
+## 2026-10-04 — Ops: cron check and diffs (no ShortSupply ring today)
+
+**USER-NEEDED (standing):** SS-7 (digest #1), plus the first-category-only filing question from 09-24. Nothing new. No ops session ran 09-29 to 10-03, but the cron covered every day.
+
+**Cron:** green every day 09-29 through 10-04. All six snapshots are present, and today's run was created at **12:51 UTC**.
+
+**Notable diffs (09-29 to 10-04):** the changelog went from **124 to 136** (+12).
+- **Bumetanide Injection moved from in-shortage to resolved (10-02)**, alongside 12 availability rewordings on the same drug.
+- Removed from FDA's list: Fondaparinux Sodium inj, Triazolam tab and Tafamidis Meglumine cap (09-30), plus Oseltamivir Phosphate cap and Hydrochlorothiazide/Quinapril tab (10-02). All were `discontinuing` before removal, so the archive keeps them.
+- New: **Ivermectin Tablet, discontinuing (09-30).**
+- Availability text revisions: dexmedetomidine inj (10-02), methylphenidate ER tab ×2, mixed amphetamine salts tab, Tc-99m pyrophosphate kit (10-03). These are FDA text revisions only, and none should be framed around patient fear.
+
+**Ring:** none in this repo today. The session's ring was CC-27 in taro. SS-20 (/about/ names the category feeds) is still queued.
+
+**Next:** SS-20.
