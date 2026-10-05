@@ -686,3 +686,15 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Ring:** none in this repo today. The session's ring was CC-27 in taro. SS-20 (/about/ names the category feeds) is still queued.
 
 **Next:** SS-20.
+
+## 2026-10-05 — Ops: cron check (no ShortSupply ring today)
+
+**USER-NEEDED (standing):** SS-7 (digest #1) and the first-category-only filing question from 09-24. Nothing new.
+
+**Cron:** green. Today's run was created at **15:17 UTC**, and the 2026-10-05 snapshot pulled fast-forward.
+
+**Notable diffs:** none. data/changelog.json holds at **136** entries, with nothing dated 10-04 or 10-05, a quiet two days after the 10-02 burst.
+
+**Ring:** none in this repo. The session's ring was CC-28 (Canicrawl digest #6) in taro.
+
+**Next:** SS-20 (/about/ names the category feeds), which is now first in the queue.
