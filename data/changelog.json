@@ -818,6 +818,12 @@
    "drug": "Technetium TC-99M Pyrophosphate Kit Injection",
    "kind": "availability",
    "count": 1
+  },
+  {
+   "date": "2026-10-06",
+   "drug": "Fluocinonide Ointment",
+   "kind": "new",
+   "to": "discontinuing"
   }
  ]
 }
