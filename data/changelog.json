@@ -824,6 +824,48 @@
    "drug": "Fluocinonide Ointment",
    "kind": "new",
    "to": "discontinuing"
+  },
+  {
+   "date": "2026-10-07",
+   "drug": "Dextrose Monohydrate 5% Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-10-07",
+   "drug": "Midazolam Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-07",
+   "drug": "Furosemide Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-07",
+   "drug": "Lidocaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-10-07",
+   "drug": "Clindamycin Phosphate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-07",
+   "drug": "Ifosfamide Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-07",
+   "drug": "Sterile Water Irrigant",
+   "kind": "availability",
+   "count": 2
   }
  ]
 }
