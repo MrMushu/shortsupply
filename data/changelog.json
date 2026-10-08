@@ -866,6 +866,30 @@
    "drug": "Sterile Water Irrigant",
    "kind": "availability",
    "count": 2
+  },
+  {
+   "date": "2026-10-08",
+   "drug": "Felodipine Tablet, Extended Release",
+   "kind": "new",
+   "to": "discontinuing"
+  },
+  {
+   "date": "2026-10-08",
+   "drug": "Felodipine Tablet, Film Coated, Extended Release",
+   "kind": "new",
+   "to": "discontinuing"
+  },
+  {
+   "date": "2026-10-08",
+   "drug": "Cobicistat Tablet",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-10-08",
+   "drug": "Paricalcitol Capsule",
+   "kind": "removed",
+   "from": "discontinuing"
   }
  ]
 }
