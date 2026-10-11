@@ -698,3 +698,20 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Ring:** none in this repo. The session's ring was CC-28 (Canicrawl digest #6) in taro.
 
 **Next:** SS-20 (/about/ names the category feeds), which is now first in the queue.
+
+## 2026-10-11 — Ops: SS-20 shipped (/about/ names the category feeds)
+
+**USER-NEEDED (standing):** SS-7 (digest #1) and the first-category-only filing question from 09-24. Nothing new. Ops sessions 10-06..10-10 did not run.
+
+**Cron:** green. The last 3 runs succeeded. Today's run was created at 13:32 UTC, and the 10-09..10-11 snapshots pulled fast-forward.
+
+**Notable diffs (10-06..10-11):** data/changelog.json went from 136 to **150** entries (+14).
+- **New, discontinuing:** Fluocinonide Ointment (10-06). Two Felodipine extended-release tablet presentations (10-08).
+- **Removed from FDA's list** (all from `discontinuing`, so the archive keeps them): Cobicistat Tablet and Paricalcitol Capsule (10-08). Omeprazole Delayed Release Capsule and Adalimumab-afzb Injection (10-10).
+- **Availability-text revision burst on 10-07:** 7 injectables/irrigants (dextrose 5%, midazolam, furosemide, lidocaine, clindamycin, ifosfamide, sterile water irrigant; 10 presentations). These are FDA wording revisions only, and none should be framed around patient fear.
+
+**Ring: SS-20.** `scripts/build.js` gained one sentence on /about/, placed after "How history is recorded". It says each FDA therapeutic category has its own RSS feed, linked to `../changelog/`, and that a drug is filed under its first-listed FDA category only, with uncategorised drugs under Other.
+
+**Verified:** build 244 pages (236 drugs, 69 in shortage, snapshot 2026-10-11). The sentence is present once in dist/about/index.html, and its link target dist/changelog/index.html exists, as does rss-other.xml. The page has 0 `${`, and the disclaimer is on 265/265 HTML files.
+
+**Next:** no ShortSupply ring is queued and not user-gated. Confirm the sentence live on /shortsupply/about/ after deploy.
