@@ -715,3 +715,15 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Verified:** build 244 pages (236 drugs, 69 in shortage, snapshot 2026-10-11). The sentence is present once in dist/about/index.html, and its link target dist/changelog/index.html exists, as does rss-other.xml. The page has 0 `${`, and the disclaimer is on 265/265 HTML files.
 
 **Next:** no ShortSupply ring is queued and not user-gated. Confirm the sentence live on /shortsupply/about/ after deploy.
+
+## 2026-10-12 — Ops: no ring here (CC-29 digest #7 shipped in taro)
+
+**USER-NEEDED (standing):** SS-7 (digest #1) and the first-category-only filing question. Nothing new.
+
+**Cron:** green through 10-11. The latest run (push-triggered, 10-11 15:34 UTC) succeeded. **Today's scheduled run had not been created as of ~15:20 UTC.** Recent days queued as late as 15:17, so this is probably late queueing. Next session: confirm the 2026-10-12 snapshot commit exists.
+
+**Verified:** live https://mrmushu.github.io/shortsupply/about/ returns 200 and contains the SS-20 feed sentence, so the 10-11 push deployed.
+
+**Notable diffs:** none new. Nothing to pull; data/changelog.json holds at 150.
+
+**Next:** no ShortSupply ring is queued that isn't user-gated.
