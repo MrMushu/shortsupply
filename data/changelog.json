@@ -902,6 +902,126 @@
    "drug": "Adalimumab-afzb Injection",
    "kind": "removed",
    "from": "discontinuing"
+  },
+  {
+   "date": "2026-10-15",
+   "drug": "Ketorolac Tromethamine Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-10-15",
+   "drug": "Atropine Sulfate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-15",
+   "drug": "Dexmedetomidine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 3
+  },
+  {
+   "date": "2026-10-15",
+   "drug": "Clonazepam Tablet",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-15",
+   "drug": "Dexamethasone Sodium Phosphate Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-10-15",
+   "drug": "Ropivacaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-15",
+   "drug": "Lorazepam Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-15",
+   "drug": "Lidocaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 4
+  },
+  {
+   "date": "2026-10-15",
+   "drug": "Etomidate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-15",
+   "drug": "Bupivacaine Hydrochloride, Epinephrine Bitartrate Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-10-15",
+   "drug": "Methylprednisolone Acetate Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-10-15",
+   "drug": "Sodium Acetate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-15",
+   "drug": "Epinephrine Bitartrate, Lidocaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 3
+  },
+  {
+   "date": "2026-10-15",
+   "drug": "Morphine Sulfate Injection",
+   "kind": "availability",
+   "count": 3
+  },
+  {
+   "date": "2026-10-15",
+   "drug": "Hydromorphone Hydrochloride Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-10-15",
+   "drug": "Rocuronium Bromide Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-10-15",
+   "drug": "Valproate Sodium Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-15",
+   "drug": "Remifentanil Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-15",
+   "drug": "Fentanyl Citrate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-15",
+   "drug": "Propranolol Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
   }
  ]
 }
