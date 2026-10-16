@@ -1022,6 +1022,72 @@
    "drug": "Propranolol Hydrochloride Injection",
    "kind": "availability",
    "count": 1
+  },
+  {
+   "date": "2026-10-16",
+   "drug": "Clonazepam Tablet",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-16",
+   "drug": "Lidocaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-10-16",
+   "drug": "Dexamethasone Sodium Phosphate Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-10-16",
+   "drug": "Epinephrine Bitartrate, Lidocaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-10-16",
+   "drug": "Dexmedetomidine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-16",
+   "drug": "Morphine Sulfate Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-10-16",
+   "drug": "Bupivacaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-16",
+   "drug": "Remifentanil Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-16",
+   "drug": "Sodium Bicarbonate Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-10-16",
+   "drug": "Midazolam Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-16",
+   "drug": "Dextrose Monohydrate 50% Injection",
+   "kind": "availability",
+   "count": 2
   }
  ]
 }
