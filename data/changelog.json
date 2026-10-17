@@ -1088,6 +1088,24 @@
    "drug": "Dextrose Monohydrate 50% Injection",
    "kind": "availability",
    "count": 2
+  },
+  {
+   "date": "2026-10-17",
+   "drug": "Pemetrexed Disodium Injection",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-10-17",
+   "drug": "Vigabatrin Oral Solution",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-10-17",
+   "drug": "Voriconazole Injection",
+   "kind": "removed",
+   "from": "discontinuing"
   }
  ]
 }
