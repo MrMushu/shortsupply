@@ -1268,6 +1268,24 @@
    "drug": "Elbasvir; Grazoprevir Tablet",
    "kind": "removed",
    "from": "discontinuing"
+  },
+  {
+   "date": "2026-10-22",
+   "drug": "Methylprednisolone Acetate Injection",
+   "kind": "availability",
+   "count": 4
+  },
+  {
+   "date": "2026-10-22",
+   "drug": "Clindamycin Phosphate Injection",
+   "kind": "availability",
+   "count": 4
+  },
+  {
+   "date": "2026-10-22",
+   "drug": "Tranylcypromine Sulfate Tablet",
+   "kind": "removed",
+   "from": "discontinuing"
   }
  ]
 }
