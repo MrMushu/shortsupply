@@ -1286,6 +1286,72 @@
    "drug": "Tranylcypromine Sulfate Tablet",
    "kind": "removed",
    "from": "discontinuing"
+  },
+  {
+   "date": "2026-10-23",
+   "drug": "Dexmedetomidine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-23",
+   "drug": "Lidocaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-10-23",
+   "drug": "Sodium Bicarbonate Injection",
+   "kind": "availability",
+   "count": 3
+  },
+  {
+   "date": "2026-10-23",
+   "drug": "Epinephrine Bitartrate, Lidocaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-10-23",
+   "drug": "Bupivacaine Hydrochloride, Epinephrine Bitartrate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-23",
+   "drug": "Atropine Sulfate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-23",
+   "drug": "Morphine Sulfate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-23",
+   "drug": "Sufentanil Citrate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-23",
+   "drug": "Sodium Acetate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-23",
+   "drug": "Etomidate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-23",
+   "drug": "Metformin Hydrochloride Tablet, Extended Release",
+   "kind": "new",
+   "to": "discontinuing"
   }
  ]
 }
