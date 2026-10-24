@@ -1352,6 +1352,12 @@
    "drug": "Metformin Hydrochloride Tablet, Extended Release",
    "kind": "new",
    "to": "discontinuing"
+  },
+  {
+   "date": "2026-10-24",
+   "drug": "Clonazepam Tablet",
+   "kind": "availability",
+   "count": 1
   }
  ]
 }
