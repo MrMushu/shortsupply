@@ -403,6 +403,9 @@ write("llms.txt", `# ShortSupply
 - [Changes (RSS)](${ORIGIN}/changelog/rss.xml)
 - Per-category RSS: one feed per FDA therapeutic category, listed on [/changelog/](${ORIGIN}/changelog/) (e.g. [oncology](${ORIGIN}/changelog/rss-oncology.xml))
 - [Methodology](${ORIGIN}/about/)
+- [API](${ORIGIN}/api/): the published JSON files and their fields
+- [Stats](${ORIGIN}/stats/): longest-running shortages and counts by therapeutic category
+- [Graveyard](${ORIGIN}/graveyard/): drugs that have left the FDA shortage list, kept in our archive
 
 Data CC BY 4.0 (our layer); upstream FDA data is public domain. Cite "ShortSupply" with a link.
 

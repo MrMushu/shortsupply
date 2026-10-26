@@ -727,3 +727,17 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Notable diffs:** none new. Nothing to pull; data/changelog.json holds at 150.
 
 **Next:** no ShortSupply ring is queued that isn't user-gated.
+
+## 2026-10-26 — Ops: SS-21 shipped (llms.txt names /api/, /stats/, /graveyard/)
+
+**USER-NEEDED (standing):** SS-7 (digest #1) and the first-category-only filing question. Nothing new.
+
+**Cron:** green. The scheduled run was created 10-26 at 13:35 UTC and succeeded, as did the 10-24 and 10-25 runs. Pulled fast-forward through the 2026-10-26 snapshot.
+
+**Notable diffs:** none. data/changelog.json holds at 226 (newest is still the 10-24 Clonazepam Tablet availability revision).
+
+**Ring executed: SS-21.** `dist/llms.txt` linked none of /api/, /stats/ or /graveyard/, so I added three lines to the `## Data` block in scripts/build.js, using the subpath-safe `${ORIGIN}` form from SS-12. The text is additive and the disclaimer is untouched.
+
+**Verified:** the build produced 245 pages. All three lines are in dist/llms.txt with the `https://mrmushu.github.io/shortsupply/` origin, and dist/api/, dist/stats/ and dist/graveyard/ index pages exist. There are 0 `${` leaks and "Not medical advice" is still present. Live /api/, /stats/ and /graveyard/ each return HTTP 200.
+
+**Next:** no ShortSupply ring is queued that isn't user-gated.
