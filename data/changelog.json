@@ -1358,6 +1358,30 @@
    "drug": "Clonazepam Tablet",
    "kind": "availability",
    "count": 1
+  },
+  {
+   "date": "2026-10-27",
+   "drug": "Dopamine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-27",
+   "drug": "Insulin Lispro-aabc Injection",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-10-27",
+   "drug": "Insulin Glargine Injection",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-10-27",
+   "drug": "Busulfan Injection",
+   "kind": "removed",
+   "from": "discontinuing"
   }
  ]
 }
