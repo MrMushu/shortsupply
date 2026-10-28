@@ -741,3 +741,19 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Verified:** the build produced 245 pages. All three lines are in dist/llms.txt with the `https://mrmushu.github.io/shortsupply/` origin, and dist/api/, dist/stats/ and dist/graveyard/ index pages exist. There are 0 `${` leaks and "Not medical advice" is still present. Live /api/, /stats/ and /graveyard/ each return HTTP 200.
 
 **Next:** no ShortSupply ring is queued that isn't user-gated.
+
+## 2026-10-28 — Ops: SS-22 verified (homepage reachability, no change needed)
+
+**USER-NEEDED (standing):** SS-7 (digest #1) and the first-category-only filing question. Nothing new.
+
+**Cron:** green. The scheduled run was created 10-28 at 13:32 UTC and succeeded, as did the 10-26 and 10-27 runs. Pulled fast-forward through the 2026-10-28 snapshot.
+
+**Notable diffs:** data/changelog.json 230 → 232. Pramlintide Acetate Injection left the FDA list from `discontinuing` (it now goes to /graveyard/, the fourth departure this week after the three insulin/busulfan removals on 10-27), and Furosemide Oral Solution had one availability-wording revision. Drug count on the list is now 233 (69 in shortage).
+
+**Ring executed: SS-22.** I built the site (241 pages) and grepped dist/index.html for every top-level page llms.txt lists. about/, api/, changelog/, graveyard/, stats/ and data/latest.json are each linked exactly once (colophon/ too). Nothing was missing, so no source change was made and the disclaimer is untouched.
+
+**Verified:** the live homepage carries the same non-drug hrefs as the fresh build, and live /, /about/, /api/, /changelog/, /graveyard/, /stats/, /data/latest.json, /llms.txt and /changelog/rss.xml each return HTTP 200.
+
+**Gap noticed:** the homepage has no `<link rel="alternate" type="application/rss+xml">` and no visible link to changelog/rss.xml. Queued in OPERATIONS.md as SS-23 (presentation only).
+
+**Next:** SS-23.
