@@ -1382,6 +1382,18 @@
    "drug": "Busulfan Injection",
    "kind": "removed",
    "from": "discontinuing"
+  },
+  {
+   "date": "2026-10-28",
+   "drug": "Furosemide Oral Solution",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-10-28",
+   "drug": "Pramlintide Acetate Injection",
+   "kind": "removed",
+   "from": "discontinuing"
   }
  ]
 }
