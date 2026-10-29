@@ -757,3 +757,17 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Gap noticed:** the homepage has no `<link rel="alternate" type="application/rss+xml">` and no visible link to changelog/rss.xml. Queued in OPERATIONS.md as SS-23 (presentation only).
 
 **Next:** SS-23.
+
+## 2026-10-29 — Ops: SS-23 shipped (RSS autodiscovery + footer RSS link)
+
+**USER-NEEDED (standing):** SS-7 (digest #1) and the first-category-only filing question. Nothing new.
+
+**Cron:** green. The scheduled run was created 10-29 at 13:44 UTC and succeeded, as did the 10-28 push run. Pulled fast-forward through the 2026-10-29 snapshot.
+
+**Notable diffs:** none. data/changelog.json stayed at 232 entries; the list is still 233 drugs (69 in shortage).
+
+**Ring executed: SS-23.** Three edits to scripts/build.js, presentation only: the shared `<head>` in `page()` now emits `<link rel="alternate" type="application/rss+xml" title="ShortSupply changes" href="${p}changelog/rss.xml">` on every page (depth-prefixed, so it is subpath-safe), the footer gained one word, `RSS`, linking to the same feed next to the JSON API link, and the changelog page's own `extraHead` copy of the tag was removed because the global one now covers it (it would otherwise have been emitted twice). The disclaimer is untouched.
+
+**Verified:** `node scripts/build.js` built 241 pages (233 drugs, 69 in shortage, snapshot 2026-10-29). dist/index.html contains the alternate tag exactly once and `<a href="changelog/rss.xml">RSS</a>` in the footer; dist/changelog/index.html contains the tag exactly once with href `../changelog/rss.xml`; the acetaminophen-oxycodone drug page carries it with `../../changelog/rss.xml` plus the footer link; dist/changelog/rss.xml exists (17,378 bytes); 0 pages contain a `${` template leak; the drug page still carries "Not medical advice". Live deploy is checked after the push (see the taro journal for the result).
+
+**Next:** CC-36 is the Canicrawl twin of this ring. SS-7 remains user-gated.

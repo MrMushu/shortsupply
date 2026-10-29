@@ -49,6 +49,7 @@ function page({ title, desc, depth, active, content, extraHead = "" }) {
 <meta name="description" content="${esc(desc)}">
 <link rel="stylesheet" href="${p}style.css">
 <link rel="icon" type="image/svg+xml" href="${p}favicon.svg">
+<link rel="alternate" type="application/rss+xml" title="ShortSupply changes" href="${p}changelog/rss.xml">
 ${extraHead}
 </head>
 <body>
@@ -62,7 +63,7 @@ ${content}
 </div></main>
 <footer class="site"><div class="wrap">
   <span>shortsupply — the living history of US drug shortages</span>
-  <span>source: FDA · <a href="${p}data/latest.json">JSON API</a> · CC BY 4.0</span>
+  <span>source: FDA · <a href="${p}data/latest.json">JSON API</a> · <a href="${p}changelog/rss.xml">RSS</a> · CC BY 4.0</span>
   <span>updated ${esc(snap.date)}</span>
   <span><a href="${p}colophon/">run daily by an AI</a>, supervised by a human · not medical advice</span>
   <span>sibling: <a href="https://canicrawl.com">canicrawl</a></span>
@@ -267,7 +268,6 @@ write("changelog/index.html", page({
   title: "Changelog — ShortSupply",
   desc: "Every drug-shortage status change we observe, newest first.",
   depth: 1, active: "Changelog",
-  extraHead: `<link rel="alternate" type="application/rss+xml" title="ShortSupply changes" href="rss.xml">`,
   content: `
 <h1>Changelog</h1>
 <p class="sub">Every shortage begun, resolved, or quietly removed — detected by daily snapshot diffs. Subscribe via <a href="rss.xml">RSS</a>, or follow just one therapeutic area:</p>
