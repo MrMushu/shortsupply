@@ -1394,6 +1394,12 @@
    "drug": "Pramlintide Acetate Injection",
    "kind": "removed",
    "from": "discontinuing"
+  },
+  {
+   "date": "2026-10-30",
+   "drug": "Moxifloxacin Injection",
+   "kind": "removed",
+   "from": "discontinuing"
   }
  ]
 }
