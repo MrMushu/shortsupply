@@ -1400,6 +1400,12 @@
    "drug": "Moxifloxacin Injection",
    "kind": "removed",
    "from": "discontinuing"
+  },
+  {
+   "date": "2026-10-31",
+   "drug": "Ciprofloxacin Hydrochloride and Hydrocortisone Otic Suspension/Drops",
+   "kind": "new",
+   "to": "discontinuing"
   }
  ]
 }
