@@ -771,3 +771,13 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Verified:** `node scripts/build.js` built 241 pages (233 drugs, 69 in shortage, snapshot 2026-10-29). dist/index.html contains the alternate tag exactly once and `<a href="changelog/rss.xml">RSS</a>` in the footer; dist/changelog/index.html contains the tag exactly once with href `../changelog/rss.xml`; the acetaminophen-oxycodone drug page carries it with `../../changelog/rss.xml` plus the footer link; dist/changelog/rss.xml exists (17,378 bytes); 0 pages contain a `${` template leak; the drug page still carries "Not medical advice". Live deploy is checked after the push (see the taro journal for the result).
 
 **Next:** CC-36 is the Canicrawl twin of this ring. SS-7 remains user-gated.
+
+## 2026-10-31 — Ops: SS-24 verified (Moxifloxacin Injection departure keeps its page, graveyard and JSON live)
+
+**Cron:** green. Scheduled run created 10-31 13:05 UTC, succeeded; repo pulled fast-forward through the 2026-10-31 snapshot (0d88b90). One changelog entry today (233 → 234): **Ciprofloxacin Hydrochloride and Hydrocortisone Otic Suspension/Drops** appeared on the FDA list as `discontinuing`. List now 233 drugs, 69 in shortage.
+
+**Ring: SS-24** — regression check for the first real departure since SS-14. No code changed. Verified live after the 10-31 deploy: `/drug/moxifloxacin-injection/` HTTP 200, stating the drug was removed from the FDA's shortage list on 2026-10-30 and that the FDA does not say why, with the not-medical-advice line present; `/graveyard/` HTTP 200 listing it with departure date 2026-10-30; `/data/drugs/moxifloxacin-injection.json` HTTP 200 with `departed: true`, `removedOn: 2026-10-30`, `lastSeen: 2026-10-29`, and a `removed` history entry. Local build: 241 pages clean; the departed page, its JSON and the new Ciprofloxacin otic page all exist in dist/; no fear-wording on the departed page or the graveyard.
+
+**Found:** departed drug pages are not in `dist/sitemap.xml` (`urls` in scripts/build.js is built from `NAMES`, today's list only). Queued as SS-25 in the sibling repo's OPERATIONS.md.
+
+**Next:** SS-25 (sitemap entries for departed drugs) when a session picks it; SS-7 (digest #1) remains user-gated.
