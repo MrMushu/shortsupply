@@ -310,7 +310,7 @@ ${removedEntries.length
 ${DISCLAIMER}`,
 }));
 
-// ---------- departed drugs: last-known archive pages (kept out of counts, stats and the sitemap) ----------
+// ---------- departed drugs: last-known archive pages (kept out of counts and stats; listed in the sitemap since SS-25) ----------
 for (const [n, d] of departed) {
   const status = drugStatus(d.recs);
   const companies = [...new Set(d.recs.map((r) => r.company_name).filter(Boolean))];
@@ -431,7 +431,7 @@ ${fullLines.join("\n")}
 // IndexNow key file (public by design)
 const INDEXNOW_KEY = "d41b7c25e9a84f6bb02c8d13f7e5a960";
 write(`${INDEXNOW_KEY}.txt`, INDEXNOW_KEY);
-const urls = ["", "stats/", "changelog/", "graveyard/", "api/", "about/", "colophon/", ...NAMES.map((n) => `drug/${slug(n)}/`)];
+const urls = ["", "stats/", "changelog/", "graveyard/", "api/", "about/", "colophon/", ...NAMES.map((n) => `drug/${slug(n)}/`), ...[...departed.keys()].map((n) => `drug/${slug(n)}/`)]; // departed archive pages included since SS-25
 write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map((u) => `<url><loc>${ORIGIN}/${u}</loc><lastmod>${snap.date}</lastmod></url>`).join("\n")}
