@@ -1406,6 +1406,18 @@
    "drug": "Ciprofloxacin Hydrochloride and Hydrocortisone Otic Suspension/Drops",
    "kind": "new",
    "to": "discontinuing"
+  },
+  {
+   "date": "2026-11-03",
+   "drug": "Cefazolin in Dextrose Injection",
+   "kind": "new",
+   "to": "discontinuing"
+  },
+  {
+   "date": "2026-11-03",
+   "drug": "Ceftriaxone Sodium Injection",
+   "kind": "new",
+   "to": "discontinuing"
   }
  ]
 }
