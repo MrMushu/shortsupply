@@ -1418,6 +1418,66 @@
    "drug": "Ceftriaxone Sodium Injection",
    "kind": "new",
    "to": "discontinuing"
+  },
+  {
+   "date": "2026-11-04",
+   "drug": "Bupivacaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 5
+  },
+  {
+   "date": "2026-11-04",
+   "drug": "Ropivacaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-04",
+   "drug": "Ifosfamide Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-04",
+   "drug": "Lisdexamfetamine Dimesylate Capsule",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-11-04",
+   "drug": "Dexamethasone Sodium Phosphate Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-11-04",
+   "drug": "Phenobarbital Tablet",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-11-04",
+   "drug": "Lasmiditan Succinate Tablet",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-11-04",
+   "drug": "Atazanavir Sulfate; Cobicistat Tablet",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-11-04",
+   "drug": "Acetaminophen; Oxycodone Hydrochloride Tablet",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-11-04",
+   "drug": "Scopolamine Transdermal System",
+   "kind": "removed",
+   "from": "discontinuing"
   }
  ]
 }
