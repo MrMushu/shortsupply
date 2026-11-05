@@ -1478,6 +1478,103 @@
    "drug": "Scopolamine Transdermal System",
    "kind": "removed",
    "from": "discontinuing"
+  },
+  {
+   "date": "2026-11-05",
+   "drug": "Midazolam Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-05",
+   "drug": "Lisdexamfetamine Dimesylate Capsule",
+   "kind": "availability",
+   "count": 3
+  },
+  {
+   "date": "2026-11-05",
+   "drug": "Amphetamine Aspartate Monohydrate, Amphetamine Sulfate, Dextroamphetamine Saccharate, Dextroamphetamine Sulfate Tablet",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-05",
+   "drug": "Morphine Sulfate Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-11-05",
+   "drug": "Methylphenidate Hydrochloride Tablet, Extended Release",
+   "kind": "availability",
+   "count": 5
+  },
+  {
+   "date": "2026-11-05",
+   "drug": "Lidocaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-11-05",
+   "drug": "Clonazepam Tablet",
+   "kind": "status",
+   "from": "in-shortage",
+   "to": "resolved"
+  },
+  {
+   "date": "2026-11-05",
+   "drug": "Clonazepam Tablet",
+   "kind": "availability",
+   "count": 40
+  },
+  {
+   "date": "2026-11-05",
+   "drug": "Rocuronium Bromide Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-11-05",
+   "drug": "Dextrose Monohydrate 5% Injection",
+   "kind": "availability",
+   "count": 9
+  },
+  {
+   "date": "2026-11-05",
+   "drug": "Sterile Water Injection",
+   "kind": "availability",
+   "count": 3
+  },
+  {
+   "date": "2026-11-05",
+   "drug": "Heparin Sodium Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-11-05",
+   "drug": "Hydromorphone Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-05",
+   "drug": "Bupivacaine Hydrochloride, Epinephrine Bitartrate Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-11-05",
+   "drug": "Fentanyl Citrate Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-11-05",
+   "drug": "Dextrose Monohydrate 10% Injection",
+   "kind": "availability",
+   "count": 6
   }
  ]
 }
