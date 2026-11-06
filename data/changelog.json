@@ -1575,6 +1575,12 @@
    "drug": "Dextrose Monohydrate 10% Injection",
    "kind": "availability",
    "count": 6
+  },
+  {
+   "date": "2026-11-06",
+   "drug": "Tadalafil Tablet",
+   "kind": "new",
+   "to": "discontinuing"
   }
  ]
 }
