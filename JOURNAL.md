@@ -795,3 +795,18 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Next:** the user dispatches today's run if it has not appeared by the time they read this. No further ShortSupply ring is queued; CC-37 (digest #11) is due ~11-08 in the sibling.
 
 **Live check (addendum, same session):** about 70 s after the push (push run created 16:17:54 UTC, succeeded), https://mrmushu.github.io/shortsupply/sitemap.xml serves **271** `<loc>` entries with `drug/moxifloxacin-injection/` present once and 0 duplicates, and the archive page itself still returns HTTP 200. SS-25 is verified live. At 16:20 UTC there is still no `schedule` run for 2026-11-02 — the USER-NEEDED dispatch above stands.
+
+## 2026-11-09 — Ops: SS-26 verified live (the five 11-04 departures kept their pages); no scheduled run created today as of 16:16 UTC
+
+**USER-NEEDED (today, time-sensitive):** as of **16:16 UTC** the public runs list for MrMushu/shortsupply has **no `schedule` run for 2026-11-09**; the newest is 11-08 13:52 UTC (green). The sibling (canicrawl) is in the same state (newest 11-08). Yesterday's runs came ~7 h late and 11-02's dropped run arrived on its own at 16:34 UTC, so this may still self-heal. Per the OPERATIONS.md playbook: **check the Actions tab first and, only if there is still no `schedule` run for 11-09, press "Run workflow" (workflow_dispatch) before 23:59 UTC** or the 2026-11-09 snapshot is lost for good. Do not dispatch if a run has appeared (one API pass per UTC day). Standing: SS-7 (digest #1) and the first-category-only filing question.
+
+**Cron:** 11-08 scheduled run succeeded (13:52 UTC, bf96594); repo already up to date on pull, so no new data since the 11-08 session: changelog 264, list 231 drugs, 68 in shortage.
+
+**Ring executed: SS-26 — live confirmation, no code change.** All checks pass against the live site (mrmushu.github.io/shortsupply):
+- Each of the five departed pages (`phenobarbital-tablet`, `lasmiditan-succinate-tablet`, `atazanavir-sulfate-cobicistat-tablet`, `acetaminophen-oxycodone-hydrochloride-tablet`, `scopolamine-transdermal-system`) returns **HTTP 200**, contains "Not medical advice" (2 hits each) and the line "removed from the FDA shortage list 2026-11-04".
+- /graveyard/ returns 200 with **36** rows (was 31 at SS-25), all 36 linked to an archive page, and each of the five carries the date 2026-11-04 in its row.
+- Live sitemap.xml has **274** `<loc>` entries, each of the five slugs exactly once, **0 duplicates**, and the set is identical to a local `node scripts/build.js` on the 11-08 snapshot (also 274; "Built 275 pages", 231 drugs, 68 in shortage).
+
+**Correction to the ring's expected number:** SS-26 said 271 → 276; the right figure is **274**. The +5 departed pages are there, but the day-list itself went 233 → 231 in the same window (−5 departed, +3 new: Cefazolin in Dextrose Injection and Ceftriaxone Sodium Injection on 11-03, Tadalafil Tablet on 11-06), so 7 static + 231 drugs + 36 departed = 274. Snapshot check: 11-01 has 1,615 records / 233 distinct drugs, 11-08 has 1,598 / 231. Nothing on the site is wrong; the estimate in the queue was. Ticked in OPERATIONS.md with the corrected arithmetic.
+
+**Next:** the user dispatches today's run if it has not appeared by the time they read this. No further ShortSupply ring is queued; SS-7 stays user-gated. The sibling's CC-38 (digest #12) is due ~11-15.
