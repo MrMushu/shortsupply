@@ -1587,6 +1587,54 @@
    "drug": "Methylprednisolone Acetate Injection",
    "kind": "availability",
    "count": 3
+  },
+  {
+   "date": "2026-11-10",
+   "drug": "Methylprednisolone Acetate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-10",
+   "drug": "Etomidate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-10",
+   "drug": "Ketorolac Tromethamine Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-11-10",
+   "drug": "Dexmedetomidine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-10",
+   "drug": "Epinephrine Injection",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-11-10",
+   "drug": "Deferiprone Tablet",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-11-10",
+   "drug": "Calcium Chloride Injection",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-11-10",
+   "drug": "Ketamine Hydrochloride Injection",
+   "kind": "removed",
+   "from": "discontinuing"
   }
  ]
 }
