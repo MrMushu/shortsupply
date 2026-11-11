@@ -1635,6 +1635,78 @@
    "drug": "Ketamine Hydrochloride Injection",
    "kind": "removed",
    "from": "discontinuing"
+  },
+  {
+   "date": "2026-11-11",
+   "drug": "Lidocaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-11",
+   "drug": "Epinephrine Bitartrate, Lidocaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 3
+  },
+  {
+   "date": "2026-11-11",
+   "drug": "Fentanyl Citrate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-11",
+   "drug": "Clindamycin Phosphate Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-11-11",
+   "drug": "Amphetamine Aspartate Monohydrate, Amphetamine Sulfate, Dextroamphetamine Saccharate, Dextroamphetamine Sulfate Tablet",
+   "kind": "availability",
+   "count": 4
+  },
+  {
+   "date": "2026-11-11",
+   "drug": "Midazolam Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-11",
+   "drug": "Furosemide Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-11-11",
+   "drug": "Methotrexate Sodium Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-11",
+   "drug": "Remifentanil Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-11",
+   "drug": "Hydromorphone Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-11",
+   "drug": "Sodium Bicarbonate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-11",
+   "drug": "Dopamine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 3
   }
  ]
 }
