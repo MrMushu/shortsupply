@@ -820,3 +820,7 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Changelog (284):** 11-10: four drugs left the FDA list, all from `discontinuing` (Epinephrine Injection, Deferiprone Tablet, Calcium Chloride Injection, Ketamine Hydrochloride Injection), plus four availability rewordings; 11-11: twelve presentations reworded (largest: the mixed amphetamine salts tablet, 4 presentations; dopamine and the lidocaine/epinephrine combination, 3 each). **Verified live:** /graveyard/ lists four rows dated 2026-11-10; /drug/ketamine-hydrochloride-injection/ is HTTP 200 (SS-14/SS-25 behaviour holding).
 
 **No ring here today** (the Canicrawl side did CC-39). No code changed in this repo. SS-7 still needs the user.
+
+## 2026-11-12 — Ops: cron green 11-12; no changelog entries
+
+**Crons:** 11-12 scheduled run (15:36 UTC) green; snapshot 2026-11-12 pulled. **Changelog:** 284, +0 on 11-12. No ring here today (Canicrawl side did CC-40). No code changed. SS-7 still needs the user.
