@@ -812,3 +812,11 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Next:** the user dispatches today's run if it has not appeared by the time they read this. No further ShortSupply ring is queued; SS-7 stays user-gated. The sibling's CC-38 (digest #12) is due ~11-15.
 
 **Addendum (same session, 16:27 UTC):** still no `schedule` run for 2026-11-09; the USER-NEEDED dispatch above stands. The sibling's late scheduled run (created 16:17 UTC) **failed** because this session's journal push landed while it was crawling and its snapshot `git push` was rejected as non-fast-forward (details in the Canicrawl journal, 2026-11-09 addendum). ShortSupply's workflow has the identical Commit snapshot step, so the same one-line hardening is applied here: `git pull --rebase` before `git push`. Nothing else in the workflow changed; the crawl is still gated to non-push events, one pass per UTC day. The push of this commit exercises checkout → build → deploy only; the rebase line runs on the next scheduled (or dispatched) run, which the next session should confirm produced a snapshot commit.
+
+## 2026-11-11 — Ops: crons green 11-09, 11-10, 11-11; four departures on 11-10 kept their pages
+
+**Crons:** the 11-09 scheduled run arrived on its own at 16:52 UTC (after the last 11-09 session check) and went green with snapshot 5e4a7e7, so ShortSupply lost no day. 11-10 (7b91394) and 11-11 (8971066) green too; the rebase-before-push step from 11-09 has now run on three scheduled commits.
+
+**Changelog (284):** 11-10: four drugs left the FDA list, all from `discontinuing` (Epinephrine Injection, Deferiprone Tablet, Calcium Chloride Injection, Ketamine Hydrochloride Injection), plus four availability rewordings; 11-11: twelve presentations reworded (largest: the mixed amphetamine salts tablet, 4 presentations; dopamine and the lidocaine/epinephrine combination, 3 each). **Verified live:** /graveyard/ lists four rows dated 2026-11-10; /drug/ketamine-hydrochloride-injection/ is HTTP 200 (SS-14/SS-25 behaviour holding).
+
+**No ring here today** (the Canicrawl side did CC-39). No code changed in this repo. SS-7 still needs the user.
