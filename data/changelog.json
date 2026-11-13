@@ -1707,6 +1707,30 @@
    "drug": "Dopamine Hydrochloride Injection",
    "kind": "availability",
    "count": 3
+  },
+  {
+   "date": "2026-11-13",
+   "drug": "Rocuronium Bromide Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-13",
+   "drug": "Morphine Sulfate Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-11-13",
+   "drug": "Atropine Sulfate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-13",
+   "drug": "Etomidate Injection",
+   "kind": "availability",
+   "count": 1
   }
  ]
 }
