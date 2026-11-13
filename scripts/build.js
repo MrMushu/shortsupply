@@ -264,6 +264,14 @@ const entryPath = (e) => (meta[e.drug] || departed.has(e.drug) ? `drug/${slug(e.
 const entriesDesc = [...changelog.entries].reverse();
 const byDate = new Map();
 for (const e of entriesDesc) { if (!byDate.has(e.date)) byDate.set(e.date, []); byDate.get(e.date).push(e); }
+// Snapshot-gap disclosure (SS-27, sibling's CC-39): computed from data/snapshots only.
+const missingDays = [];
+const afterGap = new Map(); // first snapshot date after a gap -> the missing days
+for (let i = 1; i < SNAP_DATES.length; i++) {
+  const gap = [];
+  for (let t = Date.parse(SNAP_DATES[i - 1]) + 864e5; t < Date.parse(SNAP_DATES[i]); t += 864e5) gap.push(new Date(t).toISOString().slice(0, 10));
+  if (gap.length) { missingDays.push(...gap); afterGap.set(SNAP_DATES[i], gap); }
+}
 write("changelog/index.html", page({
   title: "Changelog — ShortSupply",
   desc: "Every drug-shortage status change we observe, newest first.",
@@ -272,7 +280,8 @@ write("changelog/index.html", page({
 <h1>Changelog</h1>
 <p class="sub">Every shortage begun, resolved, or quietly removed — detected by daily snapshot diffs. Subscribe via <a href="rss.xml">RSS</a>, or follow just one therapeutic area:</p>
 <p class="cat">${CATS.map((c) => `<a href="rss-${catSlug(c)}.xml">${esc(c)}</a>`).join(" · ")}</p>
-${[...byDate.entries()].map(([d, list]) => `<h2>${esc(d)}</h2><ul>${list.map((e) => `<li>${e.drug ? `<a href="../${entryPath(e)}">` : ""}${esc(entryText(e))}${e.drug ? "</a>" : ""}</li>`).join("")}</ul>`).join("\n")}
+<p class="note">Coverage: ${SNAP_DATES.length} daily snapshots from ${esc(SNAP_DATES[0])} to ${esc(SNAP_DATES.at(-1))}. ${missingDays.length ? `Missing: ${missingDays.map(esc).join(", ")} — the scheduled fetch did not complete, and a missed day cannot be fetched after the fact.` : "No days are missing."}</p>
+${[...byDate.entries()].map(([d, list]) => `<h2>${esc(d)}</h2>${afterGap.has(d) ? `<p class="note">Covers ${afterGap.get(d).map(esc).join(", ")} too: no snapshot exists for ${afterGap.get(d).length > 1 ? "those days" : "that day"}, so these changes were detected against the last snapshot before it.</p>` : ""}<ul>${list.map((e) => `<li>${e.drug ? `<a href="../${entryPath(e)}">` : ""}${esc(entryText(e))}${e.drug ? "</a>" : ""}</li>`).join("")}</ul>`).join("\n")}
 ${DISCLAIMER}`,
 }));
 const RSS_DISCLAIMER = "Not medical advice. ShortSupply republishes the FDA drug-shortage data with history added. Talk to your pharmacist or prescriber about your situation; never change medication based on this feed.";

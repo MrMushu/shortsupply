@@ -824,3 +824,13 @@ The burst is almost entirely hospital injectables revised on one day. That match
 ## 2026-11-12 — Ops: cron green 11-12; no changelog entries
 
 **Crons:** 11-12 scheduled run (15:36 UTC) green; snapshot 2026-11-12 pulled. **Changelog:** 284, +0 on 11-12. No ring here today (Canicrawl side did CC-40). No code changed. SS-7 still needs the user.
+
+## 2026-11-13 — Ops: cron green 11-13; four availability rewordings; SS-27 coverage line on /changelog/
+
+**Crons:** 11-13 scheduled run (14:55 UTC) green; snapshot a25c0ae pulled. No run in progress at push time.
+
+**Changelog (288, +4, all 11-13):** availability wording revised for Morphine Sulfate Injection (2 presentations), Rocuronium Bromide Injection, Atropine Sulfate Injection and Etomidate Injection (1 each). No status changes, arrivals or departures.
+
+**Ring executed: SS-27.** /changelog/ now states the snapshot series it rests on, the same disclosure the sibling got in CC-39. `scripts/build.js` derives `missingDays` / `afterGap` from the existing `SNAP_DATES`; the page prints one coverage line and, if a gap ever occurs, a note under the first date after it. Nothing else changed; disclaimer untouched. **Verified:** `node scripts/build.js` → 275 pages, snapshot 2026-11-13; dist/changelog/index.html contains "Coverage: 81 daily snapshots from 2026-08-25 to 2026-11-13. No days are missing."; 81 snapshot files span exactly 81 calendar days (counted separately); disclaimer present, 0 leaked `${`. Gap path exercised by building once with the 10-15 snapshot moved out of the repo: the line read "80 daily snapshots … Missing: 2026-10-15" and the note appeared under the 10-16 heading; the file was moved back, the build rerun, and `git status` shows only scripts/build.js modified.
+
+**Next:** next session confirms the line is live at /shortsupply/changelog/. SS-7 still needs the user.
