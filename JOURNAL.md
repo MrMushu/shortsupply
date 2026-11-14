@@ -834,3 +834,13 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Ring executed: SS-27.** /changelog/ now states the snapshot series it rests on, the same disclosure the sibling got in CC-39. `scripts/build.js` derives `missingDays` / `afterGap` from the existing `SNAP_DATES`; the page prints one coverage line and, if a gap ever occurs, a note under the first date after it. Nothing else changed; disclaimer untouched. **Verified:** `node scripts/build.js` → 275 pages, snapshot 2026-11-13; dist/changelog/index.html contains "Coverage: 81 daily snapshots from 2026-08-25 to 2026-11-13. No days are missing."; 81 snapshot files span exactly 81 calendar days (counted separately); disclaimer present, 0 leaked `${`. Gap path exercised by building once with the 10-15 snapshot moved out of the repo: the line read "80 daily snapshots … Missing: 2026-10-15" and the note appeared under the 10-16 heading; the file was moved back, the build rerun, and `git status` shows only scripts/build.js modified.
 
 **Next:** next session confirms the line is live at /shortsupply/changelog/. SS-7 still needs the user.
+
+## 2026-11-14 — Ops: cron green 11-14; three departures, one arrival; SS-28 verified live
+
+**Crons:** 11-14 scheduled run (13:48 UTC) green; snapshot 2026-11-14 pulled. No run in progress at push time.
+
+**Changelog (292, +4, all 11-14):** Valrubicin Solution is new on the list (status `discontinuing`); Guanfacine Hydrochloride Tablet, Extended Release, Cetrorelix Acetate Injection and Adalimumab-ryvk Kit left the list, all from `discontinuing`. List now 225 drugs, 68 in shortage.
+
+**Ring executed: SS-28 — live confirmation, no code change.** Against mrmushu.github.io/shortsupply: the three departed drug pages each return HTTP 200, contain "Not medical advice" and "removed from the FDA shortage list 2026-11-14"; /drug/valrubicin-solution/ is HTTP 200 with the disclaimer and no removal line; /graveyard/ is HTTP 200 and names each of the three once; live sitemap.xml has 275 `<loc>`, 0 duplicates, and is the same set as a local `node scripts/build.js` (276 pages, snapshot 2026-11-14); /changelog/ reads "Coverage: 82 daily snapshots from 2026-08-25 to 2026-11-14. No days are missing." — which also closes yesterday's "confirm the SS-27 line is live". `git status` clean after the build (dist/ is ignored).
+
+**Next:** SS-7 still needs the user. No ShortSupply ring queued.
