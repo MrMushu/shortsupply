@@ -1731,6 +1731,30 @@
    "drug": "Etomidate Injection",
    "kind": "availability",
    "count": 1
+  },
+  {
+   "date": "2026-11-14",
+   "drug": "Valrubicin Solution",
+   "kind": "new",
+   "to": "discontinuing"
+  },
+  {
+   "date": "2026-11-14",
+   "drug": "Guanfacine Hydrochloride Tablet, Extended Release",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-11-14",
+   "drug": "Cetrorelix Acetate Injection",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-11-14",
+   "drug": "Adalimumab-ryvk Kit",
+   "kind": "removed",
+   "from": "discontinuing"
   }
  ]
 }
