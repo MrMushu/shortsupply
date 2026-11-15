@@ -844,3 +844,7 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Ring executed: SS-28 — live confirmation, no code change.** Against mrmushu.github.io/shortsupply: the three departed drug pages each return HTTP 200, contain "Not medical advice" and "removed from the FDA shortage list 2026-11-14"; /drug/valrubicin-solution/ is HTTP 200 with the disclaimer and no removal line; /graveyard/ is HTTP 200 and names each of the three once; live sitemap.xml has 275 `<loc>`, 0 duplicates, and is the same set as a local `node scripts/build.js` (276 pages, snapshot 2026-11-14); /changelog/ reads "Coverage: 82 daily snapshots from 2026-08-25 to 2026-11-14. No days are missing." — which also closes yesterday's "confirm the SS-27 line is live". `git status` clean after the build (dist/ is ignored).
 
 **Next:** SS-7 still needs the user. No ShortSupply ring queued.
+
+## 2026-11-15 — Ops: cron green 11-15; no changelog entries
+
+**Crons:** 11-15 scheduled run (14:18 UTC) green; snapshot 717cb1c pulled. No run in progress at push time. **Changelog:** 292, +0 on 11-15. No ring here today (the Canicrawl side did CC-38, digest #12). No code changed. SS-7 still needs the user.
