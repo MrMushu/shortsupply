@@ -852,3 +852,13 @@ The burst is almost entirely hospital injectables revised on one day. That match
 ## 2026-11-16 — Ops: cron green 11-16; no changelog entries
 
 **Crons:** 11-16 scheduled run (16:26 UTC) green; snapshot 6b61aa4 pulled. No run in progress at push time. **Changelog:** 292, +0 on 11-16. No ring here today (the Canicrawl side did CC-42, live confirmation of digest #12). No code changed. SS-7 still needs the user.
+
+## 2026-11-17 — Ops: cron green 11-17; five arrivals, three departures; SS-29 verified live
+
+**Crons:** 11-17 scheduled run (16:29 UTC) green; snapshot 0d91b32 pulled. No run in progress at push time.
+
+**Changelog (300, +8, all 11-17):** new on the list — Propranolol Hydrochloride Capsule, Extended Release; Bendamustine Hydrochloride Injection; Abacavir Sulfate Injection; Lamivudine Injection (all `discontinuing`) and Olipudase alfa-rpcp Injection (`in-shortage`). Left the list, all from `discontinuing`: Vancomycin Hydrochloride Injection, Ceftazidime Injection, Palonosetron Hydrochloride Injection. List now 227 drugs, 69 in shortage.
+
+**Ring executed: SS-29 — live confirmation, no code change.** Against mrmushu.github.io/shortsupply: the three departed drug pages each return HTTP 200 and contain "Not medical advice" and "removed from the FDA shortage list 2026-11-17"; the five arrivals' pages are HTTP 200 with the disclaimer and no removal line; /graveyard/ is HTTP 200 and names each of the three once; live sitemap.xml has 280 `<loc>`, 0 duplicates, and is the same set as a local `node scripts/build.js` (281 pages, snapshot 2026-11-17); the live homepage is byte-identical to the local build; /changelog/ reads "Coverage: 85 daily snapshots from 2026-08-25 to 2026-11-17. No days are missing." `git status` clean after the build (dist/ is ignored). Not checked: the per-drug JSON files and a real-browser render.
+
+**Next:** SS-7 still needs the user. No ShortSupply ring queued.
