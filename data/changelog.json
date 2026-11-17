@@ -1755,6 +1755,54 @@
    "drug": "Adalimumab-ryvk Kit",
    "kind": "removed",
    "from": "discontinuing"
+  },
+  {
+   "date": "2026-11-17",
+   "drug": "Propranolol Hydrochloride Capsule, Extended Release",
+   "kind": "new",
+   "to": "discontinuing"
+  },
+  {
+   "date": "2026-11-17",
+   "drug": "Bendamustine Hydrochloride Injection",
+   "kind": "new",
+   "to": "discontinuing"
+  },
+  {
+   "date": "2026-11-17",
+   "drug": "Abacavir Sulfate Injection",
+   "kind": "new",
+   "to": "discontinuing"
+  },
+  {
+   "date": "2026-11-17",
+   "drug": "Olipudase alfa-rpcp Injection",
+   "kind": "new",
+   "to": "in-shortage"
+  },
+  {
+   "date": "2026-11-17",
+   "drug": "Lamivudine Injection",
+   "kind": "new",
+   "to": "discontinuing"
+  },
+  {
+   "date": "2026-11-17",
+   "drug": "Vancomycin Hydrochloride Injection",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-11-17",
+   "drug": "Ceftazidime Injection",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-11-17",
+   "drug": "Palonosetron Hydrochloride Injection",
+   "kind": "removed",
+   "from": "discontinuing"
   }
  ]
 }
