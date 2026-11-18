@@ -862,3 +862,13 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Ring executed: SS-29 — live confirmation, no code change.** Against mrmushu.github.io/shortsupply: the three departed drug pages each return HTTP 200 and contain "Not medical advice" and "removed from the FDA shortage list 2026-11-17"; the five arrivals' pages are HTTP 200 with the disclaimer and no removal line; /graveyard/ is HTTP 200 and names each of the three once; live sitemap.xml has 280 `<loc>`, 0 duplicates, and is the same set as a local `node scripts/build.js` (281 pages, snapshot 2026-11-17); the live homepage is byte-identical to the local build; /changelog/ reads "Coverage: 85 daily snapshots from 2026-08-25 to 2026-11-17. No days are missing." `git status` clean after the build (dist/ is ignored). Not checked: the per-drug JSON files and a real-browser render.
 
 **Next:** SS-7 still needs the user. No ShortSupply ring queued.
+
+## 2026-11-18 — Ops: cron green 11-18; one departure, four availability changes; SS-30 verified live
+
+**Crons:** 11-18 scheduled run (15:58 UTC) green; snapshot pulled. No run in progress at push time.
+
+**Changelog (305, +5, all 11-18):** left the list — Montelukast Sodium Tablet, Chewable (from `discontinuing`). Availability changes (record counts): Amphetamine Aspartate Monohydrate/Amphetamine Sulfate/Dextroamphetamine Saccharate/Dextroamphetamine Sulfate Tablet (3), Methotrexate Sodium Injection (3), Methylphenidate Hydrochloride Tablet, Extended Release (1), Azacitidine Injection (1). List now 226 drugs, 69 in shortage.
+
+**Ring executed: SS-30 — live confirmation, no code change.** Against mrmushu.github.io/shortsupply: `/drug/montelukast-sodium-tablet-chewable/` HTTP 200 with "Not medical advice" and "removed from the FDA shortage list 2026-11-18"; its per-drug JSON HTTP 200 with `removedOn: "2026-11-18"`; /graveyard/ HTTP 200 naming it once; live sitemap.xml 280 `<loc>`, 0 duplicates, slug present once, same set as a local `node scripts/build.js` (281 pages, snapshot 2026-11-18); live homepage byte-identical to the local build; /changelog/ reads "Coverage: 86 daily snapshots from 2026-08-25 to 2026-11-18. No days are missing." `git status` clean after the build. Not checked: the four availability-changed drugs' pages, a real-browser render.
+
+**Next:** SS-7 still needs the user. No ShortSupply ring queued.
