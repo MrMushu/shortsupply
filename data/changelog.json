@@ -1833,6 +1833,30 @@
    "drug": "Montelukast Sodium Tablet, Chewable",
    "kind": "removed",
    "from": "discontinuing"
+  },
+  {
+   "date": "2026-11-19",
+   "drug": "Amphetamine Aspartate Monohydrate, Amphetamine Sulfate, Dextroamphetamine Saccharate, Dextroamphetamine Sulfate Tablet",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-19",
+   "drug": "Dexamethasone Sodium Phosphate Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-11-19",
+   "drug": "Desmopressin Acetate Spray",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-19",
+   "drug": "Demeclocycline Hydrochloride Tablet",
+   "kind": "new",
+   "to": "discontinuing"
   }
  ]
 }
