@@ -872,3 +872,13 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Ring executed: SS-30 — live confirmation, no code change.** Against mrmushu.github.io/shortsupply: `/drug/montelukast-sodium-tablet-chewable/` HTTP 200 with "Not medical advice" and "removed from the FDA shortage list 2026-11-18"; its per-drug JSON HTTP 200 with `removedOn: "2026-11-18"`; /graveyard/ HTTP 200 naming it once; live sitemap.xml 280 `<loc>`, 0 duplicates, slug present once, same set as a local `node scripts/build.js` (281 pages, snapshot 2026-11-18); live homepage byte-identical to the local build; /changelog/ reads "Coverage: 86 daily snapshots from 2026-08-25 to 2026-11-18. No days are missing." `git status` clean after the build. Not checked: the four availability-changed drugs' pages, a real-browser render.
 
 **Next:** SS-7 still needs the user. No ShortSupply ring queued.
+
+## 2026-11-19 — Ops: cron green 11-19; one arrival, three availability changes; no ring on this repo
+
+**Crons:** 11-19 scheduled run (16:04 UTC) green; snapshot pulled. No run in progress at push time.
+
+**Changelog (309, +4, all 11-19):** arrived — Demeclocycline Hydrochloride Tablet (`discontinuing`). Availability changes (record counts): Amphetamine Aspartate Monohydrate/Amphetamine Sulfate/Dextroamphetamine Saccharate/Dextroamphetamine Sulfate Tablet (1), Dexamethasone Sodium Phosphate Injection (2), Desmopressin Acetate Spray (1). No departures.
+
+**Ring:** none here today — the session's one ring was CC-43 on Canicrawl (live deploy confirmation). No code or data changed in this repo beyond this entry.
+
+**Next:** SS-7 still needs the user. No ShortSupply ring queued.
