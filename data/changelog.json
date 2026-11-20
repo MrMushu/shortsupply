@@ -1857,6 +1857,72 @@
    "drug": "Demeclocycline Hydrochloride Tablet",
    "kind": "new",
    "to": "discontinuing"
+  },
+  {
+   "date": "2026-11-20",
+   "drug": "Lidocaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-20",
+   "drug": "Ropivacaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-20",
+   "drug": "Bupivacaine Hydrochloride, Epinephrine Bitartrate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-20",
+   "drug": "Dexamethasone Sodium Phosphate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-20",
+   "drug": "Morphine Sulfate Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-20",
+   "drug": "Epinephrine Bitartrate, Lidocaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-11-20",
+   "drug": "Hydromorphone Hydrochloride Injection",
+   "kind": "availability",
+   "count": 3
+  },
+  {
+   "date": "2026-11-20",
+   "drug": "Olipudase alfa-rpcp Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-20",
+   "drug": "Anagrelide Hydrochloride Capsule",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-11-20",
+   "drug": "Valsartan Tablet",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-11-20",
+   "drug": "Hydrochlorothiazide Capsule",
+   "kind": "removed",
+   "from": "discontinuing"
   }
  ]
 }
