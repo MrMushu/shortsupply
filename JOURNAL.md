@@ -882,3 +882,13 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Ring:** none here today — the session's one ring was CC-43 on Canicrawl (live deploy confirmation). No code or data changed in this repo beyond this entry.
 
 **Next:** SS-7 still needs the user. No ShortSupply ring queued.
+
+## 2026-11-20 — Ops: cron green 11-20; three departures, eight availability changes; SS-31 verified live
+
+**Crons:** 11-20 scheduled run (15:45 UTC) green; snapshot pulled. No run in progress at push time.
+
+**Changelog (320, +11, all 11-20):** left the list — Anagrelide Hydrochloride Capsule, Valsartan Tablet, Hydrochlorothiazide Capsule (all from `discontinuing`). Availability changes (record counts): Hydromorphone Hydrochloride Injection (3), Epinephrine Bitartrate/Lidocaine Hydrochloride Injection (2), and one each for Lidocaine Hydrochloride Injection, Ropivacaine Hydrochloride Injection, Bupivacaine Hydrochloride/Epinephrine Bitartrate Injection, Dexamethasone Sodium Phosphate Injection, Morphine Sulfate Injection, Olipudase alfa-rpcp Injection. List now 224 drugs, 69 in shortage.
+
+**Ring executed: SS-31 — live confirmation, no code change.** Against mrmushu.github.io/shortsupply: each of `/drug/anagrelide-hydrochloride-capsule/`, `/drug/valsartan-tablet/`, `/drug/hydrochlorothiazide-capsule/` HTTP 200 with "Not medical advice" and "removed from the FDA shortage list 2026-11-20"; each per-drug JSON HTTP 200 with `removedOn: "2026-11-20"`; /graveyard/ names each once; live sitemap.xml 281 `<loc>`, same set as a local `node scripts/build.js` (282 pages, snapshot 2026-11-20); live homepage byte-identical to local; /changelog/ reads "Coverage: 88 daily snapshots from 2026-08-25 to 2026-11-20. No days are missing." `git status` clean after build. Not checked: the eight availability-changed drugs' pages, a real-browser render.
+
+**Next:** SS-7 still needs the user. No ShortSupply ring queued.
