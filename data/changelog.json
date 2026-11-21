@@ -1923,6 +1923,78 @@
    "drug": "Hydrochlorothiazide Capsule",
    "kind": "removed",
    "from": "discontinuing"
+  },
+  {
+   "date": "2026-11-21",
+   "drug": "Midazolam Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-21",
+   "drug": "Lidocaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 2
+  },
+  {
+   "date": "2026-11-21",
+   "drug": "Bupivacaine Hydrochloride Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-21",
+   "drug": "Dextrose Monohydrate 10% Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-21",
+   "drug": "Lorazepam Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-21",
+   "drug": "Dextrose Monohydrate 5% Injection",
+   "kind": "availability",
+   "count": 3
+  },
+  {
+   "date": "2026-11-21",
+   "drug": "Methylprednisolone Acetate Injection",
+   "kind": "availability",
+   "count": 3
+  },
+  {
+   "date": "2026-11-21",
+   "drug": "Sterile Water Injection",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-21",
+   "drug": "Sterile Water Irrigant",
+   "kind": "availability",
+   "count": 1
+  },
+  {
+   "date": "2026-11-21",
+   "drug": "Oseltamivir Phosphate Powder, for Suspension",
+   "kind": "new",
+   "to": "discontinuing"
+  },
+  {
+   "date": "2026-11-21",
+   "drug": "Riluzole Oral Suspension",
+   "kind": "availability",
+   "count": 4
+  },
+  {
+   "date": "2026-11-21",
+   "drug": "Hydroxocobalamin Injection",
+   "kind": "availability",
+   "count": 2
   }
  ]
 }
