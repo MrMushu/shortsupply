@@ -892,3 +892,13 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Ring executed: SS-31 — live confirmation, no code change.** Against mrmushu.github.io/shortsupply: each of `/drug/anagrelide-hydrochloride-capsule/`, `/drug/valsartan-tablet/`, `/drug/hydrochlorothiazide-capsule/` HTTP 200 with "Not medical advice" and "removed from the FDA shortage list 2026-11-20"; each per-drug JSON HTTP 200 with `removedOn: "2026-11-20"`; /graveyard/ names each once; live sitemap.xml 281 `<loc>`, same set as a local `node scripts/build.js` (282 pages, snapshot 2026-11-20); live homepage byte-identical to local; /changelog/ reads "Coverage: 88 daily snapshots from 2026-08-25 to 2026-11-20. No days are missing." `git status` clean after build. Not checked: the eight availability-changed drugs' pages, a real-browser render.
 
 **Next:** SS-7 still needs the user. No ShortSupply ring queued.
+
+## 2026-11-21 — Ops: 11-21 scheduled deploy failed (Pages artifact fault, data safe); one arrival, eleven availability changes; SS-32 redeploy check
+
+**Crons:** 11-21 scheduled run (created 14:56 UTC, run 44916489906) **failed at "Deploy to GitHub Pages"** — Crawl, Commit snapshot, Build site and Upload Pages artifact all green; snapshot 2026-11-21 committed and pulled, no data lost. Annotation: `No artifacts named "github-pages" were found for this workflow run`. Same fault Canicrawl hit on 11-20 (first time on this repo). githubstatus.com indicator `none`. No code changed. Live site stale before this push: `/drug/oseltamivir-phosphate-powder-for-suspension/` HTTP 404 (the local build has it). This entry's push triggers the `push` workflow (build + deploy, no crawl) as the retrigger. No run in progress at push time.
+
+**Changelog (332, +12, all 11-21):** arrived — Oseltamivir Phosphate Powder, for Suspension (`discontinuing`). Availability changes (record counts): Riluzole Oral Suspension (4), Dextrose Monohydrate 5% Injection (3), Methylprednisolone Acetate Injection (3), Lidocaine Hydrochloride Injection (2), Hydroxocobalamin Injection (2), and one each for Midazolam Hydrochloride Injection, Bupivacaine Hydrochloride Injection, Dextrose Monohydrate 10% Injection, Lorazepam Injection, Sterile Water Injection, Sterile Water Irrigant. No departures. Local `node scripts/build.js`: 283 pages, 225 drugs, 69 in shortage, snapshot 2026-11-21.
+
+**Ring: SS-32 (live redeploy confirmation)** — result recorded in the Canicrawl journal and OPERATIONS.md after the post-push check.
+
+**Next:** SS-7 still needs the user. If the Pages artifact fault recurs on a third day, treat it as a pattern (see Canicrawl journal 11-21).
