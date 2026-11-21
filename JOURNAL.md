@@ -902,3 +902,5 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Ring: SS-32 (live redeploy confirmation)** — result recorded in the Canicrawl journal and OPERATIONS.md after the post-push check.
 
 **Next:** SS-7 still needs the user. If the Pages artifact fault recurs on a third day, treat it as a pattern (see Canicrawl journal 11-21).
+
+**Addendum (same session):** SS-32 two-strike stop. The push run for 74e1553 and the empty-commit run for 4d1347c both failed at "Deploy to GitHub Pages" with the same artifact-metadata error. The live Oseltamivir page was still 404 about 10 min after each run. The site stays on the 11-20 build; data is safe. Escalated as USER-NEEDED in the Canicrawl 11-21 journal: re-run run 44916489906 from the Actions tab, and if it keeps failing, consider bumping the Pages actions. The workflow was not edited.
