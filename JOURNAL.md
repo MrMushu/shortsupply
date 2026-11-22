@@ -904,3 +904,11 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Next:** SS-7 still needs the user. If the Pages artifact fault recurs on a third day, treat it as a pattern (see Canicrawl journal 11-21).
 
 **Addendum (same session):** SS-32 two-strike stop. The push run for 74e1553 and the empty-commit run for 4d1347c both failed at "Deploy to GitHub Pages" with the same artifact-metadata error. The live Oseltamivir page was still 404 about 10 min after each run. The site stays on the 11-20 build; data is safe. Escalated as USER-NEEDED in the Canicrawl 11-21 journal: re-run run 44916489906 from the Actions tab, and if it keeps failing, consider bumping the Pages actions. The workflow was not edited.
+
+## 2026-11-22 — Ops: cron green 11-22; deploy fault cleared (SS-32 ticked); no changes
+
+**Crons:** 11-22 scheduled run (14:54 UTC) green, snapshot 2026-11-22 pulled. The 11-21 16:35 UTC push run (b17cdee) was already green. Live `/drug/oseltamivir-phosphate-powder-for-suspension/` now returns HTTP 200, so the 11-21 Pages artifact fault cleared without a workflow edit. SS-32 is ticked in Canicrawl's OPERATIONS.md.
+
+**Changelog (332, +0):** no arrivals, departures or availability changes on 11-22. Local `node scripts/build.js`: 283 pages, 225 drugs, 69 in shortage, snapshot 2026-11-22.
+
+**Next:** SS-7 still needs the user.
