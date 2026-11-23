@@ -912,3 +912,11 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Changelog (332, +0):** no arrivals, departures or availability changes on 11-22. Local `node scripts/build.js`: 283 pages, 225 drugs, 69 in shortage, snapshot 2026-11-22.
 
 **Next:** SS-7 still needs the user.
+
+## 2026-11-23 — Ops: no 11-23 scheduled run yet (16:15 UTC); 11-22 push deploy failed (Pages artifact fault)
+
+**Crons:** no 11-23 `schedule` run yet at 16:15 UTC. Over the past 10 days runs were created 13:48–16:29 UTC, so this is still within the normal late window. If none appears today, the user must run workflow_dispatch before 23:59 UTC (escalated in the Canicrawl 11-23 journal). The 11-22 16:18 push run (6cb8f81, the journal-only commit) failed at "Deploy to GitHub Pages" with the same `No artifacts named "github-pages"` fault. Live data is unaffected: the 11-22 schedule deploy was green and the journal is not a site page. The fault ledger for both repos is in Canicrawl's OPERATIONS.md CC-46.
+
+**Changelog (332, +0):** no 11-23 snapshot yet. Local `node scripts/build.js`: 283 pages, 225 drugs, 69 in shortage, snapshot 2026-11-22.
+
+**Next:** SS-7 still needs the user. Confirm a 11-23 snapshot landed.
