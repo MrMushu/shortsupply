@@ -920,3 +920,13 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Changelog (332, +0):** no 11-23 snapshot yet. Local `node scripts/build.js`: 283 pages, 225 drugs, 69 in shortage, snapshot 2026-11-22.
 
 **Next:** SS-7 still needs the user. Confirm a 11-23 snapshot landed.
+
+## 2026-11-24 — Ops: 11-23 snapshot landed (late, green); live parity verified
+
+**Crons:** the 11-23 schedule run was created 18:45 UTC and succeeded (cc206a7). The 11-23 16:15 push run (journal-only) failed with the known Pages artifact fault (CC-46 ledger in Canicrawl OPERATIONS.md). No 11-24 schedule run had been created at 16:14 UTC; 11-23's arrived at 18:45, so this is still inside the late window.
+
+**Changelog (332, +0):** no ShortSupply entries on 11-23.
+
+**Verified (ring SS-33, logged in Canicrawl OPERATIONS.md):** local `node scripts/build.js` gives 283 pages, 225 drugs, 69 in shortage, snapshot 2026-11-23. Live `/`, `/changelog/`, `/graveyard/`, `/stats/` are each HTTP 200 and byte-identical to the local build, and live sitemap.xml is byte-identical too. The home page carries "Not medical advice". No code change.
+
+**Next:** SS-7 still needs the user. Confirm the 11-24 snapshot lands.
