@@ -930,3 +930,15 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Verified (ring SS-33, logged in Canicrawl OPERATIONS.md):** local `node scripts/build.js` gives 283 pages, 225 drugs, 69 in shortage, snapshot 2026-11-23. Live `/`, `/changelog/`, `/graveyard/`, `/stats/` are each HTTP 200 and byte-identical to the local build, and live sitemap.xml is byte-identical too. The home page carries "Not medical advice". No code change.
 
 **Next:** SS-7 still needs the user. Confirm the 11-24 snapshot lands.
+
+## 2026-11-25 — Ops: 11-24 scheduled crawl FAILED, snapshot lost; openFDA healthy today
+
+**USER-NEEDED (new, also in Canicrawl's journal):** the 11-24 schedule run (18:19 UTC, run 45458350722) failed at the **Crawl** step with exit code 1. Commit, build and deploy were skipped, so no 11-24 snapshot exists and the UTC day is over. The log needs auth; please open it if you want the cause. Nothing was changed in code or the workflow.
+
+**Crons:** 11-24 schedule run failed at Crawl, as above. The 11-24 16:15 push run (journal-only) failed with the known Pages artifact fault. The live site still serves the 11-23 snapshot, which is correct. No 11-25 schedule run existed at 16:14 UTC (inside the late window).
+
+**Diagnosis (no fix attempted, nothing to fix locally):** the crawl exits 1 only if a fetch throws, e.g. `openFDA http <status>`. One `limit=1` request to api.fda.gov/drug/shortages.json at 16:15 UTC returned HTTP 200 in 0.4 s. githubstatus indicator is `major` (degraded GitHub products). I read it as a transient upstream or runner fault. Per the playbook, two failures in a row would mean checking upstream before touching code.
+
+**Changelog (332, +0):** no new snapshot, so no new entries. Local `node scripts/build.js` gives 283 pages, snapshot 2026-11-23, unchanged.
+
+**Next:** SS-34 (in Canicrawl's OPERATIONS.md). When the 11-25 snapshot lands, confirm the live /changelog/ coverage line names 2026-11-24 as missing. SS-7 still needs the user.
