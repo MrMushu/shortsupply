@@ -1995,6 +1995,48 @@
    "drug": "Hydroxocobalamin Injection",
    "kind": "availability",
    "count": 2
+  },
+  {
+   "date": "2026-11-25",
+   "drug": "Abacavir Sulfate Oral Solution",
+   "kind": "new",
+   "to": "discontinuing"
+  },
+  {
+   "date": "2026-11-25",
+   "drug": "Lamivudine Oral Solution",
+   "kind": "new",
+   "to": "discontinuing"
+  },
+  {
+   "date": "2026-11-25",
+   "drug": "Mycophenolate Mofetil  Injectable",
+   "kind": "new",
+   "to": "discontinuing"
+  },
+  {
+   "date": "2026-11-25",
+   "drug": "Potassium Chloride Tablet, Extended Release",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-11-25",
+   "drug": "Lamivudine Injection",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-11-25",
+   "drug": "Verapamil Hydrochloride Injection",
+   "kind": "removed",
+   "from": "discontinuing"
+  },
+  {
+   "date": "2026-11-25",
+   "drug": "Abacavir Sulfate Injection",
+   "kind": "removed",
+   "from": "discontinuing"
   }
  ]
 }
