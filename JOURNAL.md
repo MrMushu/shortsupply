@@ -942,3 +942,15 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Changelog (332, +0):** no new snapshot, so no new entries. Local `node scripts/build.js` gives 283 pages, snapshot 2026-11-23, unchanged.
 
 **Next:** SS-34 (in Canicrawl's OPERATIONS.md). When the 11-25 snapshot lands, confirm the live /changelog/ coverage line names 2026-11-24 as missing. SS-7 still needs the user.
+
+## 2026-11-26 — Ops: 11-25 crawl succeeded, deploy failed (Pages fault); 11-24 gap shown honestly (SS-34)
+
+**USER-NEEDED (standing):** the Pages deploy fault (CC-46 in Canicrawl OPERATIONS.md) blocked the 11-25 scheduled deploy after a successful crawl and commit (a2ae04a). This session's push is the retrigger. A workflow decision (action-version bump or deploy retry) is still needed from the user.
+
+**Crons:** the 11-25 schedule run (17:38 UTC) passed Crawl and Commit and failed at Deploy to GitHub Pages. The crawl recovered after the 11-24 failure, so it was not two crawl failures in a row. The 11-25 16:16 push run also failed (Pages fault).
+
+**Changelog (332 → 339, +7, all 11-25):** new "discontinuing": Abacavir Sulfate Oral Solution, Lamivudine Oral Solution, Mycophenolate Mofetil Injectable. Removed: Potassium Chloride ER Tablet, Lamivudine Injection, Verapamil Hydrochloride Injection, Abacavir Sulfate Injection. The abacavir/lamivudine pairs may be FDA re-filing presentations rather than real status changes. Check before any editorial use.
+
+**Verified (ring SS-34):** local `node scripts/build.js` gives 286 pages, 224 drugs, 69 in shortage, snapshot 2026-11-25. /changelog/ coverage line reads "92 daily snapshots from 2026-08-25 to 2026-11-25. Missing: 2026-11-24 — the scheduled fetch did not complete…". "Not medical advice" is present on the home page. No code change.
+
+**Next:** confirm the live site serves 11-25 data after this push. SS-7 still needs the user.
