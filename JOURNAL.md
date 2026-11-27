@@ -954,3 +954,15 @@ The burst is almost entirely hospital injectables revised on one day. That match
 **Verified (ring SS-34):** local `node scripts/build.js` gives 286 pages, 224 drugs, 69 in shortage, snapshot 2026-11-25. /changelog/ coverage line reads "92 daily snapshots from 2026-08-25 to 2026-11-25. Missing: 2026-11-24 — the scheduled fetch did not complete…". "Not medical advice" is present on the home page. No code change.
 
 **Next:** confirm the live site serves 11-25 data after this push. SS-7 still needs the user.
+
+## 2026-11-27 — Ops: 11-26 crawl succeeded, scheduled deploy failed again; redeployed by empty-commit push (CC-48)
+
+**USER-NEEDED (standing):** the Pages deploy fault (CC-46 in Canicrawl OPERATIONS.md) failed the 11-26 scheduled deploy, the second in a row here. Crawl and Commit (ebd9df7) succeeded. Push-triggered deploys still work, so live data currently depends on ops-session pushes. A workflow decision (action-version bump or deploy retry) is needed from the user.
+
+**Crons:** the 11-26 schedule run (17:19 UTC) passed Crawl and Commit and failed at Deploy to GitHub Pages. Before pushing at 16:15 UTC on 11-27, I confirmed no 11-27 schedule run was in progress.
+
+**Changelog:** no 11-26 entries (339 unchanged).
+
+**Verified (ring CC-48, both products):** local `node scripts/build.js` gave 286 pages, 224 drugs, 69 in shortage, snapshot 2026-11-26. Empty commit f35bec5 was pushed to retrigger the deploy. At 16:15:41 UTC, live /shortsupply/changelog/ read "Coverage: 93 daily snapshots from 2026-08-25 to 2026-11-26. Missing: 2026-11-24 …". The live home page still contains "Not medical advice".
+
+**Next:** confirm whether the 11-27 scheduled deploy also fails. SS-7 still needs the user.
